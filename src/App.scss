@@ -1,0 +1,78 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+.App {
+  display: grid;
+  grid-template-columns: 33% auto;
+  grid-template-rows: 100vh 100vh;
+  text-align: center;
+  height: 100vh;
+
+  .App--Feature {
+    grid-column-start: 1;
+    grid-column-end: 2;
+    background-color: red;
+  }
+
+  .App--Content {
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 20vh 55vh 25vh;
+
+    .Language {
+      display: block;
+      float: right;
+      padding: 1rem 1rem;
+    }
+
+    .Logo {
+      display: block;
+      background-color: white;
+      width: 7rem;
+      height: 7rem;
+      margin: 2rem auto;
+      clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+      overflow: hidden;
+
+      img {
+        object-fit: cover;
+        width: 200px;
+      }
+    }
+
+    .Title {
+      .Title--Heading {
+        margin: 0;
+        font-size: 2rem;
+      }
+      .Title--Underline {
+        display: block;
+        margin: 0 auto;
+        width: 150px;
+        hr:first-child {
+          border: solid black 3px;
+          margin: 0 auto;
+          margin-top: 0.25rem;
+        }
+        hr:last-child {
+          width: 100px;
+          border: solid black 3px;
+          margin: 0 auto;
+          margin-top: 0.5rem;
+        }
+      }
+    }
+
+    .Button--Menu {
+      border: none;
+      font-family: roboto, sans-serif;
+      background-color: #ff493c;
+      padding: 0.75rem 2rem;
+      color: #ffffff;
+      border-radius: 20px;
+      font-size: 1rem;
+    }
+  }
+}
