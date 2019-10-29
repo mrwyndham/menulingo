@@ -1,3 +1,12 @@
+@mixin fadein {
+  -webkit-animation-name: fadin;
+  -webkit-animation-duration: 1s;
+  animation-name: fadein;
+  animation-duration: 1s;
+  animation-timing-function: ease;
+  -webkit-animation-timing-function: ease;
+}
+
 html,
 body {
   margin: 0;
@@ -13,7 +22,8 @@ body {
   .App--Feature {
     grid-column-start: 1;
     grid-column-end: 2;
-    background-color: red;
+    background-color: white;
+    box-shadow: 0 6px 0px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
   }
 
   .App--Content {
@@ -24,7 +34,17 @@ body {
     .Language {
       display: block;
       float: right;
-      padding: 1rem 1rem;
+      margin: 1.75rem 1rem;
+      border-radius: 10px;
+      overflow: hidden;
+      border-width: 0;
+      outline: none;
+      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.6);
+      transition: background-color 0.3s;
+    }
+    .Language:active {
+      box-shadow: 0 0px 3px rgba(0, 0, 0, 0.1);
+      opacity: 0.6;
     }
 
     .Logo {
@@ -35,14 +55,15 @@ body {
       margin: 2rem auto;
       clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
       overflow: hidden;
+      @include fadein();
 
       img {
-        object-fit: cover;
-        width: 200px;
+        width: 100%;
       }
     }
 
     .Title {
+      @include fadein();
       .Title--Heading {
         margin: 0;
         font-size: 2rem;
@@ -66,6 +87,7 @@ body {
     }
 
     .Button--Menu {
+      @include fadein();
       border: none;
       font-family: roboto, sans-serif;
       background-color: #ff493c;
@@ -74,5 +96,27 @@ body {
       border-radius: 20px;
       font-size: 1rem;
     }
+  }
+}
+
+@keyframes fadein {
+  from {
+    opacity: 0;
+    transform: translate(0%, 20%);
+  }
+  to {
+    opacity: 1;
+    transform: translate(0%, 0%);
+  }
+}
+
+@-webkit-keyframes fadein {
+  from {
+    opacity: 0;
+    transform: translate(0%, 20%);
+  }
+  to {
+    opacity: 1;
+    transform: translate(0%, 0%);
   }
 }

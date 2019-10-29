@@ -43,7 +43,7 @@ const App = () => {
         </div>
         <div>
           <div className="Logo">
-            <img src={bg} alt="" />
+            <img src={logo} alt="" />
           </div>
           <div className="Title">
             <h1 className="Title--Heading" style={style.titleText}>
