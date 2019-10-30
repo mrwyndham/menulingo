@@ -1,8 +1,7 @@
 import React from 'react';
 import './Start.scss';
-import logo from '../../components/layout/logo/icon_primary.svg';
+import logo from '../../assets/logo/icon_primary.svg';
 import english from '../../components/widgets/LanguagePicker/english.svg';
-import bg from '../../assets/bg.jpg';
 import { Link } from 'react-router-dom';
 
 let primaryColor = '#E02424';
@@ -24,12 +23,12 @@ let style = {
     fontFamily: fontFamily,
     color: primaryColor,
     fontWeight: 'bold',
-    fontSize: '1.75rem'
+    fontSize: '7vh'
   },
   menuButtonColor: {
     fontFamily: fontFamily,
     color: '#ffffff',
-    fontSize: '1rem',
+    fontSize: '2vh',
     backgroundColor: primaryColor
   }
 };

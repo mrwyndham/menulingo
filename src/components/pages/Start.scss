@@ -29,9 +29,11 @@ body {
   .App--Content {
     display: grid;
     grid-template-columns: 100%;
-    grid-template-rows: 20vh 55vh 25vh;
+    grid-template-rows: 22.5vh 52.5vh 25vh;
 
     .Language {
+      @include fadein();
+      height: 6vh;
       display: block;
       float: right;
       margin: 1.75rem 1rem;
@@ -39,7 +41,7 @@ body {
       overflow: hidden;
       border-width: 0;
       outline: none;
-      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.6);
+      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
       transition: background-color 0.3s;
     }
     .Language:active {
@@ -50,9 +52,9 @@ body {
     .Logo {
       display: block;
       background-color: white;
-      width: 7rem;
-      height: 7rem;
-      margin: 2rem auto;
+      width: 20vh;
+      height: 20vh;
+      margin: 1vh auto;
       clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
       overflow: hidden;
       @include fadein();
@@ -71,30 +73,30 @@ body {
       .Title--Underline {
         display: block;
         margin: 0 auto;
-        width: 150px;
+        width: 60%;
         hr:first-child {
           border: solid black 3px;
           margin: 0 auto;
-          margin-top: 0.25rem;
+          margin-top: 5vh;
         }
         hr:last-child {
-          width: 100px;
+          width: 50%;
           border: solid black 3px;
           margin: 0 auto;
-          margin-top: 0.5rem;
+          margin-top: 1.5vh;
         }
       }
     }
 
     .Button--Menu {
+      height: 7vh;
+      min-width: 30vw;
       @include fadein();
       border: none;
       font-family: roboto, sans-serif;
-      background-color: #ff493c;
-      padding: 0.75rem 2rem;
       color: #ffffff;
       border-radius: 20px;
-      font-size: 1rem;
+      font-size: 2vh;
       box-shadow: 0 1px 4px rgba(0, 0, 0, 0.6);
     }
 
