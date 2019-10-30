@@ -1,7 +1,22 @@
-.flex-center {
-  justify-content: center;
+@mixin fadein {
+  -webkit-animation-name: fadin;
+  -webkit-animation-duration: 1s;
+  animation-name: fadein;
+  animation-duration: 1s;
+  animation-timing-function: ease;
+  -webkit-animation-timing-function: ease;
+}
+
+.flex-end {
+  justify-content: end;
   align-items: center;
 }
+
+.flex-start {
+  justify-content: start;
+  align-items: center;
+}
+
 .Header {
   padding-top: 24px;
   padding-bottom: 8px;
@@ -9,13 +24,14 @@
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   display: grid;
   grid-template-columns: 20% 60% 20%;
+  @include fadein();
   .Header-Item {
     display: flex;
 
     .Title {
       font-family: roboto, sans-serif;
       font-size: 4vh;
-      padding-top: 4px;
+      padding-top: 0.4vh;
       margin: 0;
       color: #e02424;
     }
@@ -23,11 +39,39 @@
     .Logo {
       width: 2.5vh;
       height: 2.5vh;
+      margin-right: 2vh;
     }
 
     .Language {
-      width: 6vh;
-      height: 6vh;
+      width: 5.5vh;
+      height: 3.5vh;
+      margin-top: 0.5vh;
+      object-fit: cover;
+      border-radius: 5px;
+      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
     }
+
+    .Language:active {
+      box-shadow: 0 0px 3px rgba(0, 0, 0, 0.1);
+      opacity: 0.6;
+    }
+  }
+}
+
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
   }
 }

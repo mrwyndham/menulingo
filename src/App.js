@@ -1,14 +1,23 @@
 import React from 'react';
-import Start from './components/pages/Start';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Menu from './components/pages/Menu';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import Start from './components/pages/Start';
+import Order from './components/pages/Order';
+import Rate from './components/pages/Rate';
+import Header from './components/layout/header/Header';
+import Navbar from './components/layout/navbar/Navbar';
+import './App.scss';
 
 const App = () => {
   return (
     <Router>
-      <div>
-        <Route path="/" exact component={Start} />
-        <Route path="/menu" component={Menu} />
+      <Header />
+      <Route path="/" exact component={Menu} />
+      <Route path="/order" component={Order} />
+      <Route path="/rate" component={Rate} />
+      <Route path="/start" component={Start} />
+      <div className="fixed-bottom">
+        <Navbar />
       </div>
     </Router>
   );

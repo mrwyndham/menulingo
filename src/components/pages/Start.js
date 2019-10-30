@@ -2,7 +2,6 @@ import React from 'react';
 import './Start.scss';
 import logo from '../../assets/logo/icon_primary.svg';
 import english from '../../components/widgets/LanguagePicker/english.svg';
-import { Link } from 'react-router-dom';
 
 let primaryColor = '#E02424';
 let fontFamily = 'roboto, sans-serif';
@@ -56,11 +55,9 @@ const Start = () => {
           </div>
         </div>
         <div>
-          <Link to="/menu">
-            <button className="Button--Menu" style={style.menuButtonColor}>
-              MENU
-            </button>
-          </Link>
+          <button className="Button--Menu" style={style.menuButtonColor}>
+            MENU
+          </button>
         </div>
       </div>
     </div>

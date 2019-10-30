@@ -6,7 +6,7 @@ import './Header.scss';
 const Header = () => {
   return (
     <div className="Header">
-      <div className="Header-Item flex-center">
+      <div className="Header-Item flex-end">
         <div className="Logo">
           <img src={logo} alt="" />
         </div>
@@ -16,7 +16,7 @@ const Header = () => {
         <h1 className="Title">PYSCO</h1>
       </div>
 
-      <div className="Header-Item">
+      <div className="Header-Item flex-start">
         <img className="Language" src={english} alt="" />
       </div>
     </div>
