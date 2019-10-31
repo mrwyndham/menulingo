@@ -1,7 +1,7 @@
 import React from 'react';
 import './Start.scss';
 import logo from '../../assets/logo/icon_primary.svg';
-import english from '../../components/widgets/LanguagePicker/english.svg';
+import english from '../../components/layout/setlanguage/SetLanguage';
 
 let primaryColor = '#E02424';
 let fontFamily = 'roboto, sans-serif';
