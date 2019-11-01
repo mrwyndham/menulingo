@@ -3,18 +3,18 @@ import LanguagePicker from './LanguagePicker/LanguagePicker';
 import Language from './english.svg';
 import './SetLanguage.scss';
 
-const questions = <LanguagePicker />;
+const languagePicker = <LanguagePicker />;
 
 export class SetLanguage extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      displayOthers: false
+      displayLanguagePicker: false
     };
   }
   handleClick = () => {
     this.setState(state => ({
-      displayOthers: !state.displayOthers
+      displayLanguagePicker: !state.displayLanguagePicker
     }));
   };
   render() {
@@ -26,7 +26,7 @@ export class SetLanguage extends Component {
           alt=""
           onClick={this.handleClick}
         />
-        {this.state.displayOthers ? questions : false}
+        {this.state.displayLanguagePicker ? languagePicker : false}
       </Fragment>
     );
   }
