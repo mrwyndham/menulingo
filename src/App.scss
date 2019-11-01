@@ -1,7 +1,17 @@
 body,
 html {
   margin: 0;
+  user-select: none;
 }
+
+a:focus {
+  outline: none;
+}
+
+button::-moz-focus-inner {
+  border: 0;
+}
+
 .fixed-bottom {
   position: fixed;
   left: 0;

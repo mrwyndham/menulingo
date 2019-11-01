@@ -1,15 +1,19 @@
 import React, { Component, Fragment } from 'react';
 import LanguagePicker from './LanguagePicker/LanguagePicker';
-import Language from './english.svg';
+import English from './english.svg';
+import Portuguese from './portuguese.svg';
+import French from './french.svg';
+import Italian from './italian.svg';
 import './SetLanguage.scss';
 
-const languagePicker = <LanguagePicker />;
+const languages = [Portuguese, French, English, Italian];
 
 export class SetLanguage extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      displayLanguagePicker: false
+      displayLanguagePicker: false,
+      languageIcon: English
     };
   }
   handleClick = () => {
@@ -17,12 +21,23 @@ export class SetLanguage extends Component {
       displayLanguagePicker: !state.displayLanguagePicker
     }));
   };
+  handlePickedLanguage = updatedLanguage => {
+    this.setState(state => ({
+      languageIcon: languages[updatedLanguage]
+    }));
+  };
   render() {
+    const languagePicker = (
+      <LanguagePicker
+        language={languages}
+        onPickedLanguage={this.handlePickedLanguage}
+      />
+    );
     return (
       <Fragment>
         <img
           className="Language"
-          src={Language}
+          src={this.state.languageIcon}
           alt=""
           onClick={this.handleClick}
         />

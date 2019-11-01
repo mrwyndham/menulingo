@@ -21,7 +21,7 @@
   padding-top: 2vh;
   padding-bottom: 2vh;
   background: #ffffff;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-bottom: 3px solid #e5e5e5;
   display: grid;
   grid-template-columns: 20% 60% 20%;
   @include fadein();

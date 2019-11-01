@@ -1,17 +1,18 @@
-import React, { Component } from 'react';
+import React from 'react';
 import './LanguagePicker.scss';
-import Portuguese from '../portuguese.svg';
-import French from '../french.svg';
 
-export class LanguagePicker extends Component {
-  render() {
-    return (
-      <div class="LanguagePicker">
-        <img src={Portuguese} alt="" />
-        <img src={French} alt="" />
-      </div>
-    );
-  }
-}
+const LanguagePicker = props => {
+  let handleClick = e => {
+    props.onPickedLanguage(e.target.alt);
+  };
+  const languages = props.language.map((language, index) => (
+    <img src={language} alt={index} onClick={handleClick} />
+  ));
+  return (
+    <div>
+      <div class="LanguagePicker">{languages}</div>
+    </div>
+  );
+};
 
 export default LanguagePicker;
