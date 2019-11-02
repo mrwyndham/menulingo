@@ -1,0 +1,12 @@
+.MenuItem {
+  display: flex;
+  height: 5vh;
+  justify-content: center;
+  align-items: center;
+}
+
+.MenuItem--Name {
+  font-family: roboto, 'serif';
+  text-transform: uppercase;
+  font-weight: 800;
+}
