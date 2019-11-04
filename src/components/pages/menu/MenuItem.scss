@@ -1,12 +1,35 @@
 .MenuItem {
-  display: flex;
-  height: 5vh;
+  display: grid;
+  grid-template-columns: 20% 45% 15% 20%;
   justify-content: center;
   align-items: center;
+  padding: 2vh 2vh;
+}
+
+.MenuItem--Text {
+  display: flex;
+  flex-direction: column;
 }
 
 .MenuItem--Name {
+  color: #57babb;
+  font-size: 2vh;
   font-family: roboto, 'serif';
   text-transform: uppercase;
   font-weight: 800;
+}
+
+.MenuItem--Description {
+  color: #e02424;
+  font-size: 1.5vh;
+  font-family: roboto, 'serif';
+  text-transform: capitalize;
+}
+
+.MenuItem--Pic {
+  img {
+    clip-path: circle(50% at 50% 50%);
+    height: 5vh;
+    width: 5vh;
+  }
 }

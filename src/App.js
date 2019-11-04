@@ -12,7 +12,9 @@ import './App.scss';
 const App = () => {
   return (
     <Router>
-      <Header title={'PYSCO'} />
+      <div className="fixed-top">
+        <Header title={'PYSCO'} />
+      </div>
       <Route path="/" exact component={Menu} />
       <Route path="/order" component={Order} />
       <Route path="/rate" component={Rate} />

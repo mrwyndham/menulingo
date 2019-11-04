@@ -12,6 +12,11 @@ button::-moz-focus-inner {
   border: 0;
 }
 
+h1 {
+  padding: 0;
+  margin: 0;
+}
+
 .fixed-bottom {
   position: fixed;
   left: 0;
@@ -23,4 +28,5 @@ button::-moz-focus-inner {
   left: 0;
   top: 0;
   width: 100%;
+  z-index: 25;
 }
