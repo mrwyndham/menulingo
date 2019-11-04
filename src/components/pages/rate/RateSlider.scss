@@ -1,0 +1,15 @@
+.RateSlider {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+
+  .RateSlider--Heart {
+    margin: 1vh;
+    height: 6vh;
+    width: 3vh;
+    img:hover {
+      height: 4vh;
+    }
+  }
+}

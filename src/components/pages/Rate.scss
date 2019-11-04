@@ -1,6 +1,20 @@
-.Menu {
-  min-height: 100vh;
+.Rate {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 80vh;
   background-color: #f1f1f1;
   padding-top: 9vh;
   padding-bottom: 11vh;
+  text-align: center;
+  .Rate--Catagory {
+    margin: 1.2vh;
+  }
+  .Rate--Title {
+    color: #57babb;
+    font-size: 3vh;
+    font-family: roboto, 'serif';
+    text-transform: uppercase;
+  }
 }
