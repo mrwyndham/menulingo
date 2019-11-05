@@ -28,7 +28,7 @@
 
 .MenuCatagory--Pic {
   display: flex;
-  justify-content: end;
+  justify-content: flex-end;
   margin-right: 0.5vh;
   img {
     clip-path: circle(50% at 50% 50%);

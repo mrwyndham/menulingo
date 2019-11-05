@@ -1,0 +1,36 @@
+.About {
+  height: 80vh;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  padding: 3vh 5vw;
+  padding-top: 12vh;
+  padding-bottom: 11vh;
+  .About--ImageWrapper {
+    height: 30vh;
+    border-radius: 10px;
+  }
+  .About--Image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: inherit;
+  }
+  .About--Title {
+    font-family: roboto, sans-serif;
+    font-size: 5vh;
+    padding-top: 0.4vh;
+    margin: 2vh 0;
+    color: #e02424;
+  }
+  .About--Description {
+    color: #57babb;
+    font-size: 2vh;
+    font-family: roboto, 'serif';
+  }
+  .About--Contact {
+    height: 30vh;
+    border-radius: 10px;
+    background-color: firebrick;
+  }
+}
