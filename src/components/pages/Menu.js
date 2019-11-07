@@ -4,6 +4,7 @@ import './Menu.scss';
 
 const catagories = {
   burgers: {
+    name: 'burgers',
     description: 'All 100% Beef, All Angus',
     pic:
       'https://images.unsplash.com/photo-1570250386140-243b6c5c719d?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=400&fit=max&ixid=eyJhcHBfaWQiOjk5NTE5fQ',
@@ -25,6 +26,7 @@ const catagories = {
     }
   },
   drinks: {
+    name: 'drinks',
     description: 'Get Hydrated!?',
     pic:
       'https://images.unsplash.com/photo-1572625560245-6283a1867c18?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=400&fit=max&ixid=eyJhcHBfaWQiOjk5NTE5fQ',
@@ -46,6 +48,7 @@ const catagories = {
     }
   },
   sides: {
+    name: 'sides',
     description: 'A timeless assortment',
     pic:
       'https://images.unsplash.com/photo-1460400508371-ab23b340c3e4?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=400&fit=max&ixid=eyJhcHBfaWQiOjk5NTE5fQ',
@@ -74,6 +77,7 @@ const catagories = {
     }
   },
   pizza: {
+    name: 'pizza',
     items: {
       BBQ: {
         name: 'BBQ',
@@ -94,6 +98,7 @@ export class Menu extends Component {
     super();
     this.state = {};
   }
+
   render() {
     const renderCatagories = Object.keys(catagories).map(catagory => (
       <div>
