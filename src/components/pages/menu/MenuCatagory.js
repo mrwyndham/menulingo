@@ -10,12 +10,17 @@ export class MenuCatagory extends Component {
       </div>
     ));
 
+    let style = {
+      contentBackground: {
+        backgroundImage: `url(${this.props.catagories.pic})`,
+        backgroundPosition: '25% 70%',
+        backgroundSize: 'auto 120vh, cover'
+      }
+    };
+
     return (
       <div>
-        <div className="MenuCatagory">
-          <div className="MenuCatagory--Pic">
-            <img src={this.props.catagories.pic} alt="" />
-          </div>
+        <div className="MenuCatagory" style={style.contentBackground}>
           <div className="MenuCatagory--Text">
             <div className="MenuCatagory--Name">{this.props.name}</div>
             <div className="MenuCatagory--Description">
@@ -23,7 +28,6 @@ export class MenuCatagory extends Component {
             </div>
           </div>
         </div>
-        {renderItems}
       </div>
     );
   }
