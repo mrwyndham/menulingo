@@ -3,12 +3,12 @@
   text-align: center;
   display: flex;
   flex-direction: column;
-  padding: 3vh 5vw;
-  padding-top: 12vh;
+  padding: 0vh 5vw;
+  padding-top: 11vh;
   padding-bottom: 12vh;
   font-family: roboto, sans-serif;
   .About--ImageWrapper {
-    height: 30vh;
+    min-height: 23.5vh;
     border-radius: 10px;
   }
   .About--Image {
@@ -84,7 +84,7 @@
     }
   }
   .About--Map {
-    margin: 1vh 0;
+    margin: 2vh 0;
     .Map__Responsive {
       overflow: hidden;
       padding-bottom: 57.25%;
