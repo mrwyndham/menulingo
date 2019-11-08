@@ -9,7 +9,7 @@ export class MenuCatagory extends Component {
       <div>
         <Link
           to={{
-            pathname: '/menu',
+            pathname: `/catagory/${this.props.name}`,
             data: items
           }}
         >

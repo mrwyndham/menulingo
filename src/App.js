@@ -17,7 +17,7 @@ const App = () => {
         <Header title={'PYSCO'} />
       </div>
       <Route path="/" exact component={Menu} />
-      <Route path="/menu" exact component={MenuItems} />
+      <Route path="/catagory/:catagory" exact component={MenuItems} />
       <Route path="/order" component={Order} />
       <Route path="/rate" component={Rate} />
       <Route path="/about" component={About} />

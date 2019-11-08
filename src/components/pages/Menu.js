@@ -101,9 +101,7 @@ export class Menu extends Component {
 
   render() {
     const renderCatagories = Object.keys(catagories).map(catagory => (
-      <div>
-        <MenuCatagory catagories={catagories[catagory]} name={catagory} />
-      </div>
+      <MenuCatagory catagories={catagories[catagory]} name={catagory} />
     ));
     return <div className="Menu">{renderCatagories}</div>;
   }
