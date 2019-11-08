@@ -1,9 +1,9 @@
 .MenuItem {
   display: grid;
-  grid-template-columns: 20% 50% 20% 10%;
+  grid-template-columns: 25% 75%;
   justify-content: center;
   align-items: center;
-  padding: 2vh 2vh;
+  margin-bottom: 2vh;
 
   .MenuItem--Text {
     display: flex;
@@ -12,15 +12,14 @@
 
   .MenuItem--Name {
     color: #57babb;
-    font-size: 2vh;
+    font-size: 2.5vh;
     font-family: roboto, 'serif';
     text-transform: uppercase;
-    font-weight: 800;
   }
 
   .MenuItem--Description {
     color: #e02424;
-    font-size: 1.5vh;
+    font-size: 2vh;
     font-family: roboto, 'serif';
     text-transform: capitalize;
   }
@@ -28,17 +27,17 @@
   .MenuItem--Pic {
     display: flex;
     justify-content: flex-end;
-    margin-right: 1vh;
+    margin-right: 1.5vh;
+    filter: drop-shadow(0px 4px 1px rgba(0, 0, 0, 0.25));
     img {
       clip-path: circle(50% at 50% 50%);
-      height: 5vh;
-      width: 5vh;
+      height: 8.25vh;
+      width: 8.25vh;
     }
   }
 
   .MenuItem--Price {
+    font-size: 2.5vh;
     justify-self: end;
-  }
-  .MenuItem--Add {
   }
 }

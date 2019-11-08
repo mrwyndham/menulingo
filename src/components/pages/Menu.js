@@ -22,6 +22,34 @@ const catagories = {
         description: 'This is a description',
         pic:
           'https://images.unsplash.com/photo-1460400508371-ab23b340c3e4?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=400&fit=max&ixid=eyJhcHBfaWQiOjk5NTE5fQ'
+      },
+      cheeseburger1: {
+        name: 'Cheeseburger',
+        price: '18.00',
+        description: 'This is a description',
+        pic:
+          'https://images.unsplash.com/photo-1460400508371-ab23b340c3e4?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=400&fit=max&ixid=eyJhcHBfaWQiOjk5NTE5fQ'
+      },
+      cheeseburger2: {
+        name: 'Cheeseburger',
+        price: '18.00',
+        description: 'This is a description',
+        pic:
+          'https://images.unsplash.com/photo-1460400508371-ab23b340c3e4?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=400&fit=max&ixid=eyJhcHBfaWQiOjk5NTE5fQ'
+      },
+      cheeseburger3: {
+        name: 'Cheeseburger',
+        price: '18.00',
+        description: 'This is a description',
+        pic:
+          'https://images.unsplash.com/photo-1460400508371-ab23b340c3e4?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=400&fit=max&ixid=eyJhcHBfaWQiOjk5NTE5fQ'
+      },
+      cheeseburger4: {
+        name: 'Cheeseburger',
+        price: '18.00',
+        description: 'This is a description',
+        pic:
+          'https://images.unsplash.com/photo-1460400508371-ab23b340c3e4?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=400&fit=max&ixid=eyJhcHBfaWQiOjk5NTE5fQ'
       }
     }
   },

@@ -6,7 +6,7 @@ import French from './french.svg';
 import Italian from './italian.svg';
 import './SetLanguage.scss';
 
-const languages = [Portuguese, French, English, Italian];
+const languages = [Portuguese, French, English];
 
 export class SetLanguage extends Component {
   constructor(props) {

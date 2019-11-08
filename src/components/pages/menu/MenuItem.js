@@ -13,11 +13,7 @@ export class MenuItem extends Component {
           <div className="MenuItem--Description">
             {this.props.item.description}
           </div>
-        </div>
-        <div className="MenuItem--Price">{this.props.item.price}</div>
-        <div className="MenuItem--Add">
-          <button>-</button>
-          <button>+</button>
+          <div className="MenuItem--Price">{this.props.item.price} USD</div>
         </div>
       </div>
     );
