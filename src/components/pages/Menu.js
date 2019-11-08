@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import MenuCatagory from './menu/MenuCatagory';
+import MenuCatagoryList from './menu/MenuCatagoryList';
 import './Menu.scss';
 
 const catagories = {
@@ -129,7 +129,7 @@ export class Menu extends Component {
 
   render() {
     const renderCatagories = Object.keys(catagories).map(catagory => (
-      <MenuCatagory catagories={catagories[catagory]} name={catagory} />
+      <MenuCatagoryList catagories={catagories[catagory]} name={catagory} />
     ));
     return <div className="Menu">{renderCatagories}</div>;
   }

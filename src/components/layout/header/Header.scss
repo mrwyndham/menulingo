@@ -8,8 +8,9 @@
 }
 
 .flex-end {
-  justify-content: end;
+  justify-content: flex-end;
   align-items: center;
+  margin-right: 2vh;
 }
 
 .flex-start {
@@ -36,9 +37,8 @@
     }
 
     .Logo {
-      width: 2.5vh;
-      height: 2.5vh;
-      margin-right: 2vh;
+      margin-top: 0.3vh;
+      width: 2.6vh;
     }
   }
 }

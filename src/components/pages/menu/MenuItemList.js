@@ -1,9 +1,9 @@
 import React from 'react';
 import MenuItem from './MenuItem';
-import Card from './MenuCatagoryCard';
-import './MenuItems.scss';
+import Card from './MenuCatagory';
+import './MenuItemList.scss';
 
-const MenuItems = props => {
+const MenuItemList = props => {
   const items = props.location.data.items;
   const renderItems = Object.keys(items).map(item => (
     <div>
@@ -22,4 +22,4 @@ const MenuItems = props => {
   );
 };
 
-export default MenuItems;
+export default MenuItemList;
