@@ -3,7 +3,7 @@ import LanguagePicker from './LanguagePicker/LanguagePicker';
 import English from './english.svg';
 import Portuguese from './portuguese.svg';
 import French from './french.svg';
-import Italian from './italian.svg';
+// import Italian from './italian.svg';
 import './SetLanguage.scss';
 
 const languages = [Portuguese, French, English];

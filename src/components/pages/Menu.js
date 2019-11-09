@@ -118,6 +118,21 @@ const catagories = {
     description: 'This is a description',
     pic:
       'https://images.unsplash.com/photo-1460400508371-ab23b340c3e4?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=400&fit=max&ixid=eyJhcHBfaWQiOjk5NTE5fQ'
+  },
+  pizza1: {
+    name: 'pizza',
+    items: {
+      BBQ: {
+        name: 'BBQ',
+        price: '0.50',
+        description: 'This is a description',
+        pic:
+          'https://images.unsplash.com/photo-1460400508371-ab23b340c3e4?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=400&fit=max&ixid=eyJhcHBfaWQiOjk5NTE5fQ'
+      }
+    },
+    description: 'This is a description',
+    pic:
+      'https://images.unsplash.com/photo-1460400508371-ab23b340c3e4?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=400&fit=max&ixid=eyJhcHBfaWQiOjk5NTE5fQ'
   }
 };
 

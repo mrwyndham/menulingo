@@ -1,5 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
+import Logo from './assets/logo/icon_primary.svg';
 import Menu from './components/pages/Menu';
 import Start from './components/pages/Start';
 import Order from './components/pages/Order';
@@ -11,21 +12,45 @@ import MenuItemList from './components/pages/menu/MenuItemList';
 import './App.scss';
 
 const App = () => {
+  const clientStyle = {
+    header: {
+      title: {
+        name: 'PO PO CHINESE',
+        font: "'Yeon Sung', cursive",
+        color: '#afafaf',
+        size: ''
+      },
+      logo: Logo,
+      backgroundImage: '',
+      backgroundColor: '#333333'
+    },
+    menu: {},
+    order: {},
+    rate: {},
+    about: {},
+    navbar: {
+      backgroundImage: '',
+      backgroundColor: '#333333',
+      color: '#afafaf'
+    }
+  };
   return (
-    <Router>
-      <div className="fixed-top">
-        <Header title={'PYSCO'} />
-      </div>
-      <Route path="/" exact component={Menu} />
-      <Route path="/catagory/:catagory" exact component={MenuItemList} />
-      <Route path="/order" component={Order} />
-      <Route path="/rate" component={Rate} />
-      <Route path="/about" component={About} />
-      <Route path="/start" component={Start} />
-      <div className="fixed-bottom">
-        <Navbar />
-      </div>
-    </Router>
+    <div className="overflow">
+      <Router>
+        <div className="fixed-top">
+          <Header style={clientStyle.header} />
+        </div>
+        <Route path="/" exact component={Menu} />
+        <Route path="/catagory/:catagory" exact component={MenuItemList} />
+        <Route path="/order" component={Order} />
+        <Route path="/rate" component={Rate} />
+        <Route path="/about" component={About} />
+        <Route path="/start" component={Start} />
+        <div className="fixed-bottom">
+          <Navbar style={clientStyle} />
+        </div>
+      </Router>
+    </div>
   );
 };
 

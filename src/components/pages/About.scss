@@ -3,7 +3,7 @@
   text-align: center;
   display: flex;
   flex-direction: column;
-  padding: 0vh 4vh;
+  padding: 0vh 6vh;
   padding-top: 11vh;
   padding-bottom: 12vh;
   font-family: roboto, sans-serif;
@@ -20,15 +20,25 @@
   .About--Title {
     font-size: 5vh;
     padding-top: 0.4vh;
-    margin-top: 2vh;
+    margin-top: 3vh;
+    font-weight: 800;
     color: #e02424;
   }
   .About--Description {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f1f1f1;
+    padding: 2vh 4vh;
     font-weight: 600;
     margin: 2vh 0;
-    color: #57babb;
-    font-size: 2vh;
-    font-family: roboto, 'serif';
+    border-radius: 10px;
+    p {
+      color: #57babb;
+      font-size: 3vh;
+      font-family: roboto, 'serif';
+      border-radius: 10px;
+    }
   }
   .About--Contact {
     border-radius: 10px;

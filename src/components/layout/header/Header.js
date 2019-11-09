@@ -1,35 +1,40 @@
-import React, { Component } from 'react';
+import React from 'react';
 import Language from '../setlanguage/SetLanguage';
-import logo from '../../../assets/logo/icon_primary.svg';
 import './Header.scss';
-import PropTypes from 'prop-types';
 
-export default class Header extends Component {
-  static defaultProps = {
-    title: 'PYSCO',
-    icon: logo
-  };
-  static propTypes = {
-    title: PropTypes.string.isRequired,
-    icon: PropTypes.string.isRequired
-  };
-  render() {
-    return (
-      <div className="Header">
-        <div className="Header-Item flex-end">
-          <div className="Logo">
-            <img src={this.props.icon} alt="" />
-          </div>
-        </div>
-
-        <div className="Header-Item">
-          <h1 className="Title">{this.props.title}</h1>
-        </div>
-
-        <div className="Header-Item flex-start">
-          <Language />
+const Header = props => {
+  return (
+    <div
+      className="Header"
+      style={{
+        backgroundImage: `url(${props.style.backgroundImage})`,
+        backgroundColor: `${props.style.backgroundColor}`
+      }}
+    >
+      <div className="Header-Item flex-end">
+        <div className="Logo">
+          <img src={props.style.logo} alt="" />
         </div>
       </div>
-    );
-  }
-}
+
+      <div className="Header-Item">
+        <h1
+          className="Title"
+          style={{
+            fontFamily: `${props.style.title.font}`,
+            color: `${props.style.title.color}`,
+            fontSize: `${props.style.title.size}`
+          }}
+        >
+          {props.style.title.name}
+        </h1>
+      </div>
+
+      <div className="Header-Item flex-start">
+        <Language />
+      </div>
+    </div>
+  );
+};
+
+export default Header;

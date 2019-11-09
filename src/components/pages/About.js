@@ -14,8 +14,10 @@ const About = () => {
       </div>
       <h1 className="About--Title">PYSCO</h1>
       <div className="About--Description">
-        Mas não seria dubstep privado você deve me enviar uma mensagem sobre
-        qualquer tópico da NPR.
+        <p>
+          Mas não seria dubstep privado você deve me enviar uma mensagem sobre
+          qualquer tópico da NPR.
+        </p>
       </div>
       <div className="About--Contact">
         <div className="Contact--Container">

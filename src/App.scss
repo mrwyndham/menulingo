@@ -9,6 +9,17 @@ html {
   user-select: none;
   -webkit-tap-highlight-color: transparent;
   font-family: roboto, 'serif';
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.overflow {
+  width: 100%;
+  height: 100%;
+  overflow-y: scroll;
+  padding-right: 3vh; /* Increase/decrease this value for cross-browser compatibility */
+  box-sizing: content-box; /* So the width will be 100% + 17px */
 }
 
 a {

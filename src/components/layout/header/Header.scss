@@ -9,7 +9,7 @@
 
 .flex-end {
   justify-content: flex-end;
-  align-items: center;
+  align-items: flex-end;
   margin-right: 2vh;
 }
 
@@ -19,6 +19,7 @@
 }
 
 .Header {
+  height: 4.5vh;
   padding-top: 2vh;
   padding-bottom: 2vh;
   background: #ffffff;
@@ -31,14 +32,13 @@
 
     .Title {
       font-family: roboto, sans-serif;
-      font-size: 4vh;
+      font-size: 3vh;
       margin: 0;
       color: #e02424;
     }
 
     .Logo {
-      margin-top: 0.3vh;
-      width: 2.6vh;
+      width: 3vh;
     }
   }
 }
