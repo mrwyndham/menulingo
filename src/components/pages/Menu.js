@@ -136,18 +136,20 @@ const catagories = {
   }
 };
 
-export class Menu extends Component {
-  constructor() {
-    super();
-    this.state = {};
-  }
-
-  render() {
-    const renderCatagories = Object.keys(catagories).map(catagory => (
-      <MenuCatagoryList catagories={catagories[catagory]} name={catagory} />
-    ));
-    return <div className="Menu">{renderCatagories}</div>;
-  }
-}
+const Menu = props => {
+  const renderCatagories = Object.keys(catagories).map(catagory => (
+    <MenuCatagoryList catagories={catagories[catagory]} name={catagory} />
+  ));
+  return (
+    <div
+      className="Menu"
+      style={{
+        backgroundColor: `${props.location.data}`
+      }}
+    >
+      {renderCatagories}
+    </div>
+  );
+};
 
 export default Menu;

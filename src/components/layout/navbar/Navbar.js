@@ -3,10 +3,11 @@ import './Navbar.scss';
 import { Link } from 'react-router-dom';
 
 const Navbar = props => {
+  const style = props.style;
   return (
     <nav style={{ backgroundColor: `${props.style.navbar.backgroundColor}` }}>
       <ul>
-        <Link to="/">
+        <Link to={{ pathname: '/', data: style }}>
           <li>
             <svg
               width="31"

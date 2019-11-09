@@ -18,13 +18,15 @@ const App = () => {
         name: 'PO PO CHINESE',
         font: "'Yeon Sung', cursive",
         color: '#afafaf',
-        size: ''
+        size: '3.75vh'
       },
       logo: Logo,
       backgroundImage: '',
       backgroundColor: '#333333'
     },
-    menu: {},
+    menu: {
+      backgroundColor: '#333333'
+    },
     order: {},
     rate: {},
     about: {},
