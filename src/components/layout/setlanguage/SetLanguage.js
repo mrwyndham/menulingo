@@ -3,10 +3,11 @@ import LanguagePicker from './LanguagePicker/LanguagePicker';
 import English from './english.svg';
 import Portuguese from './portuguese.svg';
 import French from './french.svg';
-// import Italian from './italian.svg';
+import Italian from './italian.svg';
+import Chinese from './chinese.svg';
 import './SetLanguage.scss';
 
-const languages = [Portuguese, French, English];
+const languages = [Portuguese, French, English, Italian, Chinese];
 
 export class SetLanguage extends Component {
   constructor(props) {

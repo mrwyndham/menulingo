@@ -75,7 +75,7 @@ const About = () => {
         </div>
       </div>
       <div className="About--Map">
-        <div class="Map__Responsive">
+        <div className="Map__Responsive">
           <Map />
         </div>
       </div>
