@@ -1,19 +1,21 @@
+.LanguagePicker::-webkit-scrollbar {
+  width: 0 !important;
+}
 .LanguagePicker {
+  scrollbar-width: thin;
   background-color: #ffffff;
   border-top: 2px solid #e5e5e5;
   border-bottom: 2px solid #e5e5e5;
   position: fixed;
   z-index: 100;
-  top: 8vh;
+  top: 8.5vh;
   left: 0;
   right: 0;
-  bottom: 82vh;
-  // display: flex;
-  // justify-content: center;
-  // align-items: center;
-  padding-top: 1.5vh;
+  bottom: 81vh;
+  padding-top: 2vh;
   padding-bottom: 1vh;
   overflow: auto;
+  -ms-overflow-style: none;
   white-space: nowrap;
   img {
     width: 10vh;
