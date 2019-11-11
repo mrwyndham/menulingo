@@ -1,0 +1,23 @@
+.MenuItemOrder {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  z-index: 2;
+  width: 100%;
+  margin-top: 1vh;
+  height: 21vh;
+  border-radius: 10px;
+  background-color: #f1f1f1;
+  .MenuItemOrder--Button {
+    background-color: #ff493c;
+    height: 6vh;
+    min-width: 80vw;
+    border: none;
+    font-family: roboto, sans-serif;
+    color: #ffffff;
+    border-radius: 20px;
+    font-size: 2vh;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.6);
+  }
+}
