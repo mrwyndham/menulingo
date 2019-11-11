@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import MenuCatagoryList from './menu/MenuCatagoryList';
 import './Menu.scss';
 
