@@ -9,14 +9,17 @@ export class MenuItem extends Component {
       displayOrderItem: false
     };
   }
-  handleClick = () => {
+  handleItemClick = () => {
     this.setState(state => ({
       displayOrderItem: !state.displayOrderItem
     }));
   };
+  handleOrderClick = e => {
+    e.stopPropagation();
+  };
   render() {
     return (
-      <div className="MenuItem" onClick={this.handleClick}>
+      <div className="MenuItem" onClick={this.handleItemClick}>
         <div className="MenuItem--Pic">
           <img src={this.props.item.pic} alt="" />
         </div>
@@ -27,7 +30,13 @@ export class MenuItem extends Component {
           </div>
           <div className="MenuItem--Price">{this.props.item.price} USD</div>
         </div>
-        <div>{this.state.displayOrderItem ? <OrderItem /> : false}</div>
+        <div>
+          {this.state.displayOrderItem ? (
+            <OrderItem onSelectItem={this.handleOrderClick} />
+          ) : (
+            false
+          )}
+        </div>
       </div>
     );
   }
