@@ -6,9 +6,7 @@ import './MenuItemList.scss';
 const MenuItemList = props => {
   const items = props.location.data.items;
   const renderItems = Object.keys(items).map(item => (
-    <div>
-      <MenuItem item={items[item]} />
-    </div>
+    <MenuItem key={items[item].id} item={items[item]} />
   ));
   return (
     <div className="MenuItems">
