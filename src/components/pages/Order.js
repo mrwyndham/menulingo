@@ -1,13 +1,16 @@
-import React, { Component } from 'react';
+import React from "react";
+import Orders from "./order/OrderItem";
 
-export class Order extends Component {
-  render() {
-    return (
-      <div>
-        <h1>Order</h1>
-      </div>
-    );
-  }
-}
+const Order = props => {
+  const renderOrders = Object.keys(props.orders).map(order => (
+    <Orders
+      key={props.orders[order].id}
+      id={props.orders[order].id}
+      order={props.orders[order]}
+      name={order}
+    />
+  ));
+  return <div>{renderOrders}</div>;
+};
 
 export default Order;

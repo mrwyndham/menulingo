@@ -1,8 +1,9 @@
-import React, { Component } from 'react';
-import './MenuItemOrder.scss';
-import Information from './itemOrder/InformationButton';
-import QuantityControl from './itemOrder/QuantityControl';
-import QuantityDisplay from './itemOrder/QuantityDisplay';
+import React, { Component } from "react";
+import "./MenuItemOrder.scss";
+import Information from "./itemOrder/InformationButton";
+import QuantityControl from "./itemOrder/QuantityControl";
+import QuantityDisplay from "./itemOrder/QuantityDisplay";
+import Order from "./itemOrder/AddItemButton";
 
 export default class MenuItemOrder extends Component {
   constructor(props) {
@@ -11,6 +12,9 @@ export default class MenuItemOrder extends Component {
       amount: 0
     };
   }
+  handleOrder = () => {
+    alert(this.state.amount);
+  };
   handleAdd = () => {
     this.setState(state => ({ amount: (state.amount = state.amount + 1) }));
   };
@@ -26,7 +30,7 @@ export default class MenuItemOrder extends Component {
         <Information />
         <QuantityDisplay amount={this.state.amount} />
         <QuantityControl add={this.handleAdd} subtract={this.handleSubtract} />
-        <button className="MenuItemOrder--Button">Add Item to Order</button>
+        <Order order={this.handleOrder} />
       </div>
     );
   }

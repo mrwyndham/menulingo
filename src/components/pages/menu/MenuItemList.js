@@ -8,28 +8,27 @@ export default class MenuItemList extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      reply: null,
-      displayReply: false
+      Order: null,
+      displayOrder: false
     };
   }
   handleSelectItem = id => {
     this.setState(state => ({
-      reply: id,
-      displayReply: !state.displayReply
+      Order: id,
+      displayOrder: !state.displayOrder
     }));
   };
   render() {
     const items = this.props.location.data.items;
     const renderItems = Object.keys(items).map(item => (
-      <div className="MenuItems--Content">
+      <div key={items[item].id} className="MenuItems--Content">
         <MenuItem
-          key={items[item].id}
           id={items[item].id}
           item={items[item]}
           onSelectItem={this.handleSelectItem}
         />
-        {this.state.displayReply ? (
-          items[item].id === this.state.reply ? (
+        {this.state.displayOrder ? (
+          items[item].id === this.state.Order ? (
             <Order />
           ) : null
         ) : null}

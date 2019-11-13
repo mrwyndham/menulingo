@@ -1,10 +1,18 @@
-import React from 'react';
-import './InformationButton.scss';
+import React from "react";
+import "./InformationButton.scss";
+import { Link } from "react-router-dom";
 
 const InformationButton = () => {
   return (
     <div className="InformationButton">
-      <span className="InformationButton--Icon">i</span>
+      <Link
+        to={{
+          pathname: `/catagory/item/item`,
+          data: "hello"
+        }}
+      >
+        <span className="InformationButton--Icon">i</span>
+      </Link>
     </div>
   );
 };
