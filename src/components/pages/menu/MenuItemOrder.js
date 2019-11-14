@@ -9,14 +9,21 @@ export default class MenuItemOrder extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      amount: 0
+      id: props.id,
+      name: props.item.name,
+      price: props.item.price,
+      amount: 0,
+      description: props.item.description,
+      pic: props.item.pic
     };
   }
   handleOrder = () => {
-    alert(this.state.amount);
+    this.props.order(this.state);
   };
   handleAdd = () => {
-    this.setState(state => ({ amount: (state.amount = state.amount + 1) }));
+    this.setState(() => ({
+      amount: this.state.amount + 1
+    }));
   };
   handleSubtract = () => {
     this.setState(state => ({

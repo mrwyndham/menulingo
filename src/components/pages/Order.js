@@ -1,16 +1,13 @@
 import React from "react";
-import Orders from "./order/OrderItem";
+import OrderItemList from "./order/OrderItemList";
+import "./Order.scss";
 
 const Order = props => {
-  const renderOrders = Object.keys(props.orders).map(order => (
-    <Orders
-      key={props.orders[order].id}
-      id={props.orders[order].id}
-      order={props.orders[order]}
-      name={order}
-    />
-  ));
-  return <div>{renderOrders}</div>;
+  return (
+    <div className="Order">
+      <OrderItemList orders={props.orders} />
+    </div>
+  );
 };
 
 export default Order;

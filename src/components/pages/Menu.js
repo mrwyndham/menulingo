@@ -8,6 +8,7 @@ const Menu = props => {
       key={props.catagories[catagory].id}
       catagories={props.catagories[catagory]}
       name={catagory}
+      order={props.order}
     />
   ));
   return (

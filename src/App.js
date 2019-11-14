@@ -16,19 +16,15 @@ export default class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      items: {
-        hamburger: {
-          id: 1,
-          name: "Hamburger",
-          price: "15.00",
-          quantity: 3,
-          description: "This is a description",
-          pic:
-            "https://images.unsplash.com/photo-1558980664-1db506751c6c?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=400&fit=max&ixid=eyJhcHBfaWQiOjk5NTE5fQ"
-        }
-      }
+      orders: []
     };
   }
+  handleOrder = order => {
+    let combined = this.state.orders.concat(order);
+    this.setState(() => ({
+      orders: combined
+    }));
+  };
   render() {
     const clientData = {
       burgers: {
@@ -219,7 +215,11 @@ export default class App extends Component {
             path="/"
             exact
             component={() => (
-              <Menu catagories={clientData} style={clientStyle.menu} />
+              <Menu
+                catagories={clientData}
+                style={clientStyle.menu}
+                order={this.handleOrder}
+              />
             )}
           />
           <Route path="/catagory/:catagory" exact component={MenuItemList} />
@@ -231,7 +231,7 @@ export default class App extends Component {
           <Route
             path="/order"
             component={() => (
-              <Order orders={this.state.items} style={clientStyle.order} />
+              <Order orders={this.state.orders} style={clientStyle.order} />
             )}
           />
           <Route
