@@ -7,7 +7,7 @@ const Menu = props => {
     <MenuCatagoryList
       key={props.catagories[catagory].id}
       catagories={props.catagories[catagory]}
-      name={catagory}
+      name={props.catagories[catagory].name}
       order={props.order}
     />
   ));

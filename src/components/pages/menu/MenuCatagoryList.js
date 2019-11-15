@@ -5,13 +5,15 @@ import MenuCatagory from "./MenuCatagory";
 const MenuCatagoryList = props => {
   const items = props.catagories;
   const order = props.order;
+  const catagory = props.name;
   return (
     <div>
       <Link
         to={{
           pathname: `/catagory/${props.name}`,
           data: items,
-          order: order
+          order: order,
+          catagory: catagory
         }}
       >
         <MenuCatagory

@@ -2,18 +2,18 @@ import React from "react";
 import "./InformationButton.scss";
 import { Link } from "react-router-dom";
 
-const InformationButton = () => {
+const InformationButton = props => {
   return (
-    <div className="InformationButton">
-      <Link
-        to={{
-          pathname: `/catagory/item/item`,
-          data: "hello"
-        }}
-      >
+    <Link
+      to={{
+        pathname: `/catagory/${props.catagory}/${props.order.id}`,
+        order: props.order
+      }}
+    >
+      <div className="InformationButton">
         <span className="InformationButton--Icon">i</span>
-      </Link>
-    </div>
+      </div>
+    </Link>
   );
 };
 

@@ -190,7 +190,7 @@ export default class App extends Component {
         backgroundColor: "#333333"
       },
       menu: {
-        backgroundColor: "#333333",
+        backgroundColor: "#ffffff",
         backgroundImage: "",
         menuItemList: {
           itemInformation: {}

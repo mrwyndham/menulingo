@@ -34,7 +34,7 @@ export default class MenuItemOrder extends Component {
   render() {
     return (
       <div className="MenuItemOrder" onClick={this.props.onSelectItem}>
-        <Information />
+        <Information order={this.state} catagory={this.props.catagory} />
         <QuantityDisplay amount={this.state.amount} />
         <QuantityControl add={this.handleAdd} subtract={this.handleSubtract} />
         <Order order={this.handleOrder} />

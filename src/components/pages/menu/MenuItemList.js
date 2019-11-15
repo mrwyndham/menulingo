@@ -21,6 +21,7 @@ export default class MenuItemList extends React.Component {
   render() {
     const items = this.props.location.data.items;
     const order = this.props.location.order;
+    const catagory = this.props.location.catagory;
     const renderItems = Object.keys(items).map(item => (
       <div key={items[item].id} className="MenuItems--Content">
         <MenuItem
@@ -30,7 +31,12 @@ export default class MenuItemList extends React.Component {
         />
         {this.state.displayOrder ? (
           items[item].id === this.state.Order ? (
-            <Order id={items[item].id} item={items[item]} order={order} />
+            <Order
+              id={items[item].id}
+              item={items[item]}
+              order={order}
+              catagory={catagory}
+            />
           ) : null
         ) : null}
       </div>

@@ -12,4 +12,9 @@
   background-color: #f1f1f1;
   padding: 2vh;
   box-sizing: border-box;
+  a {
+    position: absolute;
+    align-self: flex-end;
+    justify-self: flex-start;
+  }
 }
