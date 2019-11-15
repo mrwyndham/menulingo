@@ -10,7 +10,10 @@ const OrderItem = props => {
       <div className="OrderItem--Text">
         <div className="OrderItem--Name">{props.order.name}</div>
         <div className="OrderItem--Description">{props.order.description}</div>
-        <div className="OrderItem--Price">{props.order.price} USD</div>
+        <div className="OrderItem--Price">
+          {props.currency.symbol}
+          {props.order.price} {props.currency.code}
+        </div>
       </div>
     </div>
   );

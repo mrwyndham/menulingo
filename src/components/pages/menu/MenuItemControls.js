@@ -1,9 +1,9 @@
 import React, { Component } from "react";
-import "./MenuItemOrder.scss";
-import Information from "./itemOrder/InformationButton";
-import QuantityControl from "./itemOrder/QuantityControl";
-import QuantityDisplay from "./itemOrder/QuantityDisplay";
-import Order from "./itemOrder/AddItemButton";
+import "./MenuItemControls.scss";
+import Information from "./MenuItemControl/InformationButton";
+import QuantityControl from "./MenuItemControl/QuantityControl";
+import QuantityDisplay from "./MenuItemControl/QuantityDisplay";
+import Order from "./MenuItemControl/AddItemButton";
 
 export default class MenuItemOrder extends Component {
   constructor(props) {
@@ -34,7 +34,11 @@ export default class MenuItemOrder extends Component {
   render() {
     return (
       <div className="MenuItemOrder" onClick={this.props.onSelectItem}>
-        <Information order={this.state} catagory={this.props.catagory} />
+        <Information
+          order={this.state}
+          catagory={this.props.catagory}
+          currency={this.props.currency}
+        />
         <QuantityDisplay amount={this.state.amount} />
         <QuantityControl add={this.handleAdd} subtract={this.handleSubtract} />
         <Order order={this.handleOrder} />

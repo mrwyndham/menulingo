@@ -6,6 +6,7 @@ const MenuCatagoryList = props => {
   const items = props.catagories;
   const order = props.order;
   const catagory = props.name;
+  const currency = props.currency;
   return (
     <div>
       <Link
@@ -13,12 +14,13 @@ const MenuCatagoryList = props => {
           pathname: `/catagory/${props.name}`,
           data: items,
           order: order,
-          catagory: catagory
+          catagory: catagory,
+          currency: currency
         }}
       >
         <MenuCatagory
           image={items.pic}
-          name={props.name}
+          name={catagory}
           description={items.description}
         />
       </Link>

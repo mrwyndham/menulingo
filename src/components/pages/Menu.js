@@ -9,6 +9,7 @@ const Menu = props => {
       catagories={props.catagories[catagory]}
       name={props.catagories[catagory].name}
       order={props.order}
+      currency={props.currency}
     />
   ));
   return (

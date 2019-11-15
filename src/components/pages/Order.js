@@ -5,7 +5,7 @@ import "./Order.scss";
 const Order = props => {
   return (
     <div className="Order">
-      <OrderItemList orders={props.orders} />
+      <OrderItemList orders={props.orders} currency={props.currency} />
     </div>
   );
 };

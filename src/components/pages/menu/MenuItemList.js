@@ -1,7 +1,7 @@
 import React from "react";
 import MenuItem from "./MenuItem";
 import Card from "./MenuCatagory";
-import Order from "./MenuItemOrder";
+import Order from "./MenuItemControls";
 import "./MenuItemList.scss";
 
 export default class MenuItemList extends React.Component {
@@ -22,20 +22,23 @@ export default class MenuItemList extends React.Component {
     const items = this.props.location.data.items;
     const order = this.props.location.order;
     const catagory = this.props.location.catagory;
-    const renderItems = Object.keys(items).map(item => (
-      <div key={items[item].id} className="MenuItems--Content">
+    const currency = this.props.location.currency;
+    const renderItems = items.map(item => (
+      <div key={item.id} className="MenuItems--Content">
         <MenuItem
-          id={items[item].id}
-          item={items[item]}
+          id={item.id}
+          item={item}
+          currency={currency}
           onSelectItem={this.handleSelectItem}
         />
         {this.state.displayOrder ? (
-          items[item].id === this.state.Order ? (
+          item.id === this.state.Order ? (
             <Order
-              id={items[item].id}
-              item={items[item]}
+              id={item.id}
+              item={item}
               order={order}
               catagory={catagory}
+              currency={currency}
             />
           ) : null
         ) : null}

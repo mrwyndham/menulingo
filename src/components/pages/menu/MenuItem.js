@@ -13,7 +13,10 @@ const MenuItem = props => {
       <div className="MenuItem--Text">
         <div className="MenuItem--Name">{props.item.name}</div>
         <div className="MenuItem--Description">{props.item.description}</div>
-        <div className="MenuItem--Price">{props.item.price} USD</div>
+        <div className="MenuItem--Price">
+          {props.currency.symbol}
+          {props.item.price} {props.currency.code}
+        </div>
       </div>
     </div>
   );

@@ -1,0 +1,30 @@
+@mixin lhCrop($line-height) {
+  &::before {
+    content: '';
+    display: block;
+    height: 0;
+    width: 0;
+    margin-top: calc((1 - #{$line-height}) * 0.5em);
+  }
+}
+
+.QuantityControl {
+  .QuantityControl--Button {
+    @include lhCrop(1.1);
+    width: 4vh;
+    height: 4vh;
+    border-radius: 50%;
+    border: none;
+    color: #ffffff;
+    font-size: 3vh;
+    margin: 0 1vh;
+    padding: 0;
+    font-weight: 800;
+  }
+  .QuantityControl--Button__Subtract {
+    background-color: #f2b950;
+  }
+  .QuantityControl--Button__Add {
+    background-color: #009259;
+  }
+}

@@ -1,0 +1,11 @@
+.OrderItemList {
+  height: 66vh;
+  padding-top: 11vh;
+  padding-bottom: 11vh;
+  padding-right: 5vh;
+  position: relative;
+  .OrderItemList--Content {
+    position: relative;
+    padding-right: 5vh;
+  }
+}
