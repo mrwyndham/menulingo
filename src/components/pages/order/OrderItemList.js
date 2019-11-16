@@ -12,7 +12,11 @@ const OrderItemList = props => {
         order={order}
         currency={props.currency}
       />
-      <OrderItemControls order={order} />
+      <OrderItemControls
+        order={order}
+        orderUpdate={props.orderUpdate}
+        currency={props.currency}
+      />
     </div>
   ));
   return <React.Fragment>{renderOrders}</React.Fragment>;

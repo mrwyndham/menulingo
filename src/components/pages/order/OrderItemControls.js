@@ -17,19 +17,29 @@ export default class OrderItemControls extends Component {
       pic: props.order.pic
     };
   }
-  handleOrder = () => {
-    this.props.order(this.state);
+  handleOrderRemove = () => {
+    this.props.orderUpdate[1](this.state);
   };
   handleAdd = () => {
-    this.setState(() => ({
-      amount: this.state.amount + 1
-    }));
+    this.setState(
+      () => ({
+        amount: this.state.amount + 1
+      }),
+      () => {
+        this.props.orderUpdate[0](this.state);
+      }
+    );
   };
   handleSubtract = () => {
-    this.setState(state => ({
-      amount:
-        state.amount > 0 ? (state.amount = state.amount - 1) : state.amount
-    }));
+    this.setState(
+      state => ({
+        amount:
+          state.amount > 0 ? (state.amount = state.amount - 1) : state.amount
+      }),
+      () => {
+        this.props.orderUpdate[0](this.state);
+      }
+    );
   };
   render() {
     return (
@@ -41,7 +51,7 @@ export default class OrderItemControls extends Component {
         />
         <QuantityDisplay amount={this.state.amount} />
         <QuantityControl add={this.handleAdd} subtract={this.handleSubtract} />
-        <Order order={this.handleOrder} />
+        <Order order={this.handleOrderRemove} />
       </div>
     );
   }

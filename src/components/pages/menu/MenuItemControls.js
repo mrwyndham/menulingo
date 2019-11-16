@@ -5,7 +5,7 @@ import QuantityControl from "./MenuItemControl/QuantityControl";
 import QuantityDisplay from "./MenuItemControl/QuantityDisplay";
 import Order from "./MenuItemControl/AddItemButton";
 
-export default class MenuItemOrder extends Component {
+export default class MenuItemControls extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -19,6 +19,9 @@ export default class MenuItemOrder extends Component {
   }
   handleOrder = () => {
     this.props.order(this.state);
+    this.setState(() => ({
+      amount: 0
+    }));
   };
   handleAdd = () => {
     this.setState(() => ({

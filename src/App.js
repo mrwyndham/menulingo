@@ -20,10 +20,26 @@ export default class App extends Component {
     };
   }
   handleOrder = order => {
-    let combined = this.state.orders.concat(order);
-    this.setState(() => ({
-      orders: combined
-    }));
+    let orderIndex = this.state.orders.findIndex(x => x.id === order.id);
+    if (orderIndex !== -1) {
+      let duplicateState = [...this.state.orders];
+      duplicateState[orderIndex].amount =
+        this.state.orders[orderIndex].amount + order.amount;
+      this.setState(() => ({ orders: duplicateState }));
+    } else {
+      this.setState(() => ({ orders: [order, ...this.state.orders] }));
+    }
+  };
+  handleRemoveOrder = order => {
+    let duplicateState = [...this.state.orders];
+    let updatedState = duplicateState.filter(x => x.id !== order.id);
+    this.setState(() => ({ orders: updatedState }));
+  };
+  handleChangeOrder = order => {
+    let orderIndex = this.state.orders.findIndex(x => x.id === order.id);
+    let duplicateState = [...this.state.orders];
+    duplicateState[orderIndex].amount = order.amount;
+    this.setState(() => ({ orders: duplicateState }));
   };
   render() {
     const clientData = {
@@ -225,6 +241,7 @@ export default class App extends Component {
                 orders={this.state.orders}
                 style={clientStyle.order}
                 currency={clientData.currency}
+                orderUpdate={[this.handleChangeOrder, this.handleRemoveOrder]}
               />
             )}
           />
