@@ -42,14 +42,16 @@ export default class OrderItemControls extends Component {
     );
   };
   render() {
+    const { amount } = this.state;
+    const { catagory, currency, onSelectItem } = this.props;
     return (
-      <div className="OrderItemControls" onClick={this.props.onSelectItem}>
+      <div className="OrderItemControls" onClick={onSelectItem}>
         <Information
           order={this.state}
-          catagory={this.props.catagory}
-          currency={this.props.currency}
+          catagory={catagory}
+          currency={currency}
         />
-        <QuantityDisplay amount={this.state.amount} />
+        <QuantityDisplay amount={amount} />
         <QuantityControl add={this.handleAdd} subtract={this.handleSubtract} />
         <Order order={this.handleOrderRemove} />
       </div>

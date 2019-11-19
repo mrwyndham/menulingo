@@ -13,12 +13,10 @@ import ItemInformation from "./components/pages/menu/MenuItemControl/Information
 import "./App.scss";
 
 export default class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      orders: []
-    };
-  }
+  state = {
+    orders: []
+  };
+  //Adds an Item to the order and only updates amount if a duplicate order is found
   handleOrder = order => {
     let orderIndex = this.state.orders.findIndex(x => x.id === order.id);
     if (orderIndex !== -1) {
@@ -30,11 +28,13 @@ export default class App extends Component {
       this.setState(() => ({ orders: [order, ...this.state.orders] }));
     }
   };
+  //Removes an order from state
   handleRemoveOrder = order => {
     let duplicateState = [...this.state.orders];
     let updatedState = duplicateState.filter(x => x.id !== order.id);
     this.setState(() => ({ orders: updatedState }));
   };
+  //Updates an added order in the state
   handleChangeOrder = order => {
     let orderIndex = this.state.orders.findIndex(x => x.id === order.id);
     let duplicateState = [...this.state.orders];
