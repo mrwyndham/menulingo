@@ -1,6 +1,27 @@
 .Order {
   height: 64vh;
+  padding: 0 2vh;
   padding-top: 11vh;
   padding-bottom: 12.5vh;
-  padding-right: 5vh;
+
+  .Order--Empty {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    .Order--Empty--Icon {
+      height: 10vh;
+      margin: 2vh;
+      svg path {
+        fill: #afafaf;
+      }
+      svg rect {
+        fill: #afafaf;
+      }
+    }
+    h1 {
+      font-size: 3vh;
+    }
+  }
 }

@@ -4,8 +4,9 @@ import { Rating } from "semantic-ui-react";
 
 const RateSlider = props => {
   return (
-    <div class="RateSlider">
+    <div className="RateSlider">
       <Rating
+        size="massive"
         icon="heart"
         maxRating={5}
         onRate={props.handleRate}

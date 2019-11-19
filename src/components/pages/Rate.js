@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
 import RatingSlider from "./rate/RateSlider";
 import "./Rate.scss";
 
@@ -30,26 +30,35 @@ export default class Rate extends Component {
 
   render() {
     const myRatings = ["Food", "Location", "Service", "Drinks"];
-    const renderRatings = myRatings.map(rating => (
-      <div>
-        <label htmlFor="">{rating}</label>
+    const renderRatings = myRatings.map((rating, index) => (
+      <Fragment key={index}>
+        <label htmlFor="" className="Rate--Labels">
+          {rating}
+        </label>
         <RatingSlider handleRate={this.handleRate} catagory={rating} />
-      </div>
+      </Fragment>
     ));
     return (
-      <form onSubmit={this.handleSubmit} class="Rate">
+      <form onSubmit={this.handleSubmit} className="Rate">
         {renderRatings}
 
-        <div>
-          <label htmlFor="">Comment</label>
+        <div className="Rate--Comments">
+          <label className="Rate--Labels" htmlFor="">
+            Comment
+          </label>
           <input
+            className="Rate--Textbox"
             type="text"
             value={this.state.value}
             onChange={this.handleChange}
           />
         </div>
 
-        <input type="submit" value="Submit" />
+        <input
+          className="Button--Primary__Sm__Red"
+          type="submit"
+          value="Submit"
+        />
       </form>
     );
   }
