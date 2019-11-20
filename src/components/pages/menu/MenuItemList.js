@@ -1,6 +1,6 @@
 import React from "react";
 import MenuItem from "./MenuItem";
-import Card from "./MenuCatagory";
+import MenuCatagory from "./MenuCatagory";
 import Order from "./MenuItemControls";
 import "./MenuItemList.scss";
 
@@ -8,21 +8,26 @@ export default class MenuItemList extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      Order: null,
-      displayOrder: false
+      selectedItem: null
     };
   }
+
   handleSelectItem = id => {
+    console.log(id);
     this.setState(state => ({
-      Order: id,
-      displayOrder: !state.displayOrder
+      selectedItem: id
     }));
   };
   render() {
-    const items = this.props.location.data.items;
-    const order = this.props.location.order;
-    const catagory = this.props.location.catagory;
-    const currency = this.props.location.currency;
+    const {
+      data: { items, pic, name, description },
+      order,
+      catagory,
+      currency
+    } = this.props.location;
+
+    const { selectedItem } = this.state;
+
     const renderItems = items.map(item => (
       <div key={item.id} className="MenuItems--Content">
         <MenuItem
@@ -31,26 +36,21 @@ export default class MenuItemList extends React.Component {
           currency={currency}
           onSelectItem={this.handleSelectItem}
         />
-        {this.state.displayOrder ? (
-          item.id === this.state.Order ? (
-            <Order
-              id={item.id}
-              item={item}
-              order={order}
-              catagory={catagory}
-              currency={currency}
-            />
-          ) : null
+
+        {item.id === selectedItem ? (
+          <Order
+            id={item.id}
+            item={item}
+            order={order}
+            catagory={catagory}
+            currency={currency}
+          />
         ) : null}
       </div>
     ));
     return (
       <div className="MenuItems">
-        <Card
-          image={this.props.location.data.pic}
-          name={this.props.location.data.name}
-          description={this.props.location.data.description}
-        />
+        <MenuCatagory image={pic} name={name} description={description} />
         {renderItems}
       </div>
     );

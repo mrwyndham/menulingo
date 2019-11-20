@@ -2,8 +2,11 @@ import React from "react";
 import "./OrderItem.scss";
 
 const OrderItem = props => {
+  const handleItemClick = e => {
+    props.onSelectItem(props.id);
+  };
   return (
-    <div className="OrderItem">
+    <div className="OrderItem" onClick={handleItemClick}>
       <div className="OrderItem--Pic">
         <img src={props.order.pic} alt="" />
       </div>
