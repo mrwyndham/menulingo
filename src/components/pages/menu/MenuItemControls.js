@@ -18,7 +18,7 @@ export default class MenuItemControls extends Component {
     };
   }
   handleOrder = () => {
-    this.props.order(this.state);
+    this.state.amount === 0 ? alert("add more") : this.props.order(this.state);
     this.setState(() => ({
       amount: 0
     }));
