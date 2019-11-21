@@ -6,29 +6,34 @@ import OrderItemControls from "./OrderItemControls";
 export default class OrderItemList extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      selectedItem: null
-    };
+    this.state = {};
   }
 
-  handleSelectItem = id => {
-    this.setState(() => ({
-      selectedItem: id
-    }));
-  };
+  // handleSelectItem = id => {
+  //   this.state.selectedItem === id
+  //     ? this.setState(state => ({ selectedItem: null }))
+  //     : this.setState(state => ({ selectedItem: id }));
+  // };
 
   render() {
-    const { orders, currency, orderUpdate } = this.props;
+    const {
+      orders,
+      currency,
+      orderUpdate,
+      selectOrderItem,
+      selectOrderItemState
+    } = this.props;
+
     const renderOrders = orders.map(order => (
-      <div className="OrderItemList--Content">
+      <div key={order.id} className="OrderItemList--Content">
         <OrderItem
-          key={order.id}
           id={order.id}
           order={order}
           currency={currency}
-          onSelectItem={this.handleSelectItem}
+          selectOrderItem={selectOrderItem}
         />
-        {order.id === this.state.selectedItem ? (
+
+        {order.id === selectOrderItemState ? (
           <OrderItemControls
             order={order}
             orderUpdate={orderUpdate}

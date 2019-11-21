@@ -13,10 +13,9 @@ export default class MenuItemList extends React.Component {
   }
 
   handleSelectItem = id => {
-    console.log(id);
-    this.setState(state => ({
-      selectedItem: id
-    }));
+    this.state.selectedItem === id
+      ? this.setState(state => ({ selectedItem: null }))
+      : this.setState(state => ({ selectedItem: id }));
   };
   render() {
     const {
@@ -29,7 +28,7 @@ export default class MenuItemList extends React.Component {
     const { selectedItem } = this.state;
 
     const renderItems = items.map(item => (
-      <div key={item.id} className="MenuItems--Content">
+      <div key={item.id} className="MenuItemList--Content">
         <MenuItem
           id={item.id}
           item={item}
@@ -49,7 +48,7 @@ export default class MenuItemList extends React.Component {
       </div>
     ));
     return (
-      <div className="MenuItems">
+      <div className="MenuItemList">
         <MenuCatagory image={pic} name={name} description={description} />
         {renderItems}
       </div>

@@ -32,7 +32,13 @@ const Order = props => {
       <h1 className="Order--Empty--Text">No Orders to Display :(</h1>
     </div>
   );
-  const { orders, currency, orderUpdate } = props;
+  const {
+    orders,
+    currency,
+    orderUpdate,
+    selectOrderItem,
+    selectOrderItemState
+  } = props;
   return (
     <div className="Order">
       {orders.length === 0 ? noOrders : null}
@@ -40,6 +46,8 @@ const Order = props => {
         orders={orders}
         currency={currency}
         orderUpdate={orderUpdate}
+        selectOrderItem={selectOrderItem}
+        selectOrderItemState={selectOrderItemState}
       />
     </div>
   );

@@ -17,10 +17,11 @@ export default class OrderItemControls extends Component {
       pic: props.order.pic
     };
   }
+
   handleOrderRemove = () => {
     this.props.orderUpdate[1](this.state);
   };
-  handleAdd = () => {
+  handleAdd = e => {
     this.setState(
       () => ({
         amount: this.state.amount + 1
@@ -30,7 +31,7 @@ export default class OrderItemControls extends Component {
       }
     );
   };
-  handleSubtract = () => {
+  handleSubtract = e => {
     this.setState(
       state => ({
         amount:

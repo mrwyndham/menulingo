@@ -14,8 +14,17 @@ import "./App.scss";
 
 export default class App extends Component {
   state = {
-    orders: []
+    orders: [],
+    selectedOrderID: null
   };
+
+  //Manages OrderItemControls
+  handleSelectOrderItem = id => {
+    this.state.selectedOrderID === id
+      ? this.setState(state => ({ selectedOrderID: null }))
+      : this.setState(state => ({ selectedOrderID: id }));
+  };
+
   //Adds an Item to the order and only updates amount if a duplicate order is found
   handleOrder = order => {
     let orderIndex = this.state.orders.findIndex(x => x.id === order.id);
@@ -242,6 +251,8 @@ export default class App extends Component {
                 style={clientStyle.order}
                 currency={clientData.currency}
                 orderUpdate={[this.handleChangeOrder, this.handleRemoveOrder]}
+                selectOrderItem={this.handleSelectOrderItem}
+                selectOrderItemState={this.state.selectedOrderID}
               />
             )}
           />
