@@ -10,13 +10,9 @@ export default class Rate extends Component {
       ratingCatagory: []
     };
   }
-
-  handleRate = (e, { rating, maxRating, catagory }) => {
-    const rateState = { ...this.state };
-    rateState.ratingCatagory.push({ rating, maxRating, catagory });
-    alert(rateState.ratingCatagory[0].catagory);
-    this.setState();
-  };
+  // handleRate = rateEvent => {
+  //   console.log(rateEvent);
+  // };
 
   handleChange = e => {
     this.setState({ value: e.target.value });
@@ -32,9 +28,9 @@ export default class Rate extends Component {
     const myRatings = ["Food", "Location", "Service", "Drinks"];
     const renderRatings = myRatings.map((rating, index) => (
       <Fragment key={index}>
-        <label htmlFor="" className="Rate--Labels">
+        <div htmlFor="" className="Rate--Labels">
           {rating}
-        </label>
+        </div>
         <RatingSlider handleRate={this.handleRate} catagory={rating} />
       </Fragment>
     ));
@@ -43,9 +39,9 @@ export default class Rate extends Component {
         {renderRatings}
 
         <div className="Rate--Comments">
-          <label className="Rate--Labels" htmlFor="">
+          <div className="Rate--Labels" htmlFor="">
             Comment
-          </label>
+          </div>
           <input
             className="Rate--Textbox"
             type="text"
