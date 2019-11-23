@@ -29,7 +29,7 @@ const Order = props => {
           />
         </svg>
       </div>
-      <h1 className="Order--Empty--Text">No Orders to Display :(</h1>
+      <h1 className="Order--Empty--Text">Place your order :)</h1>
     </div>
   );
   const {

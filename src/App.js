@@ -52,149 +52,151 @@ export default class App extends Component {
   };
   render() {
     const clientData = {
-      catagories: {
-        burgers: {
-          id: 1,
-          name: "burgers",
-          description: "All 100% Beef, All Angus",
-          pic:
-            "https://images.unsplash.com/photo-1570250386140-243b6c5c719d?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=400&fit=max&ixid=eyJhcHBfaWQiOjk5NTE5fQ",
-          items: [
-            {
-              id: 1,
-              name: "Hamburger",
-              price: "15.00",
-              description: "This is a description",
-              pic:
-                "https://images.unsplash.com/photo-1558980664-1db506751c6c?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=400&fit=max&ixid=eyJhcHBfaWQiOjk5NTE5fQ"
-            },
-            {
-              id: 2,
-              name: "Cheeseburger",
-              price: "18.00",
-              description: "This is a description",
-              pic:
-                "https://images.unsplash.com/photo-1460400508371-ab23b340c3e4?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=400&fit=max&ixid=eyJhcHBfaWQiOjk5NTE5fQ"
-            },
-            {
-              id: 3,
-              name: "Cheeseburger",
-              price: "18.00",
-              description: "This is a description",
-              pic:
-                "https://images.unsplash.com/photo-1460400508371-ab23b340c3e4?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=400&fit=max&ixid=eyJhcHBfaWQiOjk5NTE5fQ"
-            },
-            {
-              id: 4,
-              name: "Cheeseburger",
-              price: "18.00",
-              description: "This is a description",
-              pic:
-                "https://images.unsplash.com/photo-1460400508371-ab23b340c3e4?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=400&fit=max&ixid=eyJhcHBfaWQiOjk5NTE5fQ"
-            },
-            {
-              id: 5,
-              name: "Cheeseburger",
-              price: "18.00",
-              description: "This is a description",
-              pic:
-                "https://images.unsplash.com/photo-1460400508371-ab23b340c3e4?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=400&fit=max&ixid=eyJhcHBfaWQiOjk5NTE5fQ"
-            },
-            {
-              id: 6,
-              name: "Cheeseburger",
-              price: "18.00",
-              description: "This is a description",
-              pic:
-                "https://images.unsplash.com/photo-1460400508371-ab23b340c3e4?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=400&fit=max&ixid=eyJhcHBfaWQiOjk5NTE5fQ"
-            }
-          ]
+      menu: {
+        catagories: {
+          burgers: {
+            id: 1,
+            name: "burgers",
+            description: "All 100% Beef, All Angus",
+            pic:
+              "https://images.unsplash.com/photo-1570250386140-243b6c5c719d?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=400&fit=max&ixid=eyJhcHBfaWQiOjk5NTE5fQ",
+            items: [
+              {
+                id: 1,
+                name: "Hamburger",
+                price: "15.00",
+                description: "This is a description",
+                pic:
+                  "https://images.unsplash.com/photo-1558980664-1db506751c6c?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=400&fit=max&ixid=eyJhcHBfaWQiOjk5NTE5fQ"
+              },
+              {
+                id: 2,
+                name: "Cheeseburger",
+                price: "18.00",
+                description: "This is a description",
+                pic:
+                  "https://images.unsplash.com/photo-1460400508371-ab23b340c3e4?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=400&fit=max&ixid=eyJhcHBfaWQiOjk5NTE5fQ"
+              },
+              {
+                id: 3,
+                name: "Cheeseburger",
+                price: "18.00",
+                description: "This is a description",
+                pic:
+                  "https://images.unsplash.com/photo-1460400508371-ab23b340c3e4?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=400&fit=max&ixid=eyJhcHBfaWQiOjk5NTE5fQ"
+              },
+              {
+                id: 4,
+                name: "Cheeseburger",
+                price: "18.00",
+                description: "This is a description",
+                pic:
+                  "https://images.unsplash.com/photo-1460400508371-ab23b340c3e4?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=400&fit=max&ixid=eyJhcHBfaWQiOjk5NTE5fQ"
+              },
+              {
+                id: 5,
+                name: "Cheeseburger",
+                price: "18.00",
+                description: "This is a description",
+                pic:
+                  "https://images.unsplash.com/photo-1460400508371-ab23b340c3e4?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=400&fit=max&ixid=eyJhcHBfaWQiOjk5NTE5fQ"
+              },
+              {
+                id: 6,
+                name: "Cheeseburger",
+                price: "18.00",
+                description: "This is a description",
+                pic:
+                  "https://images.unsplash.com/photo-1460400508371-ab23b340c3e4?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=400&fit=max&ixid=eyJhcHBfaWQiOjk5NTE5fQ"
+              }
+            ]
+          },
+          drinks: {
+            id: 2,
+            name: "drinks",
+            description: "Get Hydrated!?",
+            pic:
+              "https://images.unsplash.com/photo-1572625560245-6283a1867c18?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=400&fit=max&ixid=eyJhcHBfaWQiOjk5NTE5fQ",
+            items: [
+              {
+                id: 7,
+                name: "Pino Colada",
+                price: "12.00",
+                description: "This is a description",
+                pic:
+                  "https://images.unsplash.com/photo-1460400508371-ab23b340c3e4?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=400&fit=max&ixid=eyJhcHBfaWQiOjk5NTE5fQ"
+              },
+              {
+                id: 8,
+                name: "Mojito",
+                price: "5.00",
+                description: "This is a description",
+                pic:
+                  "https://images.unsplash.com/photo-1460400508371-ab23b340c3e4?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=400&fit=max&ixid=eyJhcHBfaWQiOjk5NTE5fQ"
+              }
+            ]
+          },
+          sides: {
+            id: 3,
+            name: "sides",
+            description: "A timeless assortment",
+            pic:
+              "https://images.unsplash.com/photo-1460400508371-ab23b340c3e4?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=400&fit=max&ixid=eyJhcHBfaWQiOjk5NTE5fQ",
+            items: [
+              {
+                id: 9,
+                name: "Chips",
+                price: "10.00",
+                description: "This is a description",
+                pic:
+                  "https://images.unsplash.com/photo-1460400508371-ab23b340c3e4?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=400&fit=max&ixid=eyJhcHBfaWQiOjk5NTE5fQ"
+              },
+              {
+                id: 10,
+                name: "Rothman Reds",
+                price: "2.00",
+                description: "This is a description",
+                pic:
+                  "https://images.unsplash.com/photo-1460400508371-ab23b340c3e4?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=400&fit=max&ixid=eyJhcHBfaWQiOjk5NTE5fQ"
+              },
+              {
+                id: 11,
+                name: "marakas",
+                price: "0.50",
+                description: "This is a description",
+                pic:
+                  "https://images.unsplash.com/photo-1460400508371-ab23b340c3e4?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=400&fit=max&ixid=eyJhcHBfaWQiOjk5NTE5fQ"
+              }
+            ]
+          },
+          pizza: {
+            id: 4,
+            name: "pizza",
+            items: [
+              {
+                id: 12,
+                name: "BBQ",
+                price: "0.50",
+                description: "This is a description",
+                pic:
+                  "https://images.unsplash.com/photo-1460400508371-ab23b340c3e4?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=400&fit=max&ixid=eyJhcHBfaWQiOjk5NTE5fQ"
+              }
+            ],
+            description: "This is a description",
+            pic:
+              "https://images.unsplash.com/photo-1460400508371-ab23b340c3e4?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=400&fit=max&ixid=eyJhcHBfaWQiOjk5NTE5fQ"
+          }
         },
-        drinks: {
-          id: 2,
-          name: "drinks",
-          description: "Get Hydrated!?",
-          pic:
-            "https://images.unsplash.com/photo-1572625560245-6283a1867c18?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=400&fit=max&ixid=eyJhcHBfaWQiOjk5NTE5fQ",
-          items: [
-            {
-              id: 7,
-              name: "Pino Colada",
-              price: "12.00",
-              description: "This is a description",
-              pic:
-                "https://images.unsplash.com/photo-1460400508371-ab23b340c3e4?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=400&fit=max&ixid=eyJhcHBfaWQiOjk5NTE5fQ"
-            },
-            {
-              id: 8,
-              name: "Mojito",
-              price: "5.00",
-              description: "This is a description",
-              pic:
-                "https://images.unsplash.com/photo-1460400508371-ab23b340c3e4?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=400&fit=max&ixid=eyJhcHBfaWQiOjk5NTE5fQ"
-            }
-          ]
-        },
-        sides: {
-          id: 3,
-          name: "sides",
-          description: "A timeless assortment",
-          pic:
-            "https://images.unsplash.com/photo-1460400508371-ab23b340c3e4?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=400&fit=max&ixid=eyJhcHBfaWQiOjk5NTE5fQ",
-          items: [
-            {
-              id: 9,
-              name: "Chips",
-              price: "10.00",
-              description: "This is a description",
-              pic:
-                "https://images.unsplash.com/photo-1460400508371-ab23b340c3e4?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=400&fit=max&ixid=eyJhcHBfaWQiOjk5NTE5fQ"
-            },
-            {
-              id: 10,
-              name: "Rothman Reds",
-              price: "2.00",
-              description: "This is a description",
-              pic:
-                "https://images.unsplash.com/photo-1460400508371-ab23b340c3e4?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=400&fit=max&ixid=eyJhcHBfaWQiOjk5NTE5fQ"
-            },
-            {
-              id: 11,
-              name: "marakas",
-              price: "0.50",
-              description: "This is a description",
-              pic:
-                "https://images.unsplash.com/photo-1460400508371-ab23b340c3e4?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=400&fit=max&ixid=eyJhcHBfaWQiOjk5NTE5fQ"
-            }
-          ]
-        },
-        pizza: {
-          id: 4,
-          name: "pizza",
-          items: [
-            {
-              id: 12,
-              name: "BBQ",
-              price: "0.50",
-              description: "This is a description",
-              pic:
-                "https://images.unsplash.com/photo-1460400508371-ab23b340c3e4?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=400&fit=max&ixid=eyJhcHBfaWQiOjk5NTE5fQ"
-            }
-          ],
-          description: "This is a description",
-          pic:
-            "https://images.unsplash.com/photo-1460400508371-ab23b340c3e4?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=400&fit=max&ixid=eyJhcHBfaWQiOjk5NTE5fQ"
+        currency: {
+          symbol: "$",
+          code: "USD"
         }
-      },
-      currency: {
-        symbol: "$",
-        code: "USD"
       }
     };
     const clientStyle = {
       header: {
         title: {
-          name: "PO PO CHINESE",
+          name: "宝宝中文 Po Po",
           font: "'Yeon Sung', cursive",
           color: "#afafaf",
           size: "3.75vh"
@@ -212,7 +214,41 @@ export default class App extends Component {
       },
       order: {},
       rate: {},
-      about: {},
+      about: {
+        introduction: {
+          data: {
+            backgroundColor: "none"
+          },
+          title: {
+            data: {
+              text: "Welcome",
+              font: "'Yeon Sung', cursive",
+              color: "#afafaf",
+              size: "3.75vh"
+            }
+          },
+          tagline: {
+            data: {
+              text: "This is Po Po, This is Chinese",
+              font: "'Yeon Sung', cursive",
+              color: "#afafaf",
+              size: "3.75vh"
+            }
+          }
+        },
+        description: {
+          data: {
+            text:
+              "We serve chinese food here. Please eat from our tables. No dogs allowed",
+            font: "'Yeon Sung', cursive",
+            color: "#afafaf",
+            size: "3.75vh"
+          }
+        },
+        time: {
+          data: {}
+        }
+      },
       navbar: {
         backgroundImage: "",
         backgroundColor: "#333333",
@@ -230,10 +266,10 @@ export default class App extends Component {
             exact
             component={() => (
               <Menu
-                catagories={clientData.catagories}
+                catagories={clientData.menu.catagories}
                 style={clientStyle.menu}
                 order={this.handleOrder}
-                currency={clientData.currency}
+                currency={clientData.menu.currency}
               />
             )}
           />
@@ -248,8 +284,8 @@ export default class App extends Component {
             component={() => (
               <Order
                 orders={this.state.orders}
-                style={clientStyle.order}
-                currency={clientData.currency}
+                style={clientStyle.menu.order}
+                currency={clientData.menu.currency}
                 orderUpdate={[this.handleChangeOrder, this.handleRemoveOrder]}
                 selectOrderItem={this.handleSelectOrderItem}
                 selectOrderItemState={this.state.selectedOrderID}
