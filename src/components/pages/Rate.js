@@ -36,7 +36,7 @@ export default class Rate extends Component {
     ));
     return (
       <form onSubmit={this.handleSubmit} className="Rate">
-        {renderRatings}
+        <div className="Rate--Sliders">{renderRatings}</div>
 
         <div className="Rate--Comments">
           <div className="Rate--Labels" htmlFor="">

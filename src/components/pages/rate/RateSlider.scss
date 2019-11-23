@@ -1,7 +1,13 @@
 .RateSlider {
   display: flex;
   flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 4vh;
+  margin-bottom: 3.5vh;
+  div {
+    height: 4vh;
+    svg {
+      margin: 0 0.25vh;
+      height: 100%;
+      width: 100%;
+    }
+  }
 }
