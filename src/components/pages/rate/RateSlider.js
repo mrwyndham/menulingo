@@ -6,6 +6,10 @@ export class RateSlider extends Component {
     rating: 3
   };
   handleStarSelect = e => {
+    this.props.handleRate({
+      rating: e.currentTarget.id,
+      catagory: this.props.catagory
+    });
     this.setState({ rating: e.currentTarget.id });
   };
   render() {

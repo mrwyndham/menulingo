@@ -10,17 +10,25 @@ export default class Rate extends Component {
       ratingCatagory: []
     };
   }
-  // handleRate = rateEvent => {
-  //   console.log(rateEvent);
-  // };
+  handleRate = rateEvent => {
+    let dup = { ...this.state };
+    const duplicateEventIndex = dup.ratingCatagory.findIndex(
+      x => x.catagory === rateEvent.catagory
+    );
+
+    duplicateEventIndex !== -1
+      ? (dup = dup.ratingCatagory.splice(duplicateEventIndex, 1, rateEvent))
+      : (dup = dup.ratingCatagory.push(rateEvent));
+    this.setState({ dup });
+    console.log(this.state.ratingCatagory);
+  };
 
   handleChange = e => {
     this.setState({ value: e.target.value });
   };
 
   handleSubmit = e => {
-    alert("A name was submitted: " + this.state.value);
-    alert("Rating: " + this.state.ratingCatagory.rating);
+    alert("The form was submitted");
     e.preventDefault();
   };
 

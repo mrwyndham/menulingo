@@ -57,7 +57,7 @@ h1 {
   z-index: 25;
 }
 
-.Button--Primary {
+.Button--Primary:not(:active) {
   margin-top: 1.5vh;
   background-color: #ff493c;
   height: 5vh;
@@ -69,7 +69,22 @@ h1 {
   font-size: 3vh;
   box-shadow: 0px 4px 0px rgba(0, 0, 0, 0.25);
 }
-.Button--Primary__Sm__Red {
+
+.Button--Primary:active {
+  padding: 0.25rem 0.5rem;
+  transform: translate(0, 4px);
+  margin-top: 1.5vh;
+  background-color: #ff493c;
+  height: 5vh;
+  min-width: 80vw;
+  border: none;
+  font-family: roboto, sans-serif;
+  color: #ffffff;
+  border-radius: 20px;
+  font-size: 3vh;
+}
+
+.Button--Primary__Sm__Red:not(:active) {
   margin-top: 1.5vh;
   background-color: #ff493c;
   height: 5vh;
@@ -81,4 +96,18 @@ h1 {
   border-radius: 20px;
   font-size: 3vh;
   box-shadow: 0px 4px 0px rgba(0, 0, 0, 0.25);
+}
+.Button--Primary__Sm__Red:active {
+  padding: 0.25rem 0.5rem;
+  transform: translate(0, 4px);
+  margin-top: 1.5vh;
+  background-color: #ff493c;
+  height: 5vh;
+  width: 30vw;
+  max-width: 300px;
+  border: none;
+  font-family: roboto, sans-serif;
+  color: #ffffff;
+  border-radius: 20px;
+  font-size: 3vh;
 }
