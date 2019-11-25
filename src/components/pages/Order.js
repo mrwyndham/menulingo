@@ -41,14 +41,17 @@ const Order = props => {
   } = props;
   return (
     <div className="Order">
-      {orders.length === 0 ? noOrders : null}
-      <OrderItemList
-        orders={orders}
-        currency={currency}
-        orderUpdate={orderUpdate}
-        selectOrderItem={selectOrderItem}
-        selectOrderItemState={selectOrderItemState}
-      />
+      {orders.length === 0 ? (
+        noOrders
+      ) : (
+        <OrderItemList
+          orders={orders}
+          currency={currency}
+          orderUpdate={orderUpdate}
+          selectOrderItem={selectOrderItem}
+          selectOrderItemState={selectOrderItemState}
+        />
+      )}
     </div>
   );
 };
