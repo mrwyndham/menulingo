@@ -1,5 +1,6 @@
-import React from "react";
+import React, { Fragment } from "react";
 import OrderItemList from "./order/OrderItemList";
+import PaymentButton from "./order/PaymentButton";
 import "./Order.scss";
 
 const Order = props => {
@@ -44,13 +45,16 @@ const Order = props => {
       {orders.length === 0 ? (
         noOrders
       ) : (
-        <OrderItemList
-          orders={orders}
-          currency={currency}
-          orderUpdate={orderUpdate}
-          selectOrderItem={selectOrderItem}
-          selectOrderItemState={selectOrderItemState}
-        />
+        <Fragment>
+          <OrderItemList
+            orders={orders}
+            currency={currency}
+            orderUpdate={orderUpdate}
+            selectOrderItem={selectOrderItem}
+            selectOrderItemState={selectOrderItemState}
+          />
+          <PaymentButton />
+        </Fragment>
       )}
     </div>
   );
