@@ -1,6 +1,6 @@
-import React from 'react';
-import Language from '../setlanguage/SetLanguage';
-import './Header.scss';
+import React from "react";
+import SetLanguage from "../setlanguage/SetLanguage";
+import "./Header.scss";
 
 const Header = props => {
   return (
@@ -31,7 +31,7 @@ const Header = props => {
       </div>
 
       <div className="Header-Item flex-start">
-        <Language />
+        <SetLanguage languages={props.language} />
       </div>
     </div>
   );

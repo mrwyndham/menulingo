@@ -255,11 +255,135 @@ export default class App extends Component {
         color: "#afafaf"
       }
     };
+    const languages = [
+      {
+        name: "Portuguese",
+        flag: (
+          <svg
+            width="92"
+            height="54"
+            viewBox="0 0 92 54"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <rect width="92" height="54" fill="#78C800" />
+            <path
+              d="M4 26.5002L46 4.00024L46 50.0002L4 26.5002Z"
+              fill="#FFC800"
+            />
+            <path d="M88 27.5L46 50L46 4L88 27.5Z" fill="#FFC800" />
+            <mask
+              id="mask0"
+              mask-type="alpha"
+              maskUnits="userSpaceOnUse"
+              x="30"
+              y="11"
+              width="32"
+              height="32"
+            >
+              <path
+                d="M62 27C62 35.8366 54.8366 43 46 43C37.1634 43 30 35.8366 30 27C30 18.1634 37.1634 11 46 11C54.8366 11 62 18.1634 62 27Z"
+                fill="#1CB0F6"
+              />
+            </mask>
+            <g mask="url(#mask0)">
+              <path
+                d="M62 27C62 35.8366 54.8366 43 46 43C37.1634 43 30 35.8366 30 27C30 18.1634 37.1634 11 46 11C54.8366 11 62 18.1634 62 27Z"
+                fill="#1CB0F6"
+              />
+              <path
+                d="M29 29.684L30.4696 20L63.3175 27.2258L61.8479 36.9097L29 29.684Z"
+                fill="white"
+              />
+            </g>
+          </svg>
+        )
+      },
+      {
+        name: "French",
+        flag: (
+          <svg
+            width="93"
+            height="54"
+            viewBox="0 0 93 54"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <rect width="92" height="54" fill="white" />
+            <rect width="30.6667" height="54" fill="#19B0F9" />
+            <rect x="61.4" width="30.6667" height="54" fill="#FF4B4D" />
+          </svg>
+        )
+      },
+      {
+        name: "English",
+        flag: (
+          <svg
+            width="62"
+            height="36"
+            viewBox="0 0 62 36"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <mask
+              id="mask0"
+              mask-type="alpha"
+              maskUnits="userSpaceOnUse"
+              x="0"
+              y="0"
+              width="62"
+              height="36"
+            >
+              <rect width="61.875" height="36" rx="10" fill="#C4C4C4" />
+            </mask>
+            <g mask="url(#mask0)">
+              <rect width="62" height="36" fill="white" />
+              <rect y="7.875" width="61.875" height="4.5" fill="#E02424" />
+              <rect width="61.875" height="4.5" fill="#E02424" />
+              <rect y="15.75" width="61.875" height="4.5" fill="#E02424" />
+              <rect y="23.6249" width="61.875" height="4.5" fill="#E02424" />
+              <rect y="31.5" width="61.875" height="4.5" fill="#E02424" />
+              <rect width="28.125" height="20.25" fill="#18407E" />
+            </g>
+          </svg>
+        )
+      },
+      {
+        name: "Italian",
+        flag: (
+          <svg
+            width="93"
+            height="54"
+            viewBox="0 0 93 54"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <rect width="92" height="54" fill="white" />
+            <rect width="30.6667" height="54" fill="#2D9809" />
+            <rect x="61.4" width="30.6667" height="54" fill="#FF4B4D" />
+          </svg>
+        )
+      },
+      {
+        name: "Chinese",
+        flag: (
+          <svg
+            width="92"
+            height="54"
+            viewBox="0 0 92 54"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <rect width="92" height="54" fill="#FF4B4D" />
+          </svg>
+        )
+      }
+    ];
     return (
       <div className="overflow">
         <Router>
           <div className="fixed-top">
-            <Header style={clientStyle.header} />
+            <Header style={clientStyle.header} language={languages} />
           </div>
           <Route
             path="/"

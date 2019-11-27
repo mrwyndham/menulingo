@@ -1,16 +1,23 @@
-import React from 'react';
-import './LanguagePicker.scss';
+import React from "react";
+import "./LanguagePicker.scss";
 
 const LanguagePicker = props => {
   let handleClick = e => {
-    props.onPickedLanguage(e.target.alt);
+    props.onPickedLanguage(e.currentTarget.id);
   };
   const languages = props.language.map((language, index) => (
-    <img src={language} alt={index} onClick={handleClick} />
+    <div
+      key={language.name}
+      id={language.name}
+      className="LanguagePicker--Language"
+      onClick={handleClick}
+    >
+      {language.flag}
+    </div>
   ));
   return (
     <div>
-      <div class="LanguagePicker">{languages}</div>
+      <div className="LanguagePicker">{languages}</div>
     </div>
   );
 };

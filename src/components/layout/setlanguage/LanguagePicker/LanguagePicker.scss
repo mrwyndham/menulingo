@@ -17,15 +17,19 @@
   overflow: auto;
   -ms-overflow-style: none;
   white-space: nowrap;
-  img {
+  display: flex;
+  .LanguagePicker--Language {
     width: 10vh;
     height: 6vh;
-    object-fit: cover;
     border-radius: 5px;
     margin: 0 2vh;
     box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+    svg {
+      width: 100%;
+      height: 100%;
+    }
   }
-  img:active {
+  .LanguagePicker--Language:active {
     box-shadow: 0 0px 3px rgba(0, 0, 0, 0.1);
     opacity: 0.6;
   }
