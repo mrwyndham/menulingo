@@ -1,14 +1,14 @@
-import React, { Component } from "react";
+import React from "react";
 import "./PaymentButton.scss";
 
-export class PaymentButton extends Component {
-  render() {
-    return (
-      <div className="PaymentButton">
-        <button className="Button--Primary">Pay Now</button>
-      </div>
-    );
-  }
-}
+const PaymentButton = props => {
+  return (
+    <div className="PaymentButton">
+      <button className="Button--Primary" onClick={props.handlePay}>
+        Pay Now
+      </button>
+    </div>
+  );
+};
 
 export default PaymentButton;

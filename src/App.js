@@ -50,6 +50,11 @@ export default class App extends Component {
     duplicateState[orderIndex].amount = order.amount;
     this.setState(() => ({ orders: duplicateState }));
   };
+
+  handlePay = () => {
+    alert("You payed for your order");
+  };
+
   render() {
     const clientData = {
       menu: {
@@ -413,6 +418,7 @@ export default class App extends Component {
                 orderUpdate={[this.handleChangeOrder, this.handleRemoveOrder]}
                 selectOrderItem={this.handleSelectOrderItem}
                 selectOrderItemState={this.state.selectedOrderID}
+                handlePay={this.handlePay}
               />
             )}
           />

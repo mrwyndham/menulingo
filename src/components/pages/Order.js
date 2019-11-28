@@ -53,7 +53,7 @@ const Order = props => {
             selectOrderItem={selectOrderItem}
             selectOrderItemState={selectOrderItemState}
           />
-          <PaymentButton />
+          <PaymentButton handlePay={props.handlePay} />
         </Fragment>
       )}
     </div>
