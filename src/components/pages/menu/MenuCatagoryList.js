@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import MenuCatagory from "./MenuCatagory";
 
 const MenuCatagoryList = props => {
-  const items = props.catagories;
+  const items = props.items;
   const order = props.order;
   const catagory = props.name;
   const currency = props.currency;

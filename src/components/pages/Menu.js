@@ -6,7 +6,7 @@ const Menu = props => {
   const renderCatagories = Object.keys(props.catagories).map(catagory => (
     <MenuCatagoryList
       key={props.catagories[catagory].id}
-      catagories={props.catagories[catagory]}
+      items={props.catagories[catagory]}
       name={props.catagories[catagory].name}
       order={props.order}
       currency={props.currency}

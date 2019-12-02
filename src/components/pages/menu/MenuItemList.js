@@ -3,6 +3,7 @@ import MenuItem from "./MenuItem";
 import MenuCatagory from "./MenuCatagory";
 import Order from "./MenuItemControls";
 import "./MenuItemList.scss";
+import PropTypes from "prop-types";
 
 const MenuItemList = ({
   location: {
@@ -44,6 +45,24 @@ const MenuItemList = ({
       {renderItems}
     </div>
   );
+};
+
+MenuItemList.propTypes = {
+  location: PropTypes.shape({
+    data: PropTypes.exact({
+      id: PropTypes.number.isRequired,
+      items: PropTypes.array,
+      pic: PropTypes.string.isRequired,
+      name: PropTypes.string.isRequired,
+      description: PropTypes.string.isRequired
+    }),
+    order: PropTypes.func.isRequired,
+    catagory: PropTypes.string.isRequired,
+    currency: PropTypes.exact({
+      symbol: PropTypes.string.isRequired,
+      code: PropTypes.string.isRequired
+    })
+  })
 };
 
 export default MenuItemList;
