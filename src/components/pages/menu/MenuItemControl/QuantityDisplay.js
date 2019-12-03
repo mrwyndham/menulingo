@@ -1,8 +1,12 @@
-import React from 'react';
-import './QuantityDisplay.scss';
+import React from "react";
+import "./QuantityDisplay.scss";
 
 const QuantityDisplay = props => {
-  return <div className="QuantityDisplay">{props.amount}</div>;
+  return (
+    <div className={`QuantityDisplay ${props.onErrorClass}`}>
+      {props.amount}
+    </div>
+  );
 };
 
 export default QuantityDisplay;

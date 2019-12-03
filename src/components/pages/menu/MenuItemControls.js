@@ -14,11 +14,16 @@ export default class MenuItemControls extends Component {
       price: props.item.price,
       amount: 0,
       description: props.item.description,
-      pic: props.item.pic
+      pic: props.item.pic,
+      quantityError: false
     };
   }
   handleOrder = () => {
-    this.state.amount === 0 ? alert("add more") : this.props.order(this.state);
+    this.state.amount === 0
+      ? this.setState(() => ({
+          quantityError: "QuantityDisplay__Shake"
+        }))
+      : this.props.order(this.state);
     this.setState(() => ({
       amount: 0
     }));
@@ -42,7 +47,10 @@ export default class MenuItemControls extends Component {
           catagory={this.props.catagory}
           currency={this.props.currency}
         />
-        <QuantityDisplay amount={this.state.amount} />
+        <QuantityDisplay
+          amount={this.state.amount}
+          onErrorClass={this.state.quantityError}
+        />
         <QuantityControl add={this.handleAdd} subtract={this.handleSubtract} />
         <Order order={this.handleOrder} />
       </div>
