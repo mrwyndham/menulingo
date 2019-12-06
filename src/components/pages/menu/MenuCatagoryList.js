@@ -16,7 +16,8 @@ const MenuCatagoryList = props => {
           data: items,
           order: order,
           catagory: catagory,
-          currency: currency
+          currency: currency,
+          style: style.MenuCatagory
         }}
       >
         <MenuCatagory

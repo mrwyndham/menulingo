@@ -25,7 +25,7 @@
   background: #ffffff;
   border-bottom: 3px solid #e5e5e5;
   display: grid;
-  grid-template-columns: 20% 60% 20%;
+  grid-template-columns: 20vw 59vw 21vw;
   @include fadein();
   .Header-Item {
     display: flex;
@@ -39,12 +39,13 @@
     }
 
     .Logo {
+      align-self: center;
       position: absolute;
-      height: 100%;
-      width: 2vw;
+      height: 3.5vh;
+      width: 1vw;
       img {
         width: auto;
-        height: 95%;
+        height: 100%;
       }
     }
   }

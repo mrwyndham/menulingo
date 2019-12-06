@@ -10,7 +10,8 @@ const MenuItemList = ({
     data: { items, pic, name, description },
     order,
     catagory,
-    currency
+    currency,
+    style
   }
 }) => {
   const [selectedItem, setSelectedItem] = useState(null);
@@ -41,7 +42,7 @@ const MenuItemList = ({
   ));
   return (
     <div className="MenuItemList">
-      <MenuCatagory image={pic} name={name} description={description} />
+      <MenuCatagory image={pic} name={name} description={description} style={style}/>
       {renderItems}
     </div>
   );
