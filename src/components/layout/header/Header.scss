@@ -10,7 +10,7 @@
 .flex-end {
   justify-content: flex-end;
   align-items: flex-end;
-  margin-right: 2vh;
+  margin-right: 5vh;
 }
 
 .flex-start {
@@ -29,7 +29,8 @@
   @include fadein();
   .Header-Item {
     display: flex;
-
+    position: relative;
+    height: 100%;
     .Title {
       font-family: roboto, sans-serif;
       font-size: 3vh;
@@ -38,7 +39,13 @@
     }
 
     .Logo {
-      width: 3vh;
+      position: absolute;
+      height: 100%;
+      width: 2vw;
+      img {
+        width: auto;
+        height: 95%;
+      }
     }
   }
 }

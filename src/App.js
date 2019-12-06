@@ -65,7 +65,7 @@ const App = () => {
           name: "burgers",
           description: "All 100% Beef, All Angus",
           pic:
-            "https://images.unsplash.com/photo-1570250386140-243b6c5c719d?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=400&fit=max&ixid=eyJhcHBfaWQiOjk5NTE5fQ",
+            "https://dummyimage.com/2560x1600/000000/000000.png",
           items: [
             {
               id: 1,
@@ -122,7 +122,7 @@ const App = () => {
           name: "drinks",
           description: "Get Hydrated!?",
           pic:
-            "https://images.unsplash.com/photo-1572625560245-6283a1867c18?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=400&fit=max&ixid=eyJhcHBfaWQiOjk5NTE5fQ",
+            "https://dummyimage.com/2560x1600/000000/000000.png",
           items: [
             {
               id: 7,
@@ -147,7 +147,7 @@ const App = () => {
           name: "sides",
           description: "A timeless assortment",
           pic:
-            "https://images.unsplash.com/photo-1460400508371-ab23b340c3e4?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=400&fit=max&ixid=eyJhcHBfaWQiOjk5NTE5fQ",
+            "https://dummyimage.com/2560x1600/000000/000000.png",
           items: [
             {
               id: 9,
@@ -204,18 +204,25 @@ const App = () => {
       title: {
         name: "宝宝中文 Po Po",
         font: "'Yeon Sung', cursive",
-        color: "#afafaf",
+        color: "#000000",
         size: "3.75vh"
       },
       logo: Logo,
       backgroundImage: "",
-      backgroundColor: "#333333"
+      backgroundColor: "#ffffff"
     },
     menu: {
       backgroundColor: "#ffffff",
       backgroundImage: "",
-      menuItemList: {
-        itemInformation: {}
+      MenuCatagoryList: {
+        MenuCatagory: {
+          name: {
+            color: "#ffffff",
+          },
+          description: {
+            color: "#ffffff",
+          },
+        },
       }
     },
     order: {},
@@ -257,8 +264,8 @@ const App = () => {
     },
     navbar: {
       backgroundImage: "",
-      backgroundColor: "#333333",
-      color: "#afafaf"
+      backgroundColor: "#ffffff",
+      color: "#000000"
     }
   };
   const languages = [

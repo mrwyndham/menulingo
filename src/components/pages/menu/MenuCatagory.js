@@ -2,7 +2,7 @@ import React from 'react';
 import './MenuCatagory.scss';
 
 const MenuCatagory = props => {
-  let style = {
+  const filter = {
     contentBackground: {
       backgroundImage: `url(${props.image})`,
       backgroundPosition: '25% 70%',
@@ -14,11 +14,19 @@ const MenuCatagory = props => {
     <div className="MenuCatagory">
       <div
         className="MenuCatagory--Image"
-        style={style.contentBackground}
+        style={filter.contentBackground}
       ></div>
       <div className="MenuCatagory--Text">
-        <div className="MenuCatagory--Name">{props.name}</div>
-        <div className="MenuCatagory--Description">{props.description}</div>
+        <div className="MenuCatagory--Name" 
+          style={{color: `${props.style.name.color}`}}
+        >
+          {props.name}
+        </div>
+        <div className="MenuCatagory--Description"
+          style={{color: `${props.style.name.color}`}}
+        >
+          {props.description}
+        </div>
       </div>
     </div>
   );
