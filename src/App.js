@@ -64,8 +64,7 @@ const App = () => {
           id: 1,
           name: "burgers",
           description: "All 100% Beef, All Angus",
-          pic:
-            "https://dummyimage.com/2560x1600/000000/000000.png",
+          pic: "https://dummyimage.com/2560x1600/000000/000000.png",
           items: [
             {
               id: 1,
@@ -121,8 +120,7 @@ const App = () => {
           id: 2,
           name: "drinks",
           description: "Get Hydrated!?",
-          pic:
-            "https://dummyimage.com/2560x1600/000000/000000.png",
+          pic: "https://dummyimage.com/2560x1600/000000/000000.png",
           items: [
             {
               id: 7,
@@ -146,8 +144,7 @@ const App = () => {
           id: 3,
           name: "sides",
           description: "A timeless assortment",
-          pic:
-            "https://dummyimage.com/2560x1600/000000/000000.png",
+          pic: "https://dummyimage.com/2560x1600/000000/000000.png",
           items: [
             {
               id: 9,
@@ -189,13 +186,36 @@ const App = () => {
             }
           ],
           description: "This is a description",
-          pic:
-            "https://images.unsplash.com/photo-1460400508371-ab23b340c3e4?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=400&fit=max&ixid=eyJhcHBfaWQiOjk5NTE5fQ"
+          pic: "https://dummyimage.com/2560x1600/000000/000000.png"
         }
       },
       currency: {
         symbol: "$",
         code: "USD"
+      }
+    },
+    about: {
+      title: "Welcome",
+      tagline: "This is Po Po, This is Chinese",
+      description:
+        "We serve chinese food here. Please eat from our tables. No dogs allowed",
+      openHours: {
+        title: "Opening Hours",
+        table: [
+          { day: "Monday", time: "8:00am-9:00pm" },
+          { day: "Tuesday", time: "8:00am-9:00pm" },
+          { day: "Wednesday", time: "8:00am-9:00pm" },
+          { day: "Thursday", time: "8:00am-9:00pm" },
+          { day: "Friday", time: "8:00am-9:00pm" },
+          { day: "Saturday", time: "8:00am-9:00pm" },
+          { day: "Sunday", time: "8:00am-9:00pm" },
+          { day: "Holidays", time: "closed" }
+        ]
+      },
+      contact: {
+        title: "Visit Us",
+        c2a: "Reserve Now",
+        phone: "08 9293 3922"
       }
     }
   };
@@ -217,12 +237,12 @@ const App = () => {
       MenuCatagoryList: {
         MenuCatagory: {
           name: {
-            color: "#ffffff",
+            color: "#ffffff"
           },
           description: {
-            color: "#ffffff",
-          },
-        },
+            color: "#ffffff"
+          }
+        }
       }
     },
     order: {},
@@ -254,7 +274,7 @@ const App = () => {
           text:
             "We serve chinese food here. Please eat from our tables. No dogs allowed",
           font: "'Yeon Sung', cursive",
-          color: "#afafaf",
+          color: "#000000",
           size: "3.75vh"
         }
       },
@@ -436,7 +456,9 @@ const App = () => {
         />
         <Route
           path="/about"
-          component={() => <About style={clientStyle.about} />}
+          component={() => (
+            <About style={clientStyle.about} data={clientData.about} />
+          )}
         />
         <Route
           path="/start"

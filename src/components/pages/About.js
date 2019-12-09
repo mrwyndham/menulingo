@@ -1,15 +1,18 @@
 import React from "react";
 import "./About.scss";
 import Map from "./about/MapContainer";
+import OpenHours from "./about/OpenHours";
+import ContactCard from "./about/ContactCard";
 
 const About = props => {
-  const { introduction, description } = props.style;
+  const { introduction } = props.style;
+  const { title, tagline, openHours, description, contact } = props.data;
   return (
     <div className="About">
       <div className="About--Showcase">
         <img
           className="About--Image"
-          src="https://media-cdn.tripadvisor.com/media/photo-o/0b/4d/47/80/44.jpg"
+          src="https://dummyimage.com/2560x1600/000000/ffffff.png"
           alt=""
         />
       </div>
@@ -21,7 +24,7 @@ const About = props => {
           className="About--Title"
           style={{ fontFamily: `${introduction.title.data.font}` }}
         >
-          {introduction.title.data.text}
+          {title}
         </h1>
         <h2
           className="About--TagLine"
@@ -30,49 +33,28 @@ const About = props => {
             fontSize: `${introduction.tagline.data.size}`
           }}
         >
-          {introduction.tagline.data.text}
+          {tagline}
         </h2>
       </section>
       <section className="About--Description">
         <p
           style={{
-            fontFamily: `${description.data.font}`,
-            fontSize: `${description.data.size}`
+            fontFamily: `${""}`,
+            fontSize: `${""}`
           }}
         >
-          {description.data.text}
+          {description}
         </p>
       </section>
-      <section className="About--Time">
-        <h1>OPENING HOURS</h1>
-        <div className="Time">
-          <div>
-            <p>Monday</p>
-            <p>Tuesday</p>
-            <p>Wednesday</p>
-            <p>Thursday</p>
-            <p>Friday</p>
-            <p>Saturday</p>
-            <p>Sunday</p>
-          </div>
-          <div>
-            <p>Monday</p>
-            <p>Tuesday</p>
-            <p>Wednesday</p>
-            <p>Thursday</p>
-            <p>Friday</p>
-            <p>Saturday</p>
-            <p>Sunday</p>
-          </div>
-        </div>
-      </section>
+      <OpenHours data={openHours} />
+      <ContactCard data={contact} />
       <section className="About--Contact">
         <div className="Contact--Container">
-          <h1 className="Contact--Title">Visit Us</h1>
+          <h1 className="Contact--Title">{contact.title}</h1>
           <div className="Contact--Phone">
-            <h3>Reserve Now</h3>
+            <h3>{contact.c2a}</h3>
             <a href="tel:0863944349">
-              <div>+00 000 000 000</div>
+              <div>{contact.phone}</div>
             </a>
           </div>
         </div>
