@@ -4,10 +4,11 @@ const OpenHours = props => {
   const { title, table } = props.data;
   const style = {
     backgroundColor: "#f1f1f1",
-    borderRadius: "10px",
-    padding: "2vh",
-    paddingTop: "4vh",
-    marginBottom: "1vh",
+    padding: "9vh 4vh",
+    fontSize: "2.75vh",
+    title: {
+      fontSize: "5vh"
+    },
     table: {
       paddingTop: "2vh",
       marginLeft: "auto",
@@ -24,7 +25,7 @@ const OpenHours = props => {
   ));
   return (
     <section style={style}>
-      <h1>{title}</h1>
+      <h1 style={style.title}>{title}</h1>
       <table style={style.table}>
         <tbody>{renderedRows}</tbody>
       </table>
