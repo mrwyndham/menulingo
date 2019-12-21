@@ -3,7 +3,7 @@ import React from "react";
 const OpenHours = props => {
   const { title, table } = props.data;
   const style = {
-    backgroundColor: "#f1f1f1",
+    backgroundColor: "#ffffff",
     padding: "9vh 4vh",
     fontSize: "2.75vh",
     title: {
@@ -14,7 +14,7 @@ const OpenHours = props => {
       marginLeft: "auto",
       marginRight: "auto",
       textAlign: "center",
-      borderSpacing: "4vh 1vh"
+      borderSpacing: "4vh 0.5vh"
     }
   };
   const renderedRows = table.map((row, index) => (

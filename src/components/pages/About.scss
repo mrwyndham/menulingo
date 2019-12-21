@@ -16,73 +16,7 @@
       border-radius: inherit;
     }
   }
-  .About--Introduction {
-    padding: 3vh 2vh;
-    .About--Title {
-      background-color: #ffffff;
-      text-decoration: underline;
-      padding: 0vh 2vh;
-      font-weight: 800;
-      color: #e02424;
-    }
-  }
 
-  .About--Description {
-    background-color: #000000;
-    padding: 9vh 4vh;
-    font-weight: 600;
-    .About--TagLine {
-      margin: 0;
-      padding-bottom: 3vh;
-      color: #ffffff;
-    }
-    p {
-      margin: 0;
-      color: #57babb;
-      font-family: roboto, "serif";
-      border-radius: 10px;
-    }
-  }
-
-  .About--Time {
-    padding: 0 2vh;
-    padding-top: 2vh;
-    border-radius: 10px;
-    background-color: blue;
-    .Time {
-      display: grid;
-      background-color: red;
-      grid-template-columns: 50% 50%;
-    }
-  }
-
-  .About--Contact {
-    border-radius: 10px;
-    padding: 1.5vh 2vh;
-    margin: 1vh 0;
-    background-color: #f1f1f1;
-    fill: #e02424;
-    color: #e02424;
-    .Contact--Container {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      font-size: 3vh;
-      font-weight: 600;
-      .Contact--Title {
-        font-size: 4vh;
-      }
-    }
-    .Contact--Icons {
-      display: flex;
-      justify-content: center;
-      .Icons {
-        width: 8vw;
-        max-width: 40px;
-        margin: 1vh 4vw;
-      }
-    }
-  }
   .About--Map {
     margin: 1vh 0;
     .Map__Responsive {

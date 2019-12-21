@@ -1,0 +1,36 @@
+import React from "react";
+import PropTypes from "prop-types";
+
+const InfoCard = props => {
+  const componentStyle = {
+    backgroundColor: "#000000",
+    padding: "9vh 4vh",
+    header: {
+      margin: "0",
+      paddingBottom: "3vh",
+      color: "#ffffff",
+      fontSize: "5vh"
+    },
+    body: {
+      color: "#ffffff",
+      fontSize: "2.75vh",
+      margin: "0"
+    }
+  };
+  const { data } = props;
+  return (
+    <div style={componentStyle}>
+      <h2 style={componentStyle.header}>{data.tagline}</h2>
+      <p style={componentStyle.body}>{data.description}</p>
+    </div>
+  );
+};
+
+InfoCard.propTypes = {
+  data: PropTypes.exact({
+    tagline: PropTypes.string.isRequired,
+    description: PropTypes.string.isRequired
+  })
+};
+
+export default InfoCard;

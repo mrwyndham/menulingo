@@ -1,7 +1,7 @@
 import React from "react";
 
 const ContactCard = props => {
-  const style = {
+  const componentStyle = {
     backgroundColor: "black",
     padding: "9vh 4vh",
     fontSize: "2.75vh",
@@ -11,11 +11,11 @@ const ContactCard = props => {
       fontSize: "5vh"
     },
     phone: {
-      color: "#ffffff"
-    },
-    email: {
       color: "#ffffff",
       paddingBottom: "2vh"
+    },
+    email: {
+      color: "#ffffff"
     },
     socials: {
       fill: "#ffffff",
@@ -29,25 +29,26 @@ const ContactCard = props => {
       }
     }
   };
-  const {} = props.style;
-  const { c2a, title, phone, email, socials } = props.data;
-  const renderedSocials = socials.map(social => (
-    <div style={style.socials.social}>{social}</div>
+  const { title, phone, email, socials } = props.data;
+  const renderedSocials = socials.map((social, index) => (
+    <div key={index} style={componentStyle.socials.social}>
+      <a href={social.url}>{social.icon}</a>
+    </div>
   ));
   return (
-    <div style={style}>
-      <h1 style={style.title}>{title}</h1>
-      <div style={style.email}>
+    <div style={componentStyle}>
+      <h1 style={componentStyle.title}>{title}</h1>
+      <div style={componentStyle.phone}>
         <a href={`tel:${phone}`}>
           <div>{phone}</div>
         </a>
       </div>
-      <div style={style.phone}>
+      <div style={componentStyle.email}>
         <a href={`mailto:${email}`}>
           <div>{email}</div>
         </a>
       </div>
-      <div style={style.socials}>{renderedSocials}</div>
+      <div style={componentStyle.socials}>{renderedSocials}</div>
     </div>
   );
 };
