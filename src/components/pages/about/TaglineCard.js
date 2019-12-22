@@ -7,8 +7,8 @@ const HeadlineCard = props => {
     padding: "4.3vh 2vh",
     text: {
       color: "#000000",
-      fontWeight: "400",
-      fontSize: "3.75vh"
+      fontWeight: "800",
+      fontSize: "3vh"
     }
   };
   return (

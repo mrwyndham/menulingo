@@ -4,12 +4,17 @@ const ContactCard = props => {
   const componentStyle = {
     backgroundColor: "black",
     padding: "10vh 4vh",
+    paddingBottom: "26vh",
     fontSize: "3vh",
+    fontWeight: "400",
     color: "#ffffff",
     title: {
       color: "#ffffff",
       paddingBottom: "3vh",
-      fontSize: "5vh"
+      fontSize: "4vh"
+    },
+    address: {
+      padding: "0 6vh"
     },
     phone: {
       color: "#ffffff",
@@ -24,13 +29,13 @@ const ContactCard = props => {
       justifyContent: "center",
       alignItems: "center",
       social: {
-        maxWidth: "40px",
-        width: "8vw",
-        margin: "4vh 2vw 0 2vh"
+        maxWidth: "100px",
+        width: "4vh",
+        margin: "4vh 3vw 0 3vh"
       }
     }
   };
-  const { title, phone, email, socials, address } = props.data;
+  const { phone, email, socials } = props.data;
   const renderedSocials = socials.map((social, index) => (
     <div key={index} style={componentStyle.socials.social}>
       <a href={social.url}>{social.icon}</a>
@@ -38,10 +43,6 @@ const ContactCard = props => {
   ));
   return (
     <div style={componentStyle}>
-      <h1 style={componentStyle.title}>{title}</h1>
-      <div style={componentStyle.phone}>
-        <div>{address}</div>
-      </div>
       <div style={componentStyle.phone}>
         <a href={`tel:${phone}`}>
           <div>{phone}</div>

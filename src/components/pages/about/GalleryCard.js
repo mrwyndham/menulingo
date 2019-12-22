@@ -4,18 +4,18 @@ import PropTypes from "prop-types";
 const GalleryCard = props => {
   const componentStyle = {
     padding: "10vh 0",
-    backgroundColor: "#ffffff",
-    color: "#000000",
+    backgroundColor: "#000000",
+    color: "#ffffff",
     title: {
-      fontSize: "5vh"
+      fontSize: "4vh"
     },
     subtitle: {
-      paddingBottom: "2vh",
-      fontWeight: "800",
+      paddingBottom: "1vh",
+      fontWeight: "400",
       fontSize: "2.5vh"
     },
     imageWrapper: {
-      height: "50vh",
+      height: "30vh",
       image: {
         filter: "grayscale(100%)",
         width: "100%",

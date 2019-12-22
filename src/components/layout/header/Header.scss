@@ -23,9 +23,9 @@
   padding-top: 2vh;
   padding-bottom: 2vh;
   background: #ffffff;
-  border-bottom: 3px solid #e5e5e5;
+  // border-bottom: 3px solid #e5e5e5;
   display: grid;
-  grid-template-columns: 20vw 59vw 21vw;
+  grid-template-columns: 20vw 60vw 20vw;
   @include fadein();
   .Header-Item {
     display: flex;

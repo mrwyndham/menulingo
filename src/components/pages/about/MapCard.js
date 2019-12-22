@@ -3,15 +3,16 @@ import { Map, GoogleApiWrapper } from "google-maps-react";
 
 const componentStyle = {
   overflow: "hidden",
-  paddingBottom: "57.25%",
   position: "relative",
-  height: "0",
+  height: "32vh",
+  margin: "4vh",
   mapStyles: {
-    width: "100%",
-    height: "100%",
-    left: "0",
-    top: "0",
-    borderRadius: "0px"
+    boxSizing: "content-box",
+    border: "1vh solid #000000",
+    width: "30vh",
+    height: "30vh",
+    margin: "0 auto",
+    borderRadius: "50%"
   }
 };
 

@@ -1,6 +1,6 @@
 import React from "react";
 import "./About.scss";
-import MapCard from "./about/MapCard";
+import LocationCard from "./about/LocationCard";
 import OpenHoursCard from "./about/OpenHoursCard";
 import ContactCard from "./about/ContactCard";
 import InfoCard from "./about/InfoCard";
@@ -17,7 +17,8 @@ const About = props => {
     contact,
     tagline,
     showcase,
-    gallery
+    gallery,
+    location
   } = props.data;
   return (
     <div className="About">
@@ -25,11 +26,10 @@ const About = props => {
       <HeadlineCard data={headline} />
       <InfoCard data={info} />
       <TaglineCard data={tagline} />
-      <PictureCard data={showcase} />
+      <GalleryCard data={gallery} />
+      <LocationCard data={location} />
       <OpenHoursCard data={openHours} />
       <ContactCard data={contact} />
-      <MapCard />
-      <GalleryCard data={gallery} />
     </div>
   );
 };
