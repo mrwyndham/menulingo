@@ -4,12 +4,11 @@ import PropTypes from "prop-types";
 const HeadlineCard = props => {
   const { data } = props;
   const componentStyle = {
-    padding: "4.3vh 8vh",
+    padding: "4.3vh 2vh",
     text: {
-      textDecoration: "underline",
       color: "#000000",
-      fontWeight: "800",
-      fontSize: "2.75vh"
+      fontWeight: "400",
+      fontSize: "3.75vh"
     }
   };
   return (

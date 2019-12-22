@@ -1,31 +1,35 @@
 import React from "react";
 import "./About.scss";
-import Map from "./about/MapContainer";
-import OpenHours from "./about/OpenHours";
+import MapCard from "./about/MapCard";
+import OpenHoursCard from "./about/OpenHoursCard";
 import ContactCard from "./about/ContactCard";
 import InfoCard from "./about/InfoCard";
 import HeadlineCard from "./about/HeadlineCard";
+import TaglineCard from "./about/TaglineCard";
+import GalleryCard from "./about/GalleryCard";
+import PictureCard from "./about/PictureCard";
 
 const About = props => {
-  const { title, tagline, openHours, description, contact } = props.data;
+  const {
+    headline,
+    info,
+    openHours,
+    contact,
+    tagline,
+    showcase,
+    gallery
+  } = props.data;
   return (
     <div className="About">
-      <div className="About--Showcase">
-        <img
-          className="About--Image"
-          src="https://dummyimage.com/2560x1600/000000/ffffff.png"
-          alt=""
-        />
-      </div>
-      <HeadlineCard data={title} />
-      <InfoCard data={{ description, tagline }} />
-      <OpenHours data={openHours} />
+      <PictureCard data={showcase} />
+      <HeadlineCard data={headline} />
+      <InfoCard data={info} />
+      <TaglineCard data={tagline} />
+      <PictureCard data={showcase} />
+      <OpenHoursCard data={openHours} />
       <ContactCard data={contact} />
-      <section className="About--Map">
-        <div className="Map__Responsive">
-          <Map />
-        </div>
-      </section>
+      <MapCard />
+      <GalleryCard data={gallery} />
     </div>
   );
 };

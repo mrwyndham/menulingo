@@ -3,8 +3,9 @@ import React from "react";
 const ContactCard = props => {
   const componentStyle = {
     backgroundColor: "black",
-    padding: "9vh 4vh",
-    fontSize: "2.75vh",
+    padding: "10vh 4vh",
+    fontSize: "3vh",
+    color: "#ffffff",
     title: {
       color: "#ffffff",
       paddingBottom: "3vh",
@@ -29,7 +30,7 @@ const ContactCard = props => {
       }
     }
   };
-  const { title, phone, email, socials } = props.data;
+  const { title, phone, email, socials, address } = props.data;
   const renderedSocials = socials.map((social, index) => (
     <div key={index} style={componentStyle.socials.social}>
       <a href={social.url}>{social.icon}</a>
@@ -38,6 +39,9 @@ const ContactCard = props => {
   return (
     <div style={componentStyle}>
       <h1 style={componentStyle.title}>{title}</h1>
+      <div style={componentStyle.phone}>
+        <div>{address}</div>
+      </div>
       <div style={componentStyle.phone}>
         <a href={`tel:${phone}`}>
           <div>{phone}</div>

@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 const InfoCard = props => {
   const componentStyle = {
     backgroundColor: "#000000",
-    padding: "9vh 4vh",
+    padding: "10vh 6vh",
     header: {
       margin: "0",
       paddingBottom: "3vh",
@@ -13,7 +13,7 @@ const InfoCard = props => {
     },
     body: {
       color: "#ffffff",
-      fontSize: "2.75vh",
+      fontSize: "3vh",
       margin: "0"
     }
   };

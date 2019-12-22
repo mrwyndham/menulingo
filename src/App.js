@@ -191,10 +191,17 @@ const App = () => {
       }
     },
     about: {
-      title: "We are open now",
-      tagline: "Welcome",
-      description:
-        "No drama vegetarian quizzo beach days. Ask me anything nothing too complicated I'm really good at working on my body and my mind Arrested Development, ask me anything I'm looking for bacon Catcher in the Rye mountain biking. Catcher in the Rye only looking for something casual I'm pretty laid-back I love the smell of not looking for a penpal I have a crush on.",
+      showcase: "https://dummyimage.com/2560x1600/000000/ffffff.png",
+      headline: "We are open now",
+      tagline:
+        "If you like having wild fun and love chinese you will love Po Po",
+      gallery:
+        "https://cdn.pixabay.com/photo/2018/07/14/15/27/cafe-3537801_960_720.jpg",
+      info: {
+        tagline: "Welcome",
+        description:
+          "No drama vegetarian quizzo beach days. Ask me anything nothing too complicated I'm really good at working on my body and my mind Arrested Development, ask me anything I'm looking for bacon Catcher in the Rye mountain biking. Catcher in the Rye only looking for something casual I'm pretty laid-back I love the smell of not looking for a penpal I have a crush on."
+      },
       openHours: {
         title: "Opening Hours",
         table: [
@@ -211,6 +218,7 @@ const App = () => {
       contact: {
         title: "Visit Us",
         c2a: "Reserve Now",
+        address: "5 Dev St, Devington, Western Australia",
         phone: "08 9293 3922",
         email: "reception@popo.br",
         socials: [

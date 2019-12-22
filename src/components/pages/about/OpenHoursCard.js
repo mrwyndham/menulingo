@@ -1,16 +1,16 @@
 import React from "react";
 
-const OpenHours = props => {
+const OpenHoursCard = props => {
   const { title, table } = props.data;
-  const style = {
+  const componentStyle = {
     backgroundColor: "#ffffff",
-    padding: "9vh 4vh",
-    fontSize: "2.75vh",
+    padding: "10vh 4vh",
+    fontSize: "2.5vh",
     title: {
-      fontSize: "5vh"
+      fontSize: "5vh",
+      paddingBottom: "3vh"
     },
     table: {
-      paddingTop: "2vh",
       marginLeft: "auto",
       marginRight: "auto",
       textAlign: "center",
@@ -24,13 +24,13 @@ const OpenHours = props => {
     </tr>
   ));
   return (
-    <section style={style}>
-      <h1 style={style.title}>{title}</h1>
-      <table style={style.table}>
+    <section style={componentStyle}>
+      <h1 style={componentStyle.title}>{title}</h1>
+      <table style={componentStyle.table}>
         <tbody>{renderedRows}</tbody>
       </table>
     </section>
   );
 };
 
-export default OpenHours;
+export default OpenHoursCard;
