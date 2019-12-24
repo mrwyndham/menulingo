@@ -9,7 +9,7 @@ const InfoCard = props => {
       margin: "0",
       paddingBottom: "3vh",
       color: "#ffffff",
-      fontSize: "4vh"
+      fontSize: "5vh"
     },
     body: {
       fontWeight: "800",

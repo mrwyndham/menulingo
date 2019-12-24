@@ -7,12 +7,12 @@ const GalleryCard = props => {
     backgroundColor: "#000000",
     color: "#ffffff",
     title: {
-      fontSize: "4vh"
+      fontSize: "5vh"
     },
     subtitle: {
       paddingBottom: "1vh",
       fontWeight: "400",
-      fontSize: "2.5vh"
+      fontSize: "2vh"
     },
     imageWrapper: {
       height: "30vh",

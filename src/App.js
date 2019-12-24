@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
-import Logo from "./assets/logo/icon_primary.svg";
+import Logo from "./assets/logo/test-logo.svg";
 import Menu from "./components/pages/Menu";
 import Start from "./components/pages/Start";
 import Order from "./components/pages/Order";
@@ -10,6 +10,7 @@ import Header from "./components/layout/header/Header";
 import Navbar from "./components/layout/navbar/Navbar";
 import MenuItemList from "./components/pages/menu/MenuItemList";
 import ItemInformation from "./components/pages/menu/MenuItemControl/Information/ItemInformation";
+import NexmenuState from "./context/nexmenu/nexmenuState";
 import "./App.scss";
 
 const App = () => {
@@ -191,8 +192,11 @@ const App = () => {
       }
     },
     about: {
-      showcase:
-        "https://cdn.pixabay.com/photo/2018/07/14/15/27/cafe-3537801_960_720.jpg",
+      showcase: {
+        image:
+          "https://cdn.pixabay.com/photo/2018/07/14/15/27/cafe-3537801_960_720.jpg",
+        text: "Italian \n Streetfood"
+      },
       headline: "We are open now",
       tagline:
         "If you like having wild fun and love chinese you will love Po Po",
@@ -273,7 +277,7 @@ const App = () => {
   const clientStyle = {
     header: {
       title: {
-        name: "El Buro",
+        name: "La Barbosa",
         font: "default",
         color: "#000000",
         size: "4.5vh"
@@ -448,62 +452,64 @@ const App = () => {
     }
   ];
   return (
-    <div className="overflow">
-      <Router>
-        <div className="fixed-top">
-          <Header style={clientStyle.header} language={languages} />
-        </div>
-        <Route
-          path="/"
-          exact
-          component={() => (
-            <Menu
-              catagories={clientData.menu.catagories}
-              style={clientStyle.menu}
-              order={handleOrder}
-              currency={clientData.menu.currency}
-            />
-          )}
-        />
-        <Route path="/catagory/:catagory" exact component={MenuItemList} />
-        <Route
-          path="/catagory/:catagory/:item"
-          exact
-          component={ItemInformation}
-        />
-        <Route
-          path="/order"
-          component={() => (
-            <Order
-              orders={orders}
-              style={clientStyle.menu.order}
-              currency={clientData.menu.currency}
-              orderUpdate={[handleChangeOrder, handleRemoveOrder]}
-              selectOrderItem={handleSelectOrderItem}
-              selectOrderItemState={selectedOrderID}
-              handlePay={handlePay}
-            />
-          )}
-        />
-        <Route
-          path="/rate"
-          component={() => <Rate style={clientStyle.rate} />}
-        />
-        <Route
-          path="/about"
-          component={() => (
-            <About style={clientStyle.about} data={clientData.about} />
-          )}
-        />
-        <Route
-          path="/start"
-          component={() => <Start style={clientStyle.start} />}
-        />
-        <div className="fixed-bottom">
-          <Navbar style={clientStyle} data={clientData} />
-        </div>
-      </Router>
-    </div>
+    <NexmenuState>
+      <div className="overflow">
+        <Router>
+          <div className="fixed-top">
+            <Header style={clientStyle.header} language={languages} />
+          </div>
+          <Route
+            path="/"
+            exact
+            component={() => (
+              <Menu
+                catagories={clientData.menu.catagories}
+                style={clientStyle.menu}
+                order={handleOrder}
+                currency={clientData.menu.currency}
+              />
+            )}
+          />
+          <Route path="/catagory/:catagory" exact component={MenuItemList} />
+          <Route
+            path="/catagory/:catagory/:item"
+            exact
+            component={ItemInformation}
+          />
+          <Route
+            path="/order"
+            component={() => (
+              <Order
+                orders={orders}
+                style={clientStyle.menu.order}
+                currency={clientData.menu.currency}
+                orderUpdate={[handleChangeOrder, handleRemoveOrder]}
+                selectOrderItem={handleSelectOrderItem}
+                selectOrderItemState={selectedOrderID}
+                handlePay={handlePay}
+              />
+            )}
+          />
+          <Route
+            path="/rate"
+            component={() => <Rate style={clientStyle.rate} />}
+          />
+          <Route
+            path="/about"
+            component={() => (
+              <About style={clientStyle.about} data={clientData.about} />
+            )}
+          />
+          <Route
+            path="/start"
+            component={() => <Start style={clientStyle.start} />}
+          />
+          <div className="fixed-bottom">
+            <Navbar style={clientStyle} data={clientData} />
+          </div>
+        </Router>
+      </div>
+    </NexmenuState>
   );
 };
 

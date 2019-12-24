@@ -11,7 +11,7 @@ const ContactCard = props => {
     title: {
       color: "#ffffff",
       paddingBottom: "3vh",
-      fontSize: "4vh"
+      fontSize: "5vh"
     },
     address: {
       padding: "0 6vh"

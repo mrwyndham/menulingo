@@ -5,12 +5,12 @@ import MapCard from "./MapCard";
 const LocationCard = props => {
   const componentStyle = {
     backgroundColor: "#ffffff",
-    padding: "10vh 4vh 0 4vh",
+    padding: "10vh 2vh 0 2vh",
     fontSize: "3vh",
     fontWeight: "800",
     color: "#000000",
     title: {
-      paddingBottom: "3vh",
+      paddingBottom: "3.5vh",
       fontSize: "3.5vh"
     },
     address: {
