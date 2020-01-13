@@ -1,69 +1,66 @@
-import React, { Component, Fragment } from "react";
+import React, { Component, Fragment, useState } from "react";
 import RatingSlider from "./rate/RateSlider";
 import "./Rate.scss";
+import PropTypes from "prop-types";
 
-export default class Rate extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      value: "",
-      ratingCatagory: []
-    };
-  }
-  handleRate = rateEvent => {
-    let dup = { ...this.state };
-    const duplicateEventIndex = dup.ratingCatagory.findIndex(
-      x => x.catagory === rateEvent.catagory
-    );
-
-    duplicateEventIndex !== -1
-      ? (dup = dup.ratingCatagory.splice(duplicateEventIndex, 1, rateEvent))
-      : (dup = dup.ratingCatagory.push(rateEvent));
-    this.setState({ dup });
-    console.log(this.state.ratingCatagory);
+const Rate = props => {
+  const [ratings, setRatings] = useState([]);
+  const [comment, setComment] = useState("");
+  const handleRate = rateEvent => {
+    let buildArray = ratings;
+    let index = buildArray.findIndex(x => x.catagory === rateEvent.catagory);
+    index === -1
+      ? buildArray.push(rateEvent)
+      : buildArray.splice(index, 1, rateEvent);
+    setRatings(buildArray);
+    console.log(ratings);
   };
 
-  handleChange = e => {
-    this.setState({ value: e.target.value });
+  const handleChange = e => {
+    setComment(e.target.value);
   };
 
-  handleSubmit = e => {
+  const handleSubmit = e => {
     alert("The form was submitted");
     e.preventDefault();
   };
+  const myRatings = ["Food", "Location", "Service", "Drinks"];
+  const renderRatings = myRatings.map((rating, index) => (
+    <Fragment key={index}>
+      <div htmlFor="" className="Rate--Labels">
+        {rating}
+      </div>
+      <RatingSlider handleRate={handleRate} catagory={rating} />
+    </Fragment>
+  ));
+  return (
+    <form onSubmit={handleSubmit} className="Rate">
+      <div className="Rate--Sliders">{renderRatings}</div>
 
-  render() {
-    const myRatings = ["Food", "Location", "Service", "Drinks"];
-    const renderRatings = myRatings.map((rating, index) => (
-      <Fragment key={index}>
-        <div htmlFor="" className="Rate--Labels">
-          {rating}
+      <div className="Rate--Comments">
+        <div className="Rate--Labels" htmlFor="">
+          Comment
         </div>
-        <RatingSlider handleRate={this.handleRate} catagory={rating} />
-      </Fragment>
-    ));
-    return (
-      <form onSubmit={this.handleSubmit} className="Rate">
-        <div className="Rate--Sliders">{renderRatings}</div>
-
-        <div className="Rate--Comments">
-          <div className="Rate--Labels" htmlFor="">
-            Comment
-          </div>
-          <input
-            className="Rate--Textbox"
-            type="text"
-            value={this.state.value}
-            onChange={this.handleChange}
-          />
-        </div>
-
         <input
-          className="Button--Primary__Sm__Red"
-          type="submit"
-          value="Submit"
+          className="Rate--Textbox"
+          type="text"
+          value={comment}
+          onChange={handleChange}
         />
-      </form>
-    );
-  }
-}
+      </div>
+
+      <input
+        className="Button--Primary__Sm__Red"
+        type="submit"
+        value="Submit"
+      />
+    </form>
+  );
+};
+
+export default Rate;
+
+Rate.propTypes = {
+  data: PropTypes.object.isRequired,
+  style: PropTypes.object.isRequired
+};
