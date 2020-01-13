@@ -4,15 +4,15 @@ import PropTypes from "prop-types";
 const InfoCard = props => {
   const componentStyle = {
     backgroundColor: "#000000",
-    padding: "10vh 6vh",
+    padding: "10vh 4vh 12vh 4vh",
     header: {
       margin: "0",
-      paddingBottom: "3vh",
+      paddingBottom: "1vh",
       color: "#ffffff",
       fontSize: "5vh"
     },
     body: {
-      fontWeight: "800",
+      fontWeight: "400",
       color: "#ffffff",
       fontSize: "2.5vh",
       margin: "0"

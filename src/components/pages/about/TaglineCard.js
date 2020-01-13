@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 const HeadlineCard = props => {
   const { data } = props;
   const componentStyle = {
-    padding: "4.3vh 2vh",
+    padding: "2vh 4vh",
     text: {
       color: "#000000",
       fontWeight: "800",

@@ -4,7 +4,7 @@ const ContactCard = props => {
   const componentStyle = {
     backgroundColor: "black",
     padding: "10vh 4vh",
-    paddingBottom: "26vh",
+    paddingBottom: "31vh",
     fontSize: "3vh",
     fontWeight: "400",
     color: "#ffffff",

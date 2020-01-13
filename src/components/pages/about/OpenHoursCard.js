@@ -4,18 +4,19 @@ const OpenHoursCard = props => {
   const { title, table } = props.data;
   const componentStyle = {
     backgroundColor: "#ffffff",
-    padding: "0vh 4vh 10vh 4vh",
+    padding: "0vh 4vh 8vh 4vh",
     fontSize: "2.5vh",
-    fontWeight: "800",
+    fontWeight: "400",
     title: {
       fontSize: "3.5vh",
-      paddingBottom: "3vh"
+      paddingBottom: "1vh"
     },
     table: {
       marginLeft: "auto",
+      fontSize: "2.5vh",
       marginRight: "auto",
       textAlign: "left",
-      borderSpacing: "2vh 2vh"
+      borderSpacing: "1vh 1vh"
     }
   };
   const renderedRows = table.map((row, index) => (

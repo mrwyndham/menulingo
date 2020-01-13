@@ -272,6 +272,10 @@ const App = () => {
           }
         ]
       }
+    },
+    rate: {
+      ratings: ["Food", "Location", "Service", "Drinks"],
+      comments: ["Tell us what you thought"]
     }
   };
   const clientStyle = {
@@ -301,7 +305,16 @@ const App = () => {
       }
     },
     order: {},
-    rate: {},
+    rate: {
+      backgroundColor: "none",
+      font: "default",
+      fontSize: "2vh",
+      color: "red",
+      fontWeight: "800",
+      slider: {
+        fill: "#000"
+      }
+    },
     about: {
       backgroundColor: "none",
       openline: {
@@ -492,7 +505,9 @@ const App = () => {
           />
           <Route
             path="/rate"
-            component={() => <Rate style={clientStyle.rate} />}
+            component={() => (
+              <Rate style={clientStyle.style} data={clientData.rate} />
+            )}
           />
           <Route
             path="/about"

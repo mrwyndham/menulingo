@@ -5,7 +5,7 @@ const componentStyle = {
   overflow: "hidden",
   position: "relative",
   height: "32vh",
-  margin: "4vh",
+  margin: "3vh",
   mapStyles: {
     boxSizing: "content-box",
     border: "1vh solid #000000",
