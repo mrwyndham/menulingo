@@ -1,9 +1,10 @@
-import React, { Component, Fragment, useState } from "react";
+import React, { Fragment, useState } from "react";
 import RatingSlider from "./rate/RateSlider";
 import "./Rate.scss";
 import PropTypes from "prop-types";
 
 const Rate = props => {
+  const { style, data } = props;
   const [ratings, setRatings] = useState([]);
   const [comment, setComment] = useState("");
   const handleRate = rateEvent => {
@@ -24,22 +25,20 @@ const Rate = props => {
     alert("The form was submitted");
     e.preventDefault();
   };
-  const myRatings = ["Food", "Location", "Service", "Drinks"];
-  const renderRatings = myRatings.map((rating, index) => (
+  const renderRatings = data.ratings.map((rating, index) => (
     <Fragment key={index}>
-      <div htmlFor="" className="Rate--Labels">
+      <div htmlFor="" className="Rate--Labels" style={style.slider.label}>
         {rating}
       </div>
       <RatingSlider handleRate={handleRate} catagory={rating} />
     </Fragment>
   ));
   return (
-    <form onSubmit={handleSubmit} className="Rate">
+    <form onSubmit={handleSubmit} className="Rate" style={style}>
       <div className="Rate--Sliders">{renderRatings}</div>
-
       <div className="Rate--Comments">
-        <div className="Rate--Labels" htmlFor="">
-          Comment
+        <div className="Rate--Labels" style={style.comment.label} htmlFor="">
+          {data.comment}
         </div>
         <input
           className="Rate--Textbox"
@@ -48,11 +47,11 @@ const Rate = props => {
           onChange={handleChange}
         />
       </div>
-
       <input
         className="Button--Primary__Sm__Red"
         type="submit"
         value="Submit"
+        style={style.button}
       />
     </form>
   );

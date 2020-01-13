@@ -18,7 +18,7 @@ const PictureCard = ({ data }) => {
     text: {
       color: "#ffffff",
       position: "absolute",
-      fontSize: "7vh",
+      fontSize: "8vh",
       zIndex: "5",
       letterSpacing: "-0.25vh",
       width: "100%",

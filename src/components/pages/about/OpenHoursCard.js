@@ -16,7 +16,7 @@ const OpenHoursCard = props => {
       fontSize: "2.5vh",
       marginRight: "auto",
       textAlign: "left",
-      borderSpacing: "1vh 1vh"
+      borderSpacing: "1vh 0.5vh"
     }
   };
   const renderedRows = table.map((row, index) => (

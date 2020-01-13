@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 
 const GalleryCard = props => {
   const componentStyle = {
-    padding: "10vh 0 13vh 0",
+    padding: "0",
     backgroundColor: "#000000",
     color: "#ffffff",
     title: {
@@ -17,7 +17,7 @@ const GalleryCard = props => {
       fontSize: "2.5vh"
     },
     imageWrapper: {
-      height: "40vh",
+      height: "60vh",
       image: {
         filter: "grayscale(100%)",
         width: "100%",
@@ -28,8 +28,8 @@ const GalleryCard = props => {
   };
   return (
     <div style={componentStyle}>
-      <h1 style={componentStyle.title}>Gallery</h1>
-      <p style={componentStyle.subtitle}>Swipe for more pictures</p>
+      {/* <h1 style={componentStyle.title}>Gallery</h1>
+      <p style={componentStyle.subtitle}>Swipe for more pictures</p> */}
       <div style={componentStyle.imageWrapper}>
         <img
           style={componentStyle.imageWrapper.image}

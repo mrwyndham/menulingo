@@ -19,7 +19,7 @@ export class RateSlider extends Component {
       data.push(
         <div
           key={i}
-          style={i <= rating ? { fill: "#ff493c" } : { fill: "#555555" }}
+          style={i <= rating ? { fill: "#000" } : { fill: "#bbbbbb" }}
           id={i}
           onClick={this.handleStarSelect}
         >
