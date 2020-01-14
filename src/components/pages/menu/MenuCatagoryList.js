@@ -1,15 +1,15 @@
-import React from "react";
+import React, { Fragment } from "react";
 import { Link } from "react-router-dom";
 import MenuCatagory from "./MenuCatagory";
 
 const MenuCatagoryList = props => {
-  const { items, order, catagory, currency, style } = props
+  const { items, order, catagory, currency, style } = props;
   // const items = props.items;
   // const order = props.order;
   // const catagory = props.name;
   // const currency = props.currency;
   return (
-    <div>
+    <Fragment>
       <Link
         to={{
           pathname: `/catagory/${catagory}`,
@@ -27,7 +27,7 @@ const MenuCatagoryList = props => {
           style={style.MenuCatagory}
         />
       </Link>
-    </div>
+    </Fragment>
   );
 };
 

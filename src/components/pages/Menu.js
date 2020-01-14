@@ -15,12 +15,7 @@ const Menu = props => {
     />
   ));
   return (
-    <div
-      className="Menu"
-      style={{
-        backgroundColor: `${style.backgroundColor}`
-      }}
-    >
+    <div className="Menu" style={style}>
       {renderCatagories}
     </div>
   );
