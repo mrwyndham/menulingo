@@ -67,49 +67,55 @@ const App = () => {
               id: 1,
               name: "Hamburger",
               price: "15.00",
-              description: "This is a description",
+              description:
+                "A grass fed Angus beef burger with chipotle mayonnaise, pepper jack cheese, caramelized onions, chimichurri sauce, and fried sweet plantains.",
               pic:
-                "https://images.unsplash.com/photo-1558980664-1db506751c6c?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=400&fit=max&ixid=eyJhcHBfaWQiOjk5NTE5fQ"
+                "https://www.seriouseats.com/recipes/images/2015/07/20150728-homemade-whopper-food-lab-35-1500x1125.jpg"
             },
             {
               id: 2,
               name: "Cheeseburger",
               price: "18.00",
-              description: "This is a description",
+              description:
+                "A Kobe beef patty decked out with foie gras, port onion marmalade, and truffle mayo. If you post a pic of it, make sure you tag it #livingmybestlife.",
               pic:
-                "https://images.unsplash.com/photo-1460400508371-ab23b340c3e4?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=400&fit=max&ixid=eyJhcHBfaWQiOjk5NTE5fQ"
+                "https://just-eat-prod-sg-res.cloudinary.com/image/upload/c_fill,d_au:cuisines:burgers-2.jpg,f_auto,q_auto,w_500/v1/au/restaurants/11004952.jpg"
             },
             {
               id: 3,
               name: "Cheeseburger",
               price: "18.00",
-              description: "This is a description",
+              description:
+                "A Kobe beef patty decked out with foie gras, port onion marmalade, and truffle mayo. If you post a pic of it, make sure you tag it #livingmybestlife.",
               pic:
-                "https://images.unsplash.com/photo-1460400508371-ab23b340c3e4?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=400&fit=max&ixid=eyJhcHBfaWQiOjk5NTE5fQ"
+                "https://just-eat-prod-sg-res.cloudinary.com/image/upload/c_fill,d_au:cuisines:burgers-2.jpg,f_auto,q_auto,w_500/v1/au/restaurants/11004952.jpg"
             },
             {
               id: 4,
               name: "Cheeseburger",
               price: "18.00",
-              description: "This is a description",
+              description:
+                "A Kobe beef patty decked out with foie gras, port onion marmalade, and truffle mayo. If you post a pic of it, make sure you tag it #livingmybestlife.",
               pic:
-                "https://images.unsplash.com/photo-1460400508371-ab23b340c3e4?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=400&fit=max&ixid=eyJhcHBfaWQiOjk5NTE5fQ"
+                "https://just-eat-prod-sg-res.cloudinary.com/image/upload/c_fill,d_au:cuisines:burgers-2.jpg,f_auto,q_auto,w_500/v1/au/restaurants/11004952.jpg"
             },
             {
               id: 5,
               name: "Cheeseburger",
               price: "18.00",
-              description: "This is a description",
+              description:
+                "A Kobe beef patty decked out with foie gras, port onion marmalade, and truffle mayo. If you post a pic of it, make sure you tag it #livingmybestlife.",
               pic:
-                "https://images.unsplash.com/photo-1460400508371-ab23b340c3e4?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=400&fit=max&ixid=eyJhcHBfaWQiOjk5NTE5fQ"
+                "https://just-eat-prod-sg-res.cloudinary.com/image/upload/c_fill,d_au:cuisines:burgers-2.jpg,f_auto,q_auto,w_500/v1/au/restaurants/11004952.jpg"
             },
             {
               id: 6,
               name: "Cheeseburger",
               price: "18.00",
-              description: "This is a description",
+              description:
+                "A Kobe beef patty decked out with foie gras, port onion marmalade, and truffle mayo. If you post a pic of it, make sure you tag it #livingmybestlife.",
               pic:
-                "https://images.unsplash.com/photo-1460400508371-ab23b340c3e4?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=400&fit=max&ixid=eyJhcHBfaWQiOjk5NTE5fQ"
+                "https://just-eat-prod-sg-res.cloudinary.com/image/upload/c_fill,d_au:cuisines:burgers-2.jpg,f_auto,q_auto,w_500/v1/au/restaurants/11004952.jpg"
             }
           ]
         },

@@ -3,26 +3,29 @@
   grid-template-columns: 25% 75%;
   justify-content: center;
   align-items: center;
-  margin-bottom: 2vh;
+  margin-bottom: 1vh;
+  padding: 0.5vh 0;
+  border-radius: 10px;
   position: relative;
-
+  background-color: none;
+  border: none;
   .MenuItem--Text {
     display: flex;
     flex-direction: column;
   }
 
   .MenuItem--Name {
-    color: #57babb;
+    color: #000;
     font-size: 2.5vh;
+    font-weight: 600;
     font-family: roboto, "serif";
     text-transform: uppercase;
   }
 
   .MenuItem--Description {
-    color: #e02424;
+    color: grey;
     font-size: 2vh;
     font-family: roboto, "serif";
-    text-transform: capitalize;
   }
 
   .MenuItem--Pic {
@@ -38,7 +41,8 @@
   }
 
   .MenuItem--Price {
-    font-size: 2.5vh;
+    font-size: 2.3vh;
     justify-self: end;
+    font-weight: 600;
   }
 }
