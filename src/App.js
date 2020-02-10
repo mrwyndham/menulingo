@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import Logo from "./assets/logo/test-logo.svg";
 import Menu from "./components/pages/Menu";
@@ -9,10 +9,14 @@ import Header from "./components/layout/header/Header";
 import Navbar from "./components/layout/navbar/Navbar";
 import MenuItemList from "./components/pages/menu/MenuItemList";
 import ItemInformation from "./components/pages/menu/MenuItemControl/Information/ItemInformation";
-import { Provider } from "react-redux";
+import { connect } from "react-redux";
 import "./App.scss";
+import { getMenu } from "./redux/actions/menuActions";
 
-const App = ({ store }) => {
+const App = ({ menu: { menu, loading }, getMenu }) => {
+  useEffect(() => {
+    getMenu();
+  }, []);
   const clientData = {
     menu: {
       catagories: {
@@ -434,52 +438,54 @@ const App = ({ store }) => {
     }
   ];
   return (
-    <Provider store={store}>
-      <div className="overflow">
-        <Router>
-          <div className="fixed-top">
-            <Header style={clientStyle.header} language={languages} />
-          </div>
-          <Route
-            path="/"
-            exact
-            component={() => (
-              <Menu
-                catagories={clientData.menu.catagories}
-                style={clientStyle.menu}
-                currency={clientData.menu.currency}
-              />
-            )}
-          />
-          <Route path="/catagory/:catagory" exact component={MenuItemList} />
-          <Route
-            path="/catagory/:catagory/:item"
-            exact
-            component={ItemInformation}
-          />
-          <Route
-            path="/rate"
-            component={() => (
-              <Rate style={clientStyle.rate} data={clientData.rate} />
-            )}
-          />
-          <Route
-            path="/about"
-            component={() => (
-              <About style={clientStyle.about} data={clientData.about} />
-            )}
-          />
-          <Route
-            path="/start"
-            component={() => <Start style={clientStyle.start} />}
-          />
-          <div className="fixed-bottom">
-            <Navbar style={clientStyle} data={clientData} />
-          </div>
-        </Router>
-      </div>
-    </Provider>
+    <div className="overflow">
+      <Router>
+        <div className="fixed-top">
+          <Header style={clientStyle.header} language={languages} />
+        </div>
+        <Route
+          path="/"
+          exact
+          component={() => (
+            <Menu
+              catagories={clientData.menu.catagories}
+              style={clientStyle.menu}
+              currency={clientData.menu.currency}
+            />
+          )}
+        />
+        <Route path="/catagory/:catagory" exact component={MenuItemList} />
+        <Route
+          path="/catagory/:catagory/:item"
+          exact
+          component={ItemInformation}
+        />
+        <Route
+          path="/rate"
+          component={() => (
+            <Rate style={clientStyle.rate} data={clientData.rate} />
+          )}
+        />
+        <Route
+          path="/about"
+          component={() => (
+            <About style={clientStyle.about} data={clientData.about} />
+          )}
+        />
+        <Route
+          path="/start"
+          component={() => <Start style={clientStyle.start} />}
+        />
+        <div className="fixed-bottom">
+          <Navbar style={clientStyle} data={clientData} />
+        </div>
+      </Router>
+    </div>
   );
 };
 
-export default App;
+const mapStateToProps = state => ({
+  menu: state.menu
+});
+
+export default connect(mapStateToProps, { getMenu })(App);
