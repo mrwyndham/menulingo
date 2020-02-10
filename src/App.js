@@ -1,59 +1,18 @@
-import React, { useState } from "react";
+import React from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import Logo from "./assets/logo/test-logo.svg";
 import Menu from "./components/pages/Menu";
 import Start from "./components/pages/Start";
-import Order from "./components/pages/Order";
 import Rate from "./components/pages/Rate";
 import About from "./components/pages/About";
 import Header from "./components/layout/header/Header";
 import Navbar from "./components/layout/navbar/Navbar";
 import MenuItemList from "./components/pages/menu/MenuItemList";
 import ItemInformation from "./components/pages/menu/MenuItemControl/Information/ItemInformation";
-import NexmenuState from "./context/nexmenu/nexmenuState";
+import { Provider } from "react-redux";
 import "./App.scss";
 
-const App = () => {
-  const [orders, setOrders] = useState([]);
-  const [selectedOrderID, setSelectedOrderID] = useState(null);
-
-  //Manages OrderItemControls
-  const handleSelectOrderItem = id => {
-    selectedOrderID === id ? setSelectedOrderID(null) : setSelectedOrderID(id);
-  };
-
-  //Adds an Item to the order and only updates amount if a duplicate order is found
-  const handleOrder = order => {
-    console.log(order);
-    let orderIndex = orders.findIndex(x => x.id === order.id);
-    if (orderIndex !== -1) {
-      let duplicateState = [...orders];
-      duplicateState[orderIndex].amount =
-        orders[orderIndex].amount + order.amount;
-      console.log(duplicateState[orderIndex].amount);
-      setOrders(duplicateState);
-    } else {
-      setOrders([order, ...orders]);
-    }
-  };
-  //Removes an order from state
-  const handleRemoveOrder = order => {
-    let duplicateState = [...orders];
-    let updatedState = duplicateState.filter(x => x.id !== order.id);
-    setOrders(updatedState);
-  };
-  //Updates an added order in the state
-  const handleChangeOrder = order => {
-    let orderIndex = orders.findIndex(x => x.id === order.id);
-    let duplicateState = [...orders];
-    duplicateState[orderIndex].amount = order.amount;
-    setOrders(duplicateState);
-  };
-
-  const handlePay = () => {
-    alert("You payed for your order");
-  };
-
+const App = ({ store }) => {
   const clientData = {
     menu: {
       catagories: {
@@ -475,7 +434,7 @@ const App = () => {
     }
   ];
   return (
-    <NexmenuState>
+    <Provider store={store}>
       <div className="overflow">
         <Router>
           <div className="fixed-top">
@@ -488,7 +447,6 @@ const App = () => {
               <Menu
                 catagories={clientData.menu.catagories}
                 style={clientStyle.menu}
-                order={handleOrder}
                 currency={clientData.menu.currency}
               />
             )}
@@ -498,20 +456,6 @@ const App = () => {
             path="/catagory/:catagory/:item"
             exact
             component={ItemInformation}
-          />
-          <Route
-            path="/order"
-            component={() => (
-              <Order
-                orders={orders}
-                style={clientStyle.menu.order}
-                currency={clientData.menu.currency}
-                orderUpdate={[handleChangeOrder, handleRemoveOrder]}
-                selectOrderItem={handleSelectOrderItem}
-                selectOrderItemState={selectedOrderID}
-                handlePay={handlePay}
-              />
-            )}
           />
           <Route
             path="/rate"
@@ -534,7 +478,7 @@ const App = () => {
           </div>
         </Router>
       </div>
-    </NexmenuState>
+    </Provider>
   );
 };
 
