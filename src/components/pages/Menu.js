@@ -3,13 +3,12 @@ import MenuCatagoryList from "./menu/MenuCatagoryList";
 import "./Menu.scss";
 
 const Menu = props => {
-  const { catagories, order, currency, style } = props;
-  const renderCatagories = Object.keys(catagories).map(catagory => (
+  const { catagories, currency, style } = props;
+  const renderCatagories = catagories.map(catagory => (
     <MenuCatagoryList
-      key={catagories[catagory].id}
-      items={catagories[catagory]}
-      catagory={catagories[catagory].name}
-      order={order}
+      key={catagory._id}
+      items={catagory.items}
+      catagory={catagory.name}
       currency={currency}
       style={style.MenuCatagoryList}
     />

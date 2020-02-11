@@ -15,7 +15,7 @@ export const getMenu = () => async dispatch => {
   } catch (err) {
     dispatch({
       type: MENU_ERROR,
-      payload: err.response.data
+      payload: "error"
     });
   }
 };
