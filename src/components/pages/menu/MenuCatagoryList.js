@@ -1,34 +1,27 @@
 import React, { Fragment } from "react";
 import { Link } from "react-router-dom";
 import MenuCatagory from "./MenuCatagory";
+import { connect } from "react-redux";
 
-const MenuCatagoryList = props => {
-  const { items, order, catagory, currency, style } = props;
-  // const items = props.items;
-  // const order = props.order;
-  // const catagory = props.name;
-  // const currency = props.currency;
+const MenuCatagoryList = ({
+  data: { pic, name, description },
+  menu: { language }
+}) => {
   return (
     <Fragment>
       <Link
         to={{
-          pathname: `/catagory/${catagory}`,
-          data: items,
-          order: order,
-          catagory: catagory,
-          currency: currency,
-          style: style.MenuCatagory
+          pathname: `/${language}/${name.toLowerCase()}/`
         }}
       >
-        <MenuCatagory
-          image={items.pic}
-          name={catagory}
-          description={items.description}
-          style={style.MenuCatagory}
-        />
+        <MenuCatagory image={pic} name={name} description={description} />
       </Link>
     </Fragment>
   );
 };
 
-export default MenuCatagoryList;
+const mapStateToProps = state => ({
+  menu: state.menu
+});
+
+export default connect(mapStateToProps)(MenuCatagoryList);

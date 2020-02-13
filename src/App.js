@@ -11,9 +11,9 @@ import MenuItemList from "./components/pages/menu/MenuItemList";
 import ItemInformation from "./components/pages/menu/MenuItemControl/Information/ItemInformation";
 import { connect } from "react-redux";
 import "./App.scss";
-import { getMenu } from "./redux/actions/menuActions";
+import { getMenu, setLanguage } from "./redux/actions/menuActions";
 
-const App = ({ menu: { menu, loading, language }, getMenu }) => {
+const App = ({ menu: { menu, loading, language }, getMenu, setLanguage }) => {
   useEffect(() => {
     getMenu();
   }, []);
@@ -512,6 +512,7 @@ const App = ({ menu: { menu, loading, language }, getMenu }) => {
   };
   const handleTranslate = lang => {
     if (lang === "default") {
+      setLanguage(menu.data.translatedMenus[0].language);
       return menu.data.translatedMenus[0].catagory;
     } else {
       for (const index in menu.data.translatedMenus) {
@@ -537,15 +538,9 @@ const App = ({ menu: { menu, loading, language }, getMenu }) => {
         <Route
           path="/"
           exact
-          component={() => (
-            <Menu
-              catagories={handleTranslate(language)}
-              style={clientStyle.menu}
-              currency={clientData.menu.currency}
-            />
-          )}
+          component={() => <Menu catagories={handleTranslate(language)} />}
         />
-        <Route path="/catagory/:catagory" exact component={MenuItemList} />
+        <Route path="/:language/:catagory" exact component={MenuItemList} />
         <Route
           path="/catagory/:catagory/:item"
           exact
@@ -579,4 +574,4 @@ const mapStateToProps = state => ({
   menu: state.menu
 });
 
-export default connect(mapStateToProps, { getMenu })(App);
+export default connect(mapStateToProps, { getMenu, setLanguage })(App);

@@ -4,66 +4,83 @@ import MenuCatagory from "./MenuCatagory";
 import Order from "./MenuItemControls";
 import "./MenuItemList.scss";
 import PropTypes from "prop-types";
+import { connect } from "react-redux";
 
-const MenuItemList = ({
-  location: {
-    data: { items, pic, name, description },
-    order,
-    catagory,
-    currency,
-    style
-  }
-}) => {
+const MenuItemList = ({ menu: { language, menu } }) => {
   const [selectedItem, setSelectedItem] = useState(null);
+
+  const fromHex = h => {
+    let s = "";
+    for (let i = 0; i < h.length; i += 2) {
+      s += String.fromCharCode(parseInt(h.substr(i, 2), 16));
+    }
+    return decodeURIComponent(escape(s));
+  };
+  //Handle page refresh by getting lang from uri
+  const handleTranslate = lang => {
+    if (lang === "default") {
+      const parts = `${window.location.href}`.split("/");
+      const end = parts.slice(parts.length - 3);
+      lang = `${end[0]}`;
+    }
+    for (const index in menu.data.translatedMenus) {
+      if (lang === menu.data.translatedMenus[index].language) {
+        return menu.data.translatedMenus[index];
+      }
+    }
+  };
+
+  const handle = (menu, catagory) => {
+    for (const index in menu.catagory) {
+      if (menu.catagory[index].name.toLowerCase() === catagory) {
+        return menu.catagory[index];
+      }
+    }
+  };
+
+  const handleLastSegment = () => {
+    const parts = `${window.location.href}`.split("/");
+    const filteredParts = parts.filter(e => e !== "");
+    let lastSegment = filteredParts.pop() || filteredParts.pop(); // handle potential trailing slash
+    if (language !== "en") {
+      lastSegment = fromHex(lastSegment);
+    }
+    return lastSegment;
+  };
 
   const handleSelectItem = id => {
     selectedItem === id ? setSelectedItem(null) : setSelectedItem(id);
   };
 
-  const renderItems = items.map(item => (
+  const renderItems = handle(
+    handleTranslate(language),
+    handleLastSegment()
+  ).items.map(item => (
     <div key={item.id} className="MenuItemList--Content">
       <MenuItem
         id={item.id}
         item={item}
-        currency={currency}
+        currency={menu.data.currency}
         onSelectItem={handleSelectItem}
       />
 
-      {item.id === selectedItem ? (
-        <Order
-          id={item.id}
-          item={item}
-          order={order}
-          catagory={catagory}
-          currency={currency}
-        />
-      ) : null}
+      {item.id === selectedItem ? <Order id={item.id} item={item} /> : null}
     </div>
   ));
   return (
     <div className="MenuItemList">
-      <MenuCatagory image={pic} name={name} description={description} style={style}/>
+      <MenuCatagory
+        image={handleTranslate(language).catagory[0].pic}
+        name={handleTranslate(language).catagory[0].name}
+        description={handleTranslate(language).catagory[0].description}
+      />
       {renderItems}
     </div>
   );
 };
 
-MenuItemList.propTypes = {
-  location: PropTypes.shape({
-    data: PropTypes.exact({
-      id: PropTypes.number.isRequired,
-      items: PropTypes.array,
-      pic: PropTypes.string.isRequired,
-      name: PropTypes.string.isRequired,
-      description: PropTypes.string.isRequired
-    }),
-    order: PropTypes.func.isRequired,
-    catagory: PropTypes.string.isRequired,
-    currency: PropTypes.exact({
-      symbol: PropTypes.string.isRequired,
-      code: PropTypes.string.isRequired
-    })
-  })
-};
+const mapStateToProps = state => ({
+  menu: state.menu
+});
 
-export default MenuItemList;
+export default connect(mapStateToProps)(MenuItemList);

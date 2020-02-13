@@ -2,22 +2,11 @@ import React from "react";
 import MenuCatagoryList from "./menu/MenuCatagoryList";
 import "./Menu.scss";
 
-const Menu = props => {
-  const { catagories, currency, style } = props;
+const Menu = ({ catagories }) => {
   const renderCatagories = catagories.map(catagory => (
-    <MenuCatagoryList
-      key={catagory._id}
-      items={catagory.items}
-      catagory={catagory.name}
-      currency={currency}
-      style={style.MenuCatagoryList}
-    />
+    <MenuCatagoryList key={catagory._id} data={catagory} />
   ));
-  return (
-    <div className="Menu" style={style}>
-      {renderCatagories}
-    </div>
-  );
+  return <div className="Menu">{renderCatagories}</div>;
 };
 
 export default Menu;
