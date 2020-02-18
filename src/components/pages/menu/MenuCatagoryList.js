@@ -5,7 +5,8 @@ import { connect } from "react-redux";
 
 const MenuCatagoryList = ({
   data: { pic, name, description },
-  menu: { language }
+  menu: { language },
+  index
 }) => {
   return (
     <Fragment>

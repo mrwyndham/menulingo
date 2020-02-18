@@ -2,9 +2,6 @@ import React from "react";
 import "./MenuItem.scss";
 
 const MenuItem = props => {
-  const handleItemClick = e => {
-    props.onSelectItem(props.id);
-  };
   const { name, price, pic } = props.item;
   let { description } = props.item;
   const { symbol, code } = props.currency;
@@ -15,7 +12,7 @@ const MenuItem = props => {
   }
 
   return (
-    <div className="MenuItem" onClick={handleItemClick}>
+    <div className="MenuItem">
       <div className="MenuItem--Pic">
         <img src={pic} alt="" />
       </div>

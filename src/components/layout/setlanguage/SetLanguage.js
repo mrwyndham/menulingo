@@ -5,7 +5,25 @@ import { setLanguage } from "../../../redux/actions/menuActions";
 import { connect } from "react-redux";
 const SetLanguage = props => {
   const [displayLanguagePicker, setDisplayLanguagePicker] = useState(false);
-  const [languageIcon, setLanguageIcon] = useState(props.languages[0].flag);
+
+  const handleInitialFlag = lang => {
+    const defaultLanguage = "en";
+    const parts = `${window.location.href}`.split("/");
+    const end = parts.slice(parts.length - 3);
+    lang = `${end[0]}`;
+    !lang && (lang = defaultLanguage);
+
+    for (const index in props.languages) {
+      if (lang === props.languages[index].name) {
+        console.log(props.languages[index].name);
+        return props.languages[index].flag;
+      }
+    }
+  };
+
+  const [languageIcon, setLanguageIcon] = useState(
+    handleInitialFlag(props.language)
+  );
 
   const handleClick = () => {
     setDisplayLanguagePicker(!displayLanguagePicker);

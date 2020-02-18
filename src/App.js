@@ -542,7 +542,7 @@ const App = ({ menu: { menu, loading, language }, getMenu, setLanguage }) => {
         />
         <Route path="/:language/:catagory" exact component={MenuItemList} />
         <Route
-          path="/catagory/:catagory/:item"
+          path="/:language/:catagory/:item"
           exact
           component={ItemInformation}
         />
