@@ -8,7 +8,7 @@ import About from "./components/pages/About";
 import Header from "./components/layout/header/Header";
 import Navbar from "./components/layout/navbar/Navbar";
 import MenuItemList from "./components/pages/menu/MenuItemList";
-import ItemInformation from "./components/pages/menu/MenuItemControl/Information/ItemInformation";
+import ItemInformation from "./components/pages/menu/ItemInformation";
 import { connect } from "react-redux";
 import "./App.scss";
 import { getMenu, setLanguage } from "./redux/actions/menuActions";

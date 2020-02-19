@@ -9,7 +9,7 @@ const initialState = {
   menu: null,
   loading: false,
   error: null,
-  language: "default"
+  language: "en"
 };
 
 export default (state = initialState, action) => {

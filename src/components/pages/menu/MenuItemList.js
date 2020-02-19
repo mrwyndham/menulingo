@@ -6,50 +6,56 @@ import { connect } from "react-redux";
 
 const MenuItemList = ({ menu: { language, menu } }) => {
   //Handle page refresh by getting lang from uri
-  const handleTranslate = lang => {
+  const handleTranslate = (lang, defaultLang, menu) => {
     if (lang === "default") {
       const parts = `${window.location.href}`.split("/");
       const end = parts.slice(parts.length - 3);
-      lang = `${end[0]}`;
+      end[0] ? (lang = `${end[0]}`) : (lang = `${defaultLang}`);
     }
     // setInitialLanguage(lang);
-    for (const index in menu.data.translatedMenus) {
-      if (lang === menu.data.translatedMenus[index].language) {
-        return menu.data.translatedMenus[index];
+    for (const index in menu) {
+      if (lang === menu[index].language) {
+        return menu[index];
       }
     }
   };
 
-  const getCatagoryIndex = () => {
-    for (const transMenu of menu.data.translatedMenus) {
-      for (const index in transMenu.catagory) {
-        const cat = transMenu.catagory[index].name.toLowerCase();
-        const parts = `${window.location.href}`.split("/");
-        const filteredParts = parts.filter(e => e !== "");
-        let lastSegment = filteredParts.pop() || filteredParts.pop(); // handle potential trailing slash
-        lastSegment = decodeURI(lastSegment);
-        if (cat === lastSegment) {
+  const getCatagoryIndex = translatedMenus => {
+    const URL = `${window.location.href}`.split("/");
+    const cleanURL = URL.filter(e => e !== "");
+    const lastSegment = cleanURL.pop() || cleanURL.pop(); // handle potential trailing slash
+    for (const translatedMenu of translatedMenus) {
+      for (const index in translatedMenu.catagory) {
+        const catagoryName = translatedMenu.catagory[index].name.toLowerCase();
+        if (catagoryName === decodeURI(lastSegment)) {
           return index;
         }
       }
     }
   };
 
-  const myIndex = getCatagoryIndex();
+  const translatedMenu = handleTranslate(
+    language,
+    "en",
+    menu.data.translatedMenus
+  ).catagory[getCatagoryIndex(menu.data.translatedMenus)];
 
-  const renderItems = handleTranslate(language).catagory[myIndex].items.map(
-    (item, index) => (
-      <div key={index} className="MenuItemList--Content">
-        <MenuItem id={item.id} item={item} currency={menu.data.currency} />
-      </div>
-    )
-  );
+  const renderItems = translatedMenu.items.map((item, index) => (
+    <div key={index} className="MenuItemList--Content">
+      <MenuItem
+        id={item.id}
+        item={item}
+        currency={menu.data.currency}
+        catagory={translatedMenu.name}
+      />
+    </div>
+  ));
   return (
     <div className="MenuItemList">
       <MenuCatagory
-        image={handleTranslate(language).catagory[0].pic}
-        name={handleTranslate(language).catagory[0].name}
-        description={handleTranslate(language).catagory[0].description}
+        image={translatedMenu.pic}
+        name={translatedMenu.name}
+        description={translatedMenu.description}
       />
       {renderItems}
     </div>
