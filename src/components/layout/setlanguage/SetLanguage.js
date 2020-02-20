@@ -9,8 +9,7 @@ const SetLanguage = props => {
   const handleInitialFlag = lang => {
     const defaultLanguage = "en";
     const parts = `${window.location.href}`.split("/");
-    const end = parts.slice(parts.length - 3);
-    lang = `${end[0]}`;
+    lang = `${parts[3]}`;
     !lang && (lang = defaultLanguage);
 
     for (const index in props.languages) {
@@ -22,7 +21,7 @@ const SetLanguage = props => {
   };
 
   const [languageIcon, setLanguageIcon] = useState(
-    handleInitialFlag(props.language)
+    handleInitialFlag(props.menu.language)
   );
 
   const handleClick = () => {
@@ -49,7 +48,7 @@ const SetLanguage = props => {
   );
 };
 const mapStateToProps = state => ({
-  language: state.language
+  menu: state.menu
 });
 
 export default connect(mapStateToProps, { setLanguage })(SetLanguage);

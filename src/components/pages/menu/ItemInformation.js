@@ -1,8 +1,8 @@
 import React from "react";
-import Button from "./MenuItemControl/Information/components/Button";
+import Button from "./Button";
 import { connect } from "react-redux";
 
-const ItemInformation = ({ menu: { menu, language } }) => {
+const ItemInformation = ({ menu: { menu, language }, history }) => {
   const getCatagoryIndex = (translatedMenus, reduxLang) => {
     const URL = `${decodeURI(window.location.href)}`.split("/");
     const cleanURL = URL.filter(e => e !== "");
@@ -21,7 +21,6 @@ const ItemInformation = ({ menu: { menu, language } }) => {
         const catagoryName = translatedMenus[lIndex].catagory[
           cIndex
         ].name.toLowerCase();
-        console.log(catagory);
         if (catagoryName === catagory) {
           urltoObjectLocation["c"] = cIndex;
         }
@@ -41,6 +40,7 @@ const ItemInformation = ({ menu: { menu, language } }) => {
   const index = getCatagoryIndex(menu.data.translatedMenus, language);
   const translatedItem =
     menu.data.translatedMenus[index.l].catagory[index.c].items[index.i];
+
   const componentStyle = {
     height: "76.75vh",
     width: "auto",
@@ -86,6 +86,16 @@ const ItemInformation = ({ menu: { menu, language } }) => {
     }
   };
 
+  const handleBack = () => {
+    history.push(
+      `/${
+        menu.data.translatedMenus[index.l].language
+      }/${menu.data.translatedMenus[index.l].catagory[
+        index.c
+      ].name.toLowerCase()}`
+    );
+  };
+
   return (
     <div style={componentStyle}>
       <div style={componentStyle.ImageWrap}>
@@ -96,14 +106,8 @@ const ItemInformation = ({ menu: { menu, language } }) => {
         <p style={componentStyle.Description.Body}>
           {translatedItem.description}
         </p>
-        {/* <h1 className="ItemInformation--Name"></h1>
-        <h2>
-          {props.location.currency.code.symbol}
-          {props.location.order.price} {props.location.currency.code}
-        </h2>
-        <div><p></p></div> */}
       </div>
-      <Button />
+      <Button onBack={handleBack} />
     </div>
   );
 };

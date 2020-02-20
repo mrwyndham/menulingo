@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-const Button = ({ style }) => {
+const Button = ({ style, onBack }) => {
   const componentStyle = {
     height: "7.5vh",
     backgroundColor: "#000",
@@ -17,7 +17,7 @@ const Button = ({ style }) => {
     }
   };
   return (
-    <div style={componentStyle}>
+    <div style={componentStyle} onClick={onBack}>
       <span style={componentStyle.Text}>Back</span>
     </div>
   );
