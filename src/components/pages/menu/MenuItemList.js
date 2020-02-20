@@ -1,69 +1,95 @@
-import React, { useState } from "react";
+import React from "react";
 import MenuItem from "./MenuItem";
 import MenuCatagory from "./MenuCatagory";
-import Order from "./MenuItemControls";
 import "./MenuItemList.scss";
-import PropTypes from "prop-types";
+import { connect } from "react-redux";
 
-const MenuItemList = ({
-  location: {
-    data: { items, pic, name, description },
-    order,
-    catagory,
-    currency,
-    style
-  }
-}) => {
-  const [selectedItem, setSelectedItem] = useState(null);
-
-  const handleSelectItem = id => {
-    selectedItem === id ? setSelectedItem(null) : setSelectedItem(id);
+const MenuItemList = ({ menu: { language, menu } }) => {
+  //Handle page refresh by getting lang from uri
+  const getCatagoryIndex = (translatedMenus, reduxLang) => {
+    const URL = `${decodeURI(window.location.href)}`.split("/");
+    const cleanURL = URL.filter(e => e !== "");
+    const language = cleanURL[2];
+    const catagory = cleanURL.pop() || cleanURL.pop(); // handle potential trailing slash
+    const urltoObjectLocation = {};
+    for (const lIndex in translatedMenus) {
+      const languageName = translatedMenus[lIndex].language.toLowerCase();
+      if (languageName === reduxLang) {
+        urltoObjectLocation["l"] = lIndex;
+      } else if (languageName === language) {
+        if (!urltoObjectLocation["l"]) {
+          urltoObjectLocation["l"] = lIndex;
+        }
+      }
+      for (const cIndex in translatedMenus[lIndex].catagory) {
+        const catagoryName = translatedMenus[lIndex].catagory[
+          cIndex
+        ].name.toLowerCase();
+        if (catagoryName === catagory) {
+          urltoObjectLocation["c"] = cIndex;
+        }
+      }
+    }
+    console.log(urltoObjectLocation);
+    return urltoObjectLocation;
   };
 
-  const renderItems = items.map(item => (
-    <div key={item.id} className="MenuItemList--Content">
+  const index = getCatagoryIndex(menu.data.translatedMenus, language);
+
+  // const handleTranslate = (lang, defaultLang, menu) => {
+  //   if (lang === "default") {
+  //     const parts = `${window.location.href}`.split("/");
+  //     const end = parts.slice(parts.length - 3);
+  //     end[0] ? (lang = `${end[0]}`) : (lang = `${defaultLang}`);
+  //   }
+  //   // setInitialLanguage(lang);
+  //   for (const index in menu) {
+  //     if (lang === menu[index].language) {
+  //       return menu[index];
+  //     }
+  //   }
+  // };
+
+  // const getCatagoryIndex = translatedMenus => {
+  //   const URL = `${window.location.href}`.split("/");
+  //   const cleanURL = URL.filter(e => e !== "");
+  //   const lastSegment = cleanURL.pop() || cleanURL.pop(); // handle potential trailing slash
+  //   for (const translatedMenu of translatedMenus) {
+  //     for (const index in translatedMenu.catagory) {
+  //       const catagoryName = translatedMenu.catagory[index].name.toLowerCase();
+  //       if (catagoryName === decodeURI(lastSegment)) {
+  //         return index;
+  //       }
+  //     }
+  //   }
+  // };
+
+  const translatedMenu = menu.data.translatedMenus[index.l].catagory[index.c];
+
+  const renderItems = translatedMenu.items.map((item, index) => (
+    <div key={index} className="MenuItemList--Content">
       <MenuItem
         id={item.id}
         item={item}
-        currency={currency}
-        onSelectItem={handleSelectItem}
+        currency={menu.data.currency}
+        catagory={translatedMenu.name}
       />
-
-      {item.id === selectedItem ? (
-        <Order
-          id={item.id}
-          item={item}
-          order={order}
-          catagory={catagory}
-          currency={currency}
-        />
-      ) : null}
     </div>
   ));
   return (
     <div className="MenuItemList">
-      <MenuCatagory image={pic} name={name} description={description} style={style}/>
+      <MenuCatagory
+        image={translatedMenu.pic}
+        name={translatedMenu.name}
+        description={translatedMenu.description}
+      />
       {renderItems}
     </div>
   );
 };
 
-MenuItemList.propTypes = {
-  location: PropTypes.shape({
-    data: PropTypes.exact({
-      id: PropTypes.number.isRequired,
-      items: PropTypes.array,
-      pic: PropTypes.string.isRequired,
-      name: PropTypes.string.isRequired,
-      description: PropTypes.string.isRequired
-    }),
-    order: PropTypes.func.isRequired,
-    catagory: PropTypes.string.isRequired,
-    currency: PropTypes.exact({
-      symbol: PropTypes.string.isRequired,
-      code: PropTypes.string.isRequired
-    })
-  })
-};
+const mapStateToProps = state => ({
+  menu: state.menu
+});
 
-export default MenuItemList;
+export default connect(mapStateToProps)(MenuItemList);

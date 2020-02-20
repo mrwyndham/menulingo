@@ -1,59 +1,22 @@
-import React, { useState } from "react";
+import React, { useEffect } from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import Logo from "./assets/logo/test-logo.svg";
 import Menu from "./components/pages/Menu";
 import Start from "./components/pages/Start";
-import Order from "./components/pages/Order";
 import Rate from "./components/pages/Rate";
 import About from "./components/pages/About";
 import Header from "./components/layout/header/Header";
 import Navbar from "./components/layout/navbar/Navbar";
 import MenuItemList from "./components/pages/menu/MenuItemList";
-import ItemInformation from "./components/pages/menu/MenuItemControl/Information/ItemInformation";
-import NexmenuState from "./context/nexmenu/nexmenuState";
+import ItemInformation from "./components/pages/menu/ItemInformation";
+import { connect } from "react-redux";
 import "./App.scss";
+import { getMenu, setLanguage } from "./redux/actions/menuActions";
 
-const App = () => {
-  const [orders, setOrders] = useState([]);
-  const [selectedOrderID, setSelectedOrderID] = useState(null);
-
-  //Manages OrderItemControls
-  const handleSelectOrderItem = id => {
-    selectedOrderID === id ? setSelectedOrderID(null) : setSelectedOrderID(id);
-  };
-
-  //Adds an Item to the order and only updates amount if a duplicate order is found
-  const handleOrder = order => {
-    console.log(order);
-    let orderIndex = orders.findIndex(x => x.id === order.id);
-    if (orderIndex !== -1) {
-      let duplicateState = [...orders];
-      duplicateState[orderIndex].amount =
-        orders[orderIndex].amount + order.amount;
-      console.log(duplicateState[orderIndex].amount);
-      setOrders(duplicateState);
-    } else {
-      setOrders([order, ...orders]);
-    }
-  };
-  //Removes an order from state
-  const handleRemoveOrder = order => {
-    let duplicateState = [...orders];
-    let updatedState = duplicateState.filter(x => x.id !== order.id);
-    setOrders(updatedState);
-  };
-  //Updates an added order in the state
-  const handleChangeOrder = order => {
-    let orderIndex = orders.findIndex(x => x.id === order.id);
-    let duplicateState = [...orders];
-    duplicateState[orderIndex].amount = order.amount;
-    setOrders(duplicateState);
-  };
-
-  const handlePay = () => {
-    alert("You payed for your order");
-  };
-
+const App = ({ menu: { menu, loading, language }, getMenu, setLanguage }) => {
+  useEffect(() => {
+    getMenu();
+  }, []);
   const clientData = {
     menu: {
       catagories: {
@@ -365,7 +328,7 @@ const App = () => {
   };
   const languages = [
     {
-      name: "Portuguese",
+      name: "pt",
       flag: (
         <svg
           width="92"
@@ -408,7 +371,7 @@ const App = () => {
       )
     },
     {
-      name: "French",
+      name: "fr",
       flag: (
         <svg
           width="93"
@@ -424,7 +387,7 @@ const App = () => {
       )
     },
     {
-      name: "Italian",
+      name: "it",
       flag: (
         <svg
           width="93"
@@ -440,7 +403,7 @@ const App = () => {
       )
     },
     {
-      name: "Chinese",
+      name: "zh",
       flag: (
         <svg
           width="92"
@@ -472,70 +435,143 @@ const App = () => {
           />
         </svg>
       )
+    },
+    {
+      name: "en",
+      flag: (
+        <svg
+          width="92"
+          height="54"
+          viewBox="0 0 92 54"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <rect width="92" height="54" fill="white" />
+          <rect width="92" height="5" fill="#FF4B4D" />
+          <rect width="92" height="6" fill="#FF4B4D" />
+          <rect y="12" width="92" height="6" fill="#FF4B4D" />
+          <rect y="24" width="92" height="6" fill="#FF4B4D" />
+          <rect y="36" width="92" height="6" fill="#FF4B4D" />
+          <rect y="48" width="92" height="6" fill="#FF4B4D" />
+          <rect width="41" height="30" fill="#18407E" />
+        </svg>
+      )
+    },
+    {
+      name: "ar",
+      flag: (
+        <svg
+          width="92"
+          height="54"
+          viewBox="0 0 92 54"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <rect width="92" height="54" fill="white" />
+          <rect width="92" height="18" fill="#D33131" />
+          <rect y="36" width="92" height="18" fill="#262626" />
+          <path d="M46.4521 27L49.4521 32H43.4521L46.4521 27Z" fill="#FFC200" />
+          <path
+            d="M51.0379 25.2256L52.7001 31.3921L46.5286 29.7484L51.0379 25.2256Z"
+            fill="#FFC200"
+          />
+          <path
+            d="M41.5217 25.2256L39.8595 31.3921L46.031 29.7484L41.5217 25.2256Z"
+            fill="#FFC200"
+          />
+          <path
+            d="M50.2987 23.8328C50.9303 23.3468 51.8489 23.7588 51.906 24.5538L52.2806 29.7719C52.3347 30.5264 51.564 31.0655 50.8739 30.7559L46.3533 28.7284C45.6632 28.4188 45.5532 27.4847 46.1527 27.0235L50.2987 23.8328Z"
+            fill="#FFC200"
+          />
+          <path
+            d="M42.2609 23.8328C41.6293 23.3468 40.7106 23.7588 40.6536 24.5538L40.279 29.7719C40.2249 30.5264 40.9955 31.0655 41.6857 30.7559L46.2063 28.7284C46.8964 28.4188 47.0063 27.4847 46.4069 27.0235L42.2609 23.8328Z"
+            fill="#FFC200"
+          />
+          <path
+            d="M45.4683 23.4113C45.6673 22.3165 47.237 22.3165 47.436 23.4113L48.2378 27.8211C48.3494 28.435 47.8778 29 47.2539 29H45.6504C45.0265 29 44.5549 28.435 44.6665 27.8211L45.4683 23.4113Z"
+            fill="#FFC200"
+          />
+          <path
+            d="M44.3751 23.1607C44.1223 23.0617 44.1865 22.6873 44.4578 22.6781L46.5468 22.6071C46.7051 22.6017 46.8284 22.743 46.8017 22.8991L46.6588 23.7326C46.6321 23.8887 46.4687 23.981 46.3212 23.9232L44.3751 23.1607Z"
+            fill="#FFC200"
+          />
+        </svg>
+      )
     }
   ];
+  const handleAvailableLanguages = languages => {
+    let availableLanguages = [];
+    for (const requestedLang of menu.data.translatedMenus) {
+      for (const language of languages) {
+        if (requestedLang.language === language.name) {
+          availableLanguages.push(language);
+        }
+      }
+    }
+    return availableLanguages;
+  };
+  const handleTranslate = lang => {
+    if (lang === "default") {
+      setLanguage(menu.data.translatedMenus[0].language);
+      return menu.data.translatedMenus[0].catagory;
+    } else {
+      for (const index in menu.data.translatedMenus) {
+        if (lang === menu.data.translatedMenus[index].language) {
+          return menu.data.translatedMenus[index].catagory;
+        }
+      }
+    }
+  };
+  if (loading || menu === null) {
+    return <div>Loading</div>;
+  }
+
   return (
-    <NexmenuState>
-      <div className="overflow">
-        <Router>
-          <div className="fixed-top">
-            <Header style={clientStyle.header} language={languages} />
-          </div>
-          <Route
-            path="/"
-            exact
-            component={() => (
-              <Menu
-                catagories={clientData.menu.catagories}
-                style={clientStyle.menu}
-                order={handleOrder}
-                currency={clientData.menu.currency}
-              />
-            )}
+    <div className="overflow">
+      <Router>
+        <div className="fixed-top">
+          <Header
+            style={clientStyle.header}
+            language={handleAvailableLanguages(languages)}
           />
-          <Route path="/catagory/:catagory" exact component={MenuItemList} />
-          <Route
-            path="/catagory/:catagory/:item"
-            exact
-            component={ItemInformation}
-          />
-          <Route
-            path="/order"
-            component={() => (
-              <Order
-                orders={orders}
-                style={clientStyle.menu.order}
-                currency={clientData.menu.currency}
-                orderUpdate={[handleChangeOrder, handleRemoveOrder]}
-                selectOrderItem={handleSelectOrderItem}
-                selectOrderItemState={selectedOrderID}
-                handlePay={handlePay}
-              />
-            )}
-          />
-          <Route
-            path="/rate"
-            component={() => (
-              <Rate style={clientStyle.rate} data={clientData.rate} />
-            )}
-          />
-          <Route
-            path="/about"
-            component={() => (
-              <About style={clientStyle.about} data={clientData.about} />
-            )}
-          />
-          <Route
-            path="/start"
-            component={() => <Start style={clientStyle.start} />}
-          />
-          <div className="fixed-bottom">
-            <Navbar style={clientStyle} data={clientData} />
-          </div>
-        </Router>
-      </div>
-    </NexmenuState>
+        </div>
+        <Route
+          path="/"
+          exact
+          component={() => <Menu catagories={handleTranslate(language)} />}
+        />
+        <Route path="/:language/:catagory" exact component={MenuItemList} />
+        <Route
+          path="/:language/:catagory/:item"
+          exact
+          component={ItemInformation}
+        />
+        <Route
+          path="/rate"
+          component={() => (
+            <Rate style={clientStyle.rate} data={clientData.rate} />
+          )}
+        />
+        <Route
+          path="/about"
+          component={() => (
+            <About style={clientStyle.about} data={clientData.about} />
+          )}
+        />
+        <Route
+          path="/start"
+          component={() => <Start style={clientStyle.start} />}
+        />
+        <div className="fixed-bottom">
+          <Navbar style={clientStyle} data={clientData} />
+        </div>
+      </Router>
+    </div>
   );
 };
 
-export default App;
+const mapStateToProps = state => ({
+  menu: state.menu
+});
+
+export default connect(mapStateToProps, { getMenu, setLanguage })(App);
