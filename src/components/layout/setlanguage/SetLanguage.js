@@ -14,7 +14,6 @@ const SetLanguage = props => {
 
     for (const index in props.languages) {
       if (lang === props.languages[index].name) {
-        console.log(props.languages[index].name);
         return props.languages[index].flag;
       }
     }

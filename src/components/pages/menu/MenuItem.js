@@ -13,9 +13,10 @@ const MenuItem = ({
   }
 
   const language = (() => {
-    const parts = `${window.location.href}`.split("/");
-    const end = parts.slice(parts.length - 3);
-    return end[0];
+    const URL = `${decodeURI(window.location.href)}`.split("/");
+    const cleanURL = URL.filter(e => e !== "");
+    const language = cleanURL[2];
+    return language;
   })();
 
   return (

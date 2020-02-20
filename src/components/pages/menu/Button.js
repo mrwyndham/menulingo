@@ -7,6 +7,7 @@ const Button = ({ style, onBack }) => {
     backgroundColor: "#000",
     borderRadius: "10px",
     width: "100%",
+    cursor: "pointer",
     display: "flex",
     alignItems: "center",
     justifyContent: "center",

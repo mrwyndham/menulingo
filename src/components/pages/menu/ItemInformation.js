@@ -6,7 +6,7 @@ const ItemInformation = ({ menu: { menu, language }, history }) => {
   const getCatagoryIndex = (translatedMenus, reduxLang) => {
     const URL = `${decodeURI(window.location.href)}`.split("/");
     const cleanURL = URL.filter(e => e !== "");
-    const language = cleanURL[cleanURL.length - 3];
+    const language = cleanURL[2];
     const catagory = cleanURL[cleanURL.length - 2];
     const item = cleanURL.pop() || cleanURL.pop(); // handle potential trailing slash
     const urltoObjectLocation = {};
@@ -15,7 +15,9 @@ const ItemInformation = ({ menu: { menu, language }, history }) => {
       if (languageName === reduxLang) {
         urltoObjectLocation["l"] = lIndex;
       } else if (languageName === language) {
-        urltoObjectLocation["l"] = lIndex;
+        if (!urltoObjectLocation["l"]) {
+          urltoObjectLocation["l"] = lIndex;
+        }
       }
       for (const cIndex in translatedMenus[lIndex].catagory) {
         const catagoryName = translatedMenus[lIndex].catagory[
