@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Logo from "./assets/logo/test-logo.svg";
 import Menu from "./components/pages/Menu";
 import Start from "./components/pages/Start";
@@ -522,6 +522,20 @@ const App = ({ menu: { menu, loading, language }, getMenu, setLanguage }) => {
       }
     }
   };
+
+  const handleTranslateR = (lang, attribute) => {
+    console.log(menu.data.translatedMenus[0]);
+    if (lang === "default") {
+      setLanguage(menu.data.translatedMenus[0].language);
+      return menu.data.translatedMenus[0][attribute];
+    } else {
+      for (const index in menu.data.translatedMenus) {
+        if (lang === menu.data.translatedMenus[index].language) {
+          return menu.data.translatedMenus[index][attribute];
+        }
+      }
+    }
+  };
   if (loading || menu === null) {
     return <div>Loading</div>;
   }
@@ -535,33 +549,39 @@ const App = ({ menu: { menu, loading, language }, getMenu, setLanguage }) => {
             language={handleAvailableLanguages(languages)}
           />
         </div>
-        <Route
-          path="/"
-          exact
-          component={() => <Menu catagories={handleTranslate(language)} />}
-        />
-        <Route path="/:language/:catagory" exact component={MenuItemList} />
-        <Route
-          path="/:language/:catagory/:item"
-          exact
-          component={ItemInformation}
-        />
-        <Route
-          path="/rate"
-          component={() => (
-            <Rate style={clientStyle.rate} data={clientData.rate} />
-          )}
-        />
-        <Route
-          path="/about"
-          component={() => (
-            <About style={clientStyle.about} data={clientData.about} />
-          )}
-        />
-        <Route
-          path="/start"
-          component={() => <Start style={clientStyle.start} />}
-        />
+        <Switch>
+          <Route
+            path="/"
+            exact
+            component={() => <Menu catagories={handleTranslate(language)} />}
+          />
+          <Route
+            path="/:language/rate"
+            component={() => (
+              <Rate
+                style={clientStyle.rate}
+                data={clientData.rate}
+                test={handleTranslateR(language, "evaluation")}
+              />
+            )}
+          />
+          <Route
+            path="/:language/about"
+            component={() => (
+              <About style={clientStyle.about} data={clientData.about} />
+            )}
+          />
+          <Route path="/:language/:catagory" exact component={MenuItemList} />
+          <Route
+            path="/:language/:catagory/:item"
+            exact
+            component={ItemInformation}
+          />
+          <Route
+            path="/start"
+            component={() => <Start style={clientStyle.start} />}
+          />
+        </Switch>
         <div className="fixed-bottom">
           <Navbar style={clientStyle} data={clientData} />
         </div>

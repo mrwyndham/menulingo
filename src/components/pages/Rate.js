@@ -2,11 +2,11 @@ import React, { Fragment, useState } from "react";
 import RatingSlider from "./rate/RateSlider";
 import "./Rate.scss";
 import PropTypes from "prop-types";
+import { connect } from "react-redux";
+import { setLanguage } from "../../redux/actions/menuActions";
 
-const Rate = props => {
-  const { style, data } = props;
+const Rate = ({ style, data, menu: { language, menu } }) => {
   const [ratings, setRatings] = useState([]);
-  const [comment, setComment] = useState("");
   const handleRate = rateEvent => {
     let buildArray = ratings;
     let index = buildArray.findIndex(x => x.catagory === rateEvent.catagory);
@@ -17,36 +17,43 @@ const Rate = props => {
     console.log(ratings);
   };
 
-  const handleChange = e => {
-    setComment(e.target.value);
+  const handleTranslate = (reduxLang, translatedMenus, objectT1) => {
+    const URL = `${decodeURI(window.location.href)}`.split("/");
+    const cleanURL = URL.filter(e => e !== "");
+    const segmentLang = cleanURL[2];
+    const urltoObjectLocation = {};
+    for (const lIndex in translatedMenus) {
+      const languageName = translatedMenus[lIndex].language.toLowerCase();
+      if (languageName === reduxLang) {
+        urltoObjectLocation["l"] = lIndex;
+      } else if (languageName === segmentLang) {
+        if (!urltoObjectLocation["l"]) {
+          urltoObjectLocation["l"] = lIndex;
+        }
+      }
+    }
+    return translatedMenus[urltoObjectLocation.l][objectT1];
   };
 
   const handleSubmit = e => {
     alert("The form was submitted");
     e.preventDefault();
   };
-  const renderRatings = data.ratings.map((rating, index) => (
+  const renderRatings = handleTranslate(
+    language,
+    menu.data.translatedMenus,
+    "evaluation"
+  ).map((rating, index) => (
     <Fragment key={index}>
       <div htmlFor="" className="Rate--Labels" style={style.slider.label}>
-        {rating}
+        {rating.header}
       </div>
-      <RatingSlider handleRate={handleRate} catagory={rating} />
+      <RatingSlider handleRate={handleRate} catagory={rating.header} />
     </Fragment>
   ));
   return (
     <form onSubmit={handleSubmit} className="Rate" style={style}>
       <div className="Rate--Sliders">{renderRatings}</div>
-      <div className="Rate--Comments">
-        <div className="Rate--Labels" style={style.comment.label} htmlFor="">
-          {data.comment}
-        </div>
-        <input
-          className="Rate--Textbox"
-          type="text"
-          value={comment}
-          onChange={handleChange}
-        />
-      </div>
       <input
         className="Button--Primary__Sm__Red"
         type="submit"
@@ -57,7 +64,11 @@ const Rate = props => {
   );
 };
 
-export default Rate;
+const mapStateToProps = state => ({
+  menu: state.menu
+});
+
+export default connect(mapStateToProps, { setLanguage })(Rate);
 
 Rate.propTypes = {
   data: PropTypes.object.isRequired,

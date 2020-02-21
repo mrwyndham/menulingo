@@ -9,17 +9,16 @@ import TaglineCard from "./about/TaglineCard";
 import GalleryCard from "./about/GalleryCard";
 import PictureCard from "./about/PictureCard";
 
-const About = props => {
-  const {
-    headline,
-    info,
-    openHours,
-    contact,
-    tagline,
-    showcase,
-    gallery,
-    location
-  } = props.data;
+const About = ({
+  headline,
+  info,
+  openHours,
+  contact,
+  tagline,
+  showcase,
+  gallery,
+  location
+}) => {
   return (
     <div className="About">
       <PictureCard data={showcase} />
