@@ -510,21 +510,8 @@ const App = ({ menu: { menu, loading, language }, getMenu, setLanguage }) => {
     }
     return availableLanguages;
   };
-  const handleTranslate = lang => {
-    if (lang === "default") {
-      setLanguage(menu.data.translatedMenus[0].language);
-      return menu.data.translatedMenus[0].catagory;
-    } else {
-      for (const index in menu.data.translatedMenus) {
-        if (lang === menu.data.translatedMenus[index].language) {
-          return menu.data.translatedMenus[index].catagory;
-        }
-      }
-    }
-  };
 
-  const handleTranslateR = (lang, attribute) => {
-    console.log(menu.data.translatedMenus[0]);
+  const handleTranslate = (lang, attribute) => {
     if (lang === "default") {
       setLanguage(menu.data.translatedMenus[0].language);
       return menu.data.translatedMenus[0][attribute];
@@ -553,23 +540,17 @@ const App = ({ menu: { menu, loading, language }, getMenu, setLanguage }) => {
           <Route
             path="/"
             exact
-            component={() => <Menu catagories={handleTranslate(language)} />}
+            component={() => (
+              <Menu catagories={handleTranslate(language, "catagory")} />
+            )}
           />
           <Route
             path="/:language/rate"
-            component={() => (
-              <Rate
-                style={clientStyle.rate}
-                data={clientData.rate}
-                test={handleTranslateR(language, "evaluation")}
-              />
-            )}
+            component={() => <Rate style={clientStyle.rate} />}
           />
           <Route
             path="/:language/about"
-            component={() => (
-              <About style={clientStyle.about} data={clientData.about} />
-            )}
+            component={() => <About style={clientStyle.about} />}
           />
           <Route path="/:language/:catagory" exact component={MenuItemList} />
           <Route

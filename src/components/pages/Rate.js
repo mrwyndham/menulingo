@@ -5,7 +5,7 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { setLanguage } from "../../redux/actions/menuActions";
 
-const Rate = ({ style, data, menu: { language, menu } }) => {
+const Rate = ({ style, data, menu: { language, menu }, setLanguage }) => {
   const [ratings, setRatings] = useState([]);
   const handleRate = rateEvent => {
     let buildArray = ratings;
