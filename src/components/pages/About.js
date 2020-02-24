@@ -43,7 +43,7 @@ const About = ({ menu: { language, menu }, setLanguage }) => {
   return (
     <div className="About">
       <PictureCard data={handleAbout.feature} />
-      <HeadlineCard data={handleAbout.HeadlineCard} />
+      <HeadlineCard data={handleAbout.headline} />
       <InfoCard data={handleAbout.info} />
       {/* <TaglineCard data={propstagline} /> */}
       <GalleryCard data={handleAbout.gallery} />

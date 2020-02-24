@@ -30,7 +30,7 @@ const PictureCard = ({ data }) => {
   };
   return (
     <div style={componentStyle}>
-      <p style={componentStyle.text}>{data.text}</p>
+      <p style={componentStyle.text}>{data.header}</p>
       <img style={componentStyle.image} src={data.image} alt="" />
     </div>
   );

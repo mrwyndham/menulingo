@@ -21,8 +21,8 @@ const InfoCard = props => {
   const { data } = props;
   return (
     <div style={componentStyle}>
-      <h2 style={componentStyle.header}>{data.tagline}</h2>
-      <p style={componentStyle.body}>{data.description}</p>
+      <h2 style={componentStyle.header}>{data.header}</h2>
+      <p style={componentStyle.body}>{data.body}</p>
     </div>
   );
 };

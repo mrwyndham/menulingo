@@ -22,7 +22,9 @@ const OpenHoursCard = props => {
   const renderedRows = table.map((row, index) => (
     <tr key={index}>
       <td>{row.day}</td>
-      <td>{row.time}</td>
+      <td>
+        {row.open}-{row.close}
+      </td>
     </tr>
   ));
   return (

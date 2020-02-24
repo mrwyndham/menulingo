@@ -18,12 +18,12 @@ const LocationCard = props => {
       fontWeight: "400"
     }
   };
-  const { title, address } = props.data;
+  const { title, body } = props.data;
   return (
     <div style={componentStyle}>
       <h1 style={componentStyle.title}>{title}</h1>
       <div style={componentStyle.address}>
-        <div>{address}</div>
+        <div>{body}</div>
       </div>
       <MapCard />
     </div>
