@@ -4,7 +4,7 @@ export const getMenu = () => async dispatch => {
   try {
     setLoading();
     const res = await fetch(
-      "http://192.168.0.61:5000/api/v1/menus/5e53cc99b65d51154c81dd51"
+      "http://192.168.0.61:5000/api/v1/menus/5e550fd0d8f268324c83bbf1"
     );
     const data = await res.json();
 
